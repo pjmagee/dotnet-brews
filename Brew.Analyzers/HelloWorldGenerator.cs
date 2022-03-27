@@ -64,7 +64,7 @@ public class HelloWorldGenerator : ISourceGenerator
                                                         (
                                                             ArgumentList
                                                             (
-                                                                SingletonSeparatedList<ArgumentSyntax>(Argument(LiteralExpression(SyntaxKind.StringLiteralExpression, Literal("Hello World"))))
+                                                                SingletonSeparatedList(Argument(LiteralExpression(SyntaxKind.StringLiteralExpression, Literal("Hello World"))))
                                                             )
                                                         )
                                                     )

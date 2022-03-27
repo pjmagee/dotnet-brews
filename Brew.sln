@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Brew.Generators", "Brew.Ana
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Brew.Tests", "Brew.Tests\Brew.Tests.csproj", "{690FACE8-7CC5-4186-86D4-ABE40EF55CCC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Brew.Cli", "Brew.Cli\Brew.Cli.csproj", "{26942EA9-885C-496E-8FDC-68C4B83DFB51}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Brew.Cli", "Brew.Cli\Brew.Cli.csproj", "{26942EA9-885C-496E-8FDC-68C4B83DFB51}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Brew.Models", "Brew.Models\Brew.Models.csproj", "{485BF9C8-1288-43CF-8BEE-83A7A32C7567}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{26942EA9-885C-496E-8FDC-68C4B83DFB51}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26942EA9-885C-496E-8FDC-68C4B83DFB51}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26942EA9-885C-496E-8FDC-68C4B83DFB51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{485BF9C8-1288-43CF-8BEE-83A7A32C7567}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{485BF9C8-1288-43CF-8BEE-83A7A32C7567}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{485BF9C8-1288-43CF-8BEE-83A7A32C7567}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{485BF9C8-1288-43CF-8BEE-83A7A32C7567}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

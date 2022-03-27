@@ -36,8 +36,7 @@ public class BrewsToEnumGenerator : ISourceGenerator
             (
                 new SyntaxList<UsingDirectiveSyntax>(new[]
                 {
-                    UsingDirective(IdentifierName(nameof(System))),
-                    // UsingDirective(IdentifierName("System.CodeDom.Compiler"))
+                    UsingDirective(IdentifierName(nameof(System)))
                 })
             )
             .WithMembers

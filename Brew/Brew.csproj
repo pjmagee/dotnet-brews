@@ -10,11 +10,16 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="Apache.Avro" Version="1.11.0" />
       <PackageReference Include="MediatR" Version="10.0.1" />
       <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
       <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
       <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.1" />
     </ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Brew.Models\Brew.Models.csproj" />
+	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\Brew.Analyzers\Brew.Generators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
