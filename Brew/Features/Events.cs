@@ -20,15 +20,19 @@ public class Events : IBrew
     public void Before()
     {
         NativeEventNotifier notifier = new NativeEventNotifier(new Logger<NativeEventNotifier>(new NullLoggerFactory()));
-        notifier.Notify += (sender, args) => logger.LogInformation("C# Event handler called.");
+        notifier.Notify += (sender, args) => logger.LogInformation("C# Event handler called");
         notifier.Trigger();
     }
 
     public void After()
     {
         ServiceCollection services = new ServiceCollection();
-        services.AddMediatR(typeof(Events));
-        services.AddSingleton(typeof(ILogger), logger);
+
+        services.AddMediatR(x =>
+        {
+            x.RegisterServicesFromAssemblyContaining<Events>();
+        })
+        .AddSingleton(typeof(ILogger), logger);
 
         Task.WaitAll(Task.Run(async () =>
         {
@@ -45,28 +49,24 @@ public class Events : IBrew
 
     }
 
-    public class MediatorNotifier : INotificationHandler<MediatorNotification>
+    public class MediatorNotifier(ILogger logger) : INotificationHandler<MediatorNotification>
     {
-        private readonly ILogger logger;
-
-        public MediatorNotifier(ILogger logger)
+        public Task Handle(MediatorNotification notification, CancellationToken cancellationToken)
         {
-            this.logger = logger;
-        }
-
-        public async Task Handle(MediatorNotification notification, CancellationToken cancellationToken)
-        {
-            logger.LogInformation("Mediator Event Handler called.");
+            logger.LogInformation("Mediator Event Handler called");
+            
+            return Task.CompletedTask;
         }
     }
 
-    public class NativeEventNotifier
+    public class NativeEventNotifier(ILogger<NativeEventNotifier> logger)
     {
-        private readonly ILogger logger;
-        public event EventHandler Notify;
+        public event EventHandler? Notify;
 
-        public NativeEventNotifier(ILogger<NativeEventNotifier> logger) => this.logger = logger;
-
-        public void Trigger() => Notify?.Invoke(this, EventArgs.Empty);
+        public void Trigger()
+        {
+            logger.LogInformation("Native Event Triggered");
+            Notify?.Invoke(this, EventArgs.Empty);
+        }
     }
 }

@@ -8,15 +8,8 @@ using Xunit.Abstractions;
 
 namespace Brew.Tests;
 
-public class BrewExamples
+public class BrewExamples(ITestOutputHelper helper)
 {
-    private readonly ITestOutputHelper helper;
-
-    public BrewExamples(ITestOutputHelper helper)
-    {
-        this.helper = helper;
-    }
-
     [Fact]
     public async Task Test()
     {

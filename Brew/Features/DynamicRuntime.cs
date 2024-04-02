@@ -4,15 +4,8 @@ using Microsoft.Extensions.Logging;
 
 namespace Brew.Features;
 
-public class DynamicRuntime : IBrew
+public class DynamicRuntime(ILogger<DynamicRuntime> logger) : IBrew
 {
-    private readonly ILogger<DynamicRuntime> logger;
-
-    public DynamicRuntime(ILogger<DynamicRuntime> logger)
-    {
-        this.logger = logger;
-    }
-
     public void Execute()
     {
         dynamic anything = new ExpandoObject();

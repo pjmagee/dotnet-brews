@@ -2,22 +2,15 @@
 
 namespace Brew.Features;
 
-public class PatternMatching : IBrew
+public class PatternMatching(ILogger<PatternMatching> logger) : IBrew
 {
-    private readonly ILogger<PatternMatching> logger;
-
-    public PatternMatching(ILogger<PatternMatching> logger)
-    {
-        this.logger = logger;
-    }
-
     public class Hero
     {
-        public string Name { get; set; }
+        public string? Name { get; set; }
         public int Age { get; set; }
     }
 
-    public void  Before()
+    public void Before()
     {
         var hero = new Hero();
         var another = new Hero();
@@ -29,7 +22,7 @@ public class PatternMatching : IBrew
         else if (hero == another) result = 3;
         else result = 4;
 
-        logger.LogInformation("pattern match result before: " + result);
+        logger.LogInformation("pattern match result before: {Result}", + result);
     }
 
     public void After()
@@ -39,12 +32,12 @@ public class PatternMatching : IBrew
 
         int result = hero switch
         {
-            Hero {Name: "Superman", Age: > 3 and < 10} => 1,
-            Hero {Name: "Batman", Age: < 3} => 2,
+            Hero { Name: "Superman", Age: > 3 and < 10 } => 1,
+            Hero { Name: "Batman", Age: < 3 } => 2,
             var o when o == another => 3,
             _ => 4
         };
 
-        logger.LogInformation("pattern match result after: " + result);
+        logger.LogInformation("pattern match result after: {Result}", + result);
     }
 }

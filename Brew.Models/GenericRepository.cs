@@ -2,22 +2,22 @@
 
 public class GenericRepository<T> : IRepository<T> where T : Record
 {
-    private readonly List<T> repository = new List<T>();
+    private readonly List<T> _repository = new List<T>();
 
-    public IEnumerable<T> List => repository.AsEnumerable();
+    public IEnumerable<T> List => _repository.AsEnumerable();
 
     public void Add(T t)
     {
-        repository.Add(t);
+        _repository.Add(t);
     }
 
-    public void Delete(T t) => repository.Remove(t);
+    public void Delete(T t) => _repository.Remove(t);
 
-    public T? FindById(Guid id) => repository.Find(x => x.Id == id);
+    public T? FindById(Guid id) => _repository.Find(x => x.Id == id);
 
     public void Update(T t)
     {
-        repository.Remove(t);
-        repository.Add(t);
+        _repository.Remove(t);
+        _repository.Add(t);
     }
 }

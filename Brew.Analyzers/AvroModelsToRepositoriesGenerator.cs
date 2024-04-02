@@ -65,6 +65,6 @@ public class AvroModelsToRepositoriesGenerator : ISourceGenerator
                                     .WithMembers(List(modelRepositories))))));
 
 
-        context.AddSource("ModelsApi.g.cs", code.ToFullString());
+        context.AddSource("ModelsApi.g.cs", code.NormalizeWhitespace().ToFullString());
     }
 }

@@ -9,36 +9,46 @@ using Microsoft.Extensions.Logging;
 
 namespace Brew.Features;
 
-public class NamedPipes : IBrew
+public class NamedPipes(ILogger<NamedPipes> logger) : IBrew
 {
-    private readonly ILogger<NamedPipes> logger;
-
-    public NamedPipes(ILogger<NamedPipes> logger)
-    {
-        this.logger = logger;
-    }
-
     public void Execute()
     {
-        CancellationTokenSource cancellationTokenSource = new();
-        cancellationTokenSource.CancelAfter(TimeSpan.FromSeconds(2));
-
-        try
+        using (CancellationTokenSource cancellationTokenSource = new())
         {
-            Task.WaitAll(
-                RunServer(cancellationTokenSource.Token),
-                RunClient(cancellationTokenSource.Token));
-        }
-        catch
-        {
+            cancellationTokenSource.CancelAfter(TimeSpan.FromSeconds(5));
 
+            try
+            {
+                Task.WaitAll([
+                        RunServer(cancellationTokenSource.Token),
+                        RunClient(cancellationTokenSource.Token)
+                    ],
+                    cancellationTokenSource.Token);
+            }
+            catch (OperationCanceledException)
+            {
+                
+            }
+            catch (AggregateException)
+            {
+                
+            }
+            catch (Exception e)
+            {
+                logger.LogError(e, "Error occurred");
+            }
+            finally
+            {
+            
+            }
         }
     }
 
-    public async Task RunClient(CancellationToken cancellationToken)
+    private async Task RunClient(CancellationToken cancellationToken)
     {
         using (var pipeClient = new NamedPipeClientStream(".", "testpipe", PipeDirection.InOut, PipeOptions.None, TokenImpersonationLevel.Impersonation))
         {
+            logger.LogInformation("Connecting to server...");
             await pipeClient.ConnectAsync(cancellationToken);
 
             var message = "HELLO";
@@ -52,18 +62,19 @@ public class NamedPipes : IBrew
         }
     }
 
-    public async Task RunServer(CancellationToken cancellationToken)
+    private async Task RunServer(CancellationToken cancellationToken)
     {
         using (NamedPipeServerStream pipeServer = new NamedPipeServerStream("testpipe"))
         {
+            logger.LogInformation("Waiting for connection...");
             await pipeServer.WaitForConnectionAsync(cancellationToken);
             
             using (StreamReader sw = new StreamReader(pipeServer, Encoding.UTF8))
             {
                 while (!sw.EndOfStream)
                 {
-                    var result = await sw.ReadLineAsync();
-                    logger.LogInformation("server received: " + result);
+                    var result = await sw.ReadLineAsync(cancellationToken);
+                    logger.LogInformation("server received: {Result}", result);
                 }
             }
         }

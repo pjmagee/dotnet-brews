@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using Avro;
@@ -43,14 +44,14 @@ namespace Brew.Avro
 
             CodeGen gen = new ();
             schemas.ForEach(json => gen.AddSchema(Schema.Parse(json)));
-            var compileUnit = gen.GenerateCode();
-            var path = Path.Combine(@"C:\Users\patri\OneDrive\Projects\brew\Brew.Models\", "datadomain.cs");
+            _ = gen.GenerateCode();
+            
+	        var baseDirectory = AppContext.BaseDirectory;
+			var projectDirectory = Directory.GetParent(baseDirectory).Parent.Parent.Parent.Parent.FullName;
+			var filePath = Path.Combine(projectDirectory, "Brew.Models", "datadomain.cs");
 
-            logger.LogInformation($"Writing C# Models to: {path}");
-			
-			gen.WriteCompileUnit(path);
-
-
+            logger.LogInformation("Writing C# Models to: {Path}", filePath);
+			gen.WriteCompileUnit(filePath);
 		}
 	}
 }

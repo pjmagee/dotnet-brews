@@ -4,15 +4,8 @@ using Microsoft.Extensions.Logging;
 
 namespace Brew.HiddenKeywords;
 
-public class HiddenArgListKeyWord : IBrew
+public class HiddenArgListKeyWord(ILogger<HiddenArgListKeyWord> logger) : IBrew
 {
-    private readonly ILogger<HiddenArgListKeyWord> logger;
-
-    public HiddenArgListKeyWord(ILogger<HiddenArgListKeyWord> logger)
-    {
-        this.logger = logger;
-    }
-
     public void Before()
     {
         Before(1, 2, 3);
@@ -43,6 +36,6 @@ public class HiddenArgListKeyWord : IBrew
             items.Add(TypedReference.ToObject(arg));
         }
 
-        logger.LogInformation($"after: {string.Join(",", items)}");
+        logger.LogInformation("after: {Join}", string.Join(",", items));
     }
 }
