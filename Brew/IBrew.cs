@@ -1,20 +1,22 @@
-﻿namespace Brew;
+﻿using System.Threading.Tasks;
+
+namespace Brew;
 
 public interface IBrew
 {
-    void Execute()
+    async Task Execute()
     {
-        Before();
-        After();
+        await Before();
+        await After();
     }
 
-    void Before()
+    Task Before()
     {
-
+        return Task.CompletedTask;
     }
 
-    void After()
+    Task After()
     {
-
+        return Task.CompletedTask;
     }
 }

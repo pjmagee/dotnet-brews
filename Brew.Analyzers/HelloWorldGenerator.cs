@@ -79,6 +79,6 @@ public class HelloWorldGenerator : ISourceGenerator
                 )
                 .NormalizeWhitespace();
 
-        context.AddSource("Hello.g.cs", code.ToFullString());
+        context.AddSource("Hello.g.cs", code.NormalizeWhitespace().ToFullString());
     }
 }

@@ -1,0 +1,16 @@
+<Project>
+    <PropertyGroup>
+        <!-- Set OutputPath to the desired common output directory -->
+        <!-- Adjust the path as necessary -->
+        <OutputPath>$(SolutionDir)/Brew.Console/bin/$(Configuration)/</OutputPath>
+        <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    </PropertyGroup>
+
+    <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+        <ItemGroup>
+            <ProjectReferenceOutputs Include="@(ProjectReference->'%(FullPath)')"/>
+        </ItemGroup>
+        <Copy SourceFiles="@(ProjectReferenceOutputs)" DestinationFolder="$(OutputPath)" SkipUnchangedFiles="true"/>
+    </Target>
+
+</Project>
