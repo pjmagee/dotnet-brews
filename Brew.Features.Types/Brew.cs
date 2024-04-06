@@ -7,29 +7,27 @@ using Microsoft.Extensions.Logging;
 
 namespace Brew.Features.Types;
 
-public class Brew : IBrew
+public class Brew : ModuleBase
 {
-    public Task Execute()
+    protected override void ConfigureServices(HostBuilderContext hostContext, IServiceCollection services)
     {
-        using (var host = Host
-                   .CreateDefaultBuilder()
-                   .ConfigureServices(x => x.AddSingleton<CSharpCodeProvider>())
-                   .Build())
-        {
-            var provider = host.Services.GetRequiredService<CSharpCodeProvider>();
-            var mscorlib = Assembly.GetAssembly(typeof(int));
-            var logger = host.Services.GetRequiredService<ILogger<Brew>>();
-            
-            foreach (var item in mscorlib.DefinedTypes
-                         .Where(t => t.Namespace == "System")
-                         .Select(type => new { Type = type, Out = provider.GetTypeOutput(new CodeTypeReference(type)) })
-                         .Where(x => x.Out.IndexOf('.') == -1)
-                         .ToDictionary(x => x.Out, x => x.Type))
-            {
-                logger.LogInformation("Alias: {Alias} Type: {Type}", item.Key, item.Value);
-            }
-        }
+        services.AddSingleton<CSharpCodeProvider>();
+    }
 
+    protected override Task ExecuteAsync(CancellationToken token = default)
+    {
+        var provider = Host.Services.GetRequiredService<CSharpCodeProvider>();
+        var mscorlib = Assembly.GetAssembly(typeof(int))!;
+            
+        foreach (var item in mscorlib.DefinedTypes
+                     .Where(t => t.Namespace == nameof(System))
+                     .Select(type => new { Type = type, Out = provider.GetTypeOutput(new CodeTypeReference(type)) })
+                     .Where(x => x.Out.IndexOf('.') == -1)
+                     .ToDictionary(x => x.Out, x => x.Type))
+        {
+            Logger.LogInformation("Alias: {Alias} Type: {Type}", item.Key, item.Value);
+        }
+        
         return Task.CompletedTask;
     }
 }

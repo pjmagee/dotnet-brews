@@ -1,6 +1,6 @@
-﻿namespace Brew.Feature.Linq;
+﻿namespace Brew.Features.Linq;
 
-public class Entity
+internal class Entity
 {
     public int Id { get; set; }
 }

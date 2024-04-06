@@ -19,7 +19,7 @@ public class BrewsToEnumGenerator : ISourceGenerator
     public void Execute(GeneratorExecutionContext context)
     {
         var enumList = new List<EnumMemberDeclarationSyntax>();
-
+        
         foreach (var tree in context.Compilation.SyntaxTrees)
         {
             var classes = tree.GetRoot().DescendantNodes().OfType<ClassDeclarationSyntax>();

@@ -4,61 +4,34 @@
     <projectFile>Brew.Cli/Brew.Cli.csproj</projectFile>
     <projectFile profileName="DebugRoslynSourceGenerator">Brew.Features.Avro.Models/Brew.Features.Avro.Models/Brew.Features.Avro.Models.csproj</projectFile>
     <projectFile profileName="DebugRoslynSourceGenerator">Brew.Features.Avro.SourceGenerator/Brew.Features.Avro.SourceGenerator/Brew.Features.Avro.SourceGenerator.csproj</projectFile>
+    <projectFile>Brew.Features.Scripting.Pwsh/Brew.Features.Scripting.Pwsh.csproj</projectFile>
+    <projectFile profileName="DebugRoslynSourceGenerator">Brew.Features.SourceGenerators/Brew.Features.SourceGenerators/Brew.Features.SourceGenerators.csproj</projectFile>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="da566eb9-d87f-424b-a332-f7a41ab3f846" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Brew.Console/Program.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Brew.Features.Avro/AvroGenerator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Brew.Features.Events/Brew.Features.Events.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Brew.Features.Events/NativeEventNotifier.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Brew.Features.Events/NativeEventReciever.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Brew.Features.HiddenKeywords/HiddenRefKeywords.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Brew.Features.ImmutableRecords/Person.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Brew.Features.ImmutableRecords/ReadOnlyPerson.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Brew.Features.InMemoryMessageBus/EventBus.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Brew.Features.InMemoryMessageBus/HelloWorldEvent.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Brew.Features.InMemoryMessageBus/IEventBus.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Brew.Features.InMemoryMessageBus/IIntegrationEvent.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Brew.Features.InMemoryMessageBus/InMemoryMessageQueue.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Brew.Features.InMemoryMessageBus/QueueProcessor.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Brew.Features.InMemoryMessageBus/QueueWriter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Brew.Features.Linq/Brew.Features.Linq.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Brew.Features.Linq/Brew.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Brew.Features.MediatR/MediatorNotification.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Brew.Features.MediatR/MediatorNotifier.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Brew.Features.PatternMatching/Hero.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common.targets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Brew.Analyzers/AvroModelsToRepositoriesGenerator.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Brew.Analyzers/Brew.Generators.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Brew.Analyzers/Brew.Generators.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Brew.Analyzers/HelloWorldGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Brew.Analyzers/HelloWorldGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Brew.Cli/Brew.Cli.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Brew.Console/Brew.Console.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Brew.Cli/Program.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Brew.Models/Brew.Models.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Brew.Models/GenericRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Brew.Features.Avro.Models/GenericRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Brew.Models/IRecord.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Brew.Features.Avro.Models/IRecord.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Brew.Models/IRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Brew.Features.Avro.Models/IRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Brew.Models/Marker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Brew.Features.Avro.Models/Marker.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Brew.Models/Record.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Brew.Features.Avro.Models/Record.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Brew.Models/datadomain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Brew.Features.Avro.Models/datadomain.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Brew.Tests/Brew.Tests.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Brew.Tests/BrewExamples.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Brew.Tests/DynamicRuntimeTests.cs" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/Brew.Features.Scripting.Pwsh/Brew.Features.Scripting.Pwsh.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Brew.Features.Scripting.Pwsh/Brew.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Brew.Features.Scripting.Pwsh/Character.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Brew.Features.Scripting.Pwsh/LoggerWrapper.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Brew.Features.Scripting.Pwsh/Monster.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Brew.Features.Scripting.Pwsh/Scripts/combat.ps1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Brew/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Brew/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Brew.Features.MediatR/Brew.Features.MediatR.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Brew.Features.Patterns.Mediator.MediatR/Brew.Features.Patterns.Mediator.MediatR.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Brew.Features.MediatR/Brew.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Brew.Features.Patterns.Mediator.MediatR/Brew.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Brew.Features.MediatR/MediatorNotification.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Brew.Features.Patterns.Mediator.MediatR/MediatorNotification.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Brew.Features.MediatR/MediatorNotifier.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Brew.Features.Patterns.Mediator.MediatR/MediatorNotifier.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Brew.Features.Scripting.IronPython/Brew.Features.Scripting.IronPython.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Brew.Features.Scripting.IPython/Brew.Features.Scripting.IPython.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Brew.Features.Scripting.IronPython/Brew.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Brew.Features.Scripting.IPython/Brew.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Brew.Features.Scripting.IronPython/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Brew.Features.Scripting.IPython/Character.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Brew.Features.Scripting.IronPython/LoggerWrapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Brew.Features.Scripting.IPython/LoggerWrapper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Brew.Features.Scripting.IronPython/Monster.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Brew.Features.Scripting.IPython/Monster.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Brew.Features.Scripting.IronPython/Scripts/combat.py" beforeDir="false" afterPath="$PROJECT_DIR$/Brew.Features.Scripting.IPython/Scripts/combat.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Brew.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Brew.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Brew/Avro/AvroSchemaToModels.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Brew/Brew.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Brew/Brew.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Brew/Features/DynamicRuntime.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Brew.Features.DynamicRuntime/Anything.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Brew/Features/Events.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Brew/Features/ImmutableRecords.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Brew/Features/LINQ.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Brew/Features/NamedPipes.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Brew.Features.Pipes/NamedPipes.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Brew/Features/PatternMatching.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Brew/Features/TypeInfos.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Brew/HiddenKeywords/ArgListKeyWord.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Brew.Features.HiddenKeywords/HiddenArgListKeyWord.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Brew/HiddenKeywords/RefKeywords.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Brew/IBrew.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Brew/IBrew.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Brew/ModuleBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Brew/ModuleBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common.targets" beforeDir="false" afterPath="$PROJECT_DIR$/Common.targets" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,10 +43,31 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Brew.Analyzers/obj/Debug/netstandard2.0/.NETStandard,Version=v2.0.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Brew.Console/bin/Debug/net8.0/Brew.Features.Scripting.PowerShell.deps.json" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Brew.Features.SourceGenerators/Brew.Features.SourceGenerators.Sample/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/.nuget/packages/microsoft.net.test.sdk/17.9.0/build/netcoreapp3.1/Microsoft.NET.Test.Sdk.Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/.nuget/packages/microsoft.net.test.sdk/17.9.0/build/netcoreapp3.1/Microsoft.NET.Test.Sdk.Program.vb" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/22592b65a5b048b6ab80694babee89ff21600/9f/ac4e4a78/ContextId.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/2bad98f9e3ba46ada3b12f2c31bf83fb73c3c0/20/e417ccae/PowerShell.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/2bad98f9e3ba46ada3b12f2c31bf83fb73c3c0/91/57e22e87/PSCommand.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/2bad98f9e3ba46ada3b12f2c31bf83fb73c3c0/c4/23d4ce4a/AsyncResult.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/2bad98f9e3ba46ada3b12f2c31bf83fb73c3c0/cb/3a321cf4/PSDataCollection`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/3fa134a4f7024c6a9faff12697fb4fb9c8e8a0/41/73710df7/Task.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/3fa134a4f7024c6a9faff12697fb4fb9c8e8a0/fa/65522167/CancellationToken.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/d47672c9a4264b3b814c3ae652ebadbf1d1000/8e/829e5e70/PowerShell.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/metadata/22592b65a5b048b6ab80694babee89ff21600/c4/08e58691/Microsoft.Scripting.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/SourcesCache/36f346b6c0454bc8a6afa7aed38119fe5bbffcc983298d9bfa4dbd5f49461f/Monitor.CoreCLR.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/SourcesCache/96143cfc153b8c81f51fc212f3c9e159397244792e32ba58678779a75/ContainerConfiguration.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/SourcesCache/9a6b1457cbcf17db31a383ba49ef9bcc786cf3ef77146d997eee499b27a46d/Object.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/9f4b1f5d664afdfc80e1508ab7ed099dff210fbd/src/libraries/System.Linq.Expressions/src/System/Dynamic/ExpandoObject.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/9f4b1f5d664afdfc80e1508ab7ed099dff210fbd/src/libraries/System.Private.CoreLib/src/System/Collections/Generic/List.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/9f4b1f5d664afdfc80e1508ab7ed099dff210fbd/src/libraries/System.Private.CoreLib/src/System/Collections/ObjectModel/Collection.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/9f4b1f5d664afdfc80e1508ab7ed099dff210fbd/src/libraries/System.Private.CoreLib/src/System/Threading/SpinWait.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/9f4b1f5d664afdfc80e1508ab7ed099dff210fbd/src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/Future.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/9f4b1f5d664afdfc80e1508ab7ed099dff210fbd/src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/FutureFactory.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/9f4b1f5d664afdfc80e1508ab7ed099dff210fbd/src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/Task.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/9f4b1f5d664afdfc80e1508ab7ed099dff210fbd/src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/TaskFactory.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/9f4b1f5d664afdfc80e1508ab7ed099dff210fbd/src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/TaskScheduler.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/d099f075e45d2aa6007a22b71b45a08758559f80/src/libraries/System.CodeDom/src/Microsoft/CSharp/CSharpCodeGenerator.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -87,34 +81,38 @@
   &quot;associatedIndex&quot;: 0
 }</component>
   <component name="ProjectId" id="2dd0EMs7XqwSITR2a9r9oOS76OA" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Project.Brew.Cli.executor&quot;: &quot;Run&quot;,
-    &quot;.NET Project.Brew.Console.executor&quot;: &quot;Run&quot;,
-    &quot;3842c062-8dda-4260-be87-516250dcad51.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;d8a3d171-21aa-4858-a4cc-7043abd283b1.executor&quot;: &quot;Debug&quot;,
-    &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.environmentSetup&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Project.Brew.Cli.executor": "Run",
+    ".NET Project.Brew.Console.executor": "Run",
+    ".NET Project.Brew.Features.Scripting.Pwsh.executor": "Run",
+    "3842c062-8dda-4260-be87-516250dcad51.executor": "Debug",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "d8a3d171-21aa-4858-a4cc-7043abd283b1.executor": "Debug",
+    "deletionFromPopupRequiresConfirmation": "false",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "RiderNuGetOptionsPageId"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\patri\\AppData\\Local\\JetBrains\\Shared\\vAny\\DecompilerCache&quot;,
-      &quot;C:\\Users\\patri\\AppData\\Local\\JetBrains\\Shared\\vAny\\SourcesCache&quot;,
-      &quot;C:\\Users\\patri\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\patri\\AppData\\Local\\JetBrains\\Shared\\vAny\\DecompilerCache",
+      "C:\\Users\\patri\\AppData\\Local\\JetBrains\\Shared\\vAny\\SourcesCache",
+      "C:\\Users\\patri\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
-  <component name="RunManager" selected=".NET Project.Brew.Console">
+}]]></component>
+  <component name="RunManager" selected=".NET Project.Brew.Features.Scripting.Pwsh">
     <configuration name="Brew.Console" type="DotNetProject" factoryName=".NET Project" temporary="true">
       <option name="EXE_PATH" value="$PROJECT_DIR$/Brew.Console/bin/Debug/net8.0/Brew.Console.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -129,6 +127,24 @@
       <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
       <option name="PROJECT_KIND" value="DotNetCore" />
       <option name="PROJECT_TFM" value="net8.0" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="Brew.Features.Scripting.Pwsh" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/Brew.Features.Scripting.Pwsh/Brew.Features.Scripting.Pwsh.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="DotNetCore" />
+      <option name="PROJECT_TFM" value="" />
       <method v="2">
         <option name="Build" />
       </method>
@@ -149,7 +165,22 @@
       </method>
     </configuration>
     <configuration name="Brew.Features.Avro.SourceGenerator: DebugRoslynSourceGenerator" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
-      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Brew.Features.Avro.SourceGenerator/Brew.Features.Avro.SourceGenerator/Brew.Features.Avro.SourceGenerator.csproj" />
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Brew.Features.Avro.SourceGenerator/Brew.Features.Serialization.Avro.SourceGenerator/Brew.Features.Serialization.Avro.SourceGenerator.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value=".NETStandard,Version=v2.0" />
+      <option name="LAUNCH_PROFILE_NAME" value="DebugRoslynSourceGenerator" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="Brew.Features.SourceGenerators: DebugRoslynSourceGenerator" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Brew.Features.SourceGenerators/Brew.Features.SourceGenerators/Brew.Features.SourceGenerators.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value=".NETStandard,Version=v2.0" />
       <option name="LAUNCH_PROFILE_NAME" value="DebugRoslynSourceGenerator" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
@@ -182,7 +213,15 @@
       <workItem from="1712177240181" duration="504000" />
       <workItem from="1712177948762" duration="1693000" />
       <workItem from="1712253316073" duration="15987000" />
-      <workItem from="1712336080615" duration="2131000" />
+      <workItem from="1712336080615" duration="3603000" />
+      <workItem from="1712349174085" duration="5598000" />
+      <workItem from="1712403771711" duration="17685000" />
+      <workItem from="1712425457441" duration="5254000" />
+      <workItem from="1712485973870" duration="5212000" />
+      <workItem from="1712492161409" duration="22979000" />
+      <workItem from="1712524153326" duration="1342000" />
+      <workItem from="1712594638026" duration="2877000" />
+      <workItem from="1712597698836" duration="2039000" />
     </task>
     <servers />
   </component>
@@ -190,6 +229,11 @@
     <option name="version" value="3" />
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="executable:docker" />
+    <option featureType="dependencySupport" implementationName="executable:kubectl" />
+    <option featureType="dependencySupport" implementationName="dotnet:Microsoft.ApplicationInsights" />
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
