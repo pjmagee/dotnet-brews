@@ -16,7 +16,14 @@ using(var host = ConfigureBuilder().Build())
 {
     await Parallel.ForEachAsync(host.Services.GetServices<IBrew>(), source.Token, async (brew, token) =>
     {
-        await brew.RunAsync(token);
+        try 
+        {
+            await brew.RunAsync(token);
+        } 
+        catch (Exception ex) 
+        {
+            Console.Error.WriteLine(ex.Message);
+        }
     });
 }
 

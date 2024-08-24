@@ -1,0 +1,12 @@
+{
+  "name": "brew",
+  "sdk": "typescript",
+  "dependencies": [
+    {
+      "name": "gha",
+      "source": "github.com/shykes/gha@770b562f7a763e662fcde67ffbb102c4da5abc72"
+    }
+  ],
+  "source": "dagger",
+  "engineVersion": "v0.12.5"
+}

@@ -11,6 +11,8 @@
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Console" Version="8.0.0" />
+		<PackageReference Include="Microsoft.PowerShell.MarkdownRender" Version="7.2.1" />
+		<PackageReference Include="System.Management.Automation" Version="7.4.5" />
 	</ItemGroup>
 
 	<ItemGroup>
