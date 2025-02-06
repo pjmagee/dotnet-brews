@@ -1,12 +1,13 @@
 {
-  "name": "brew",
-  "sdk": "typescript",
+  "name": "Brew",
+  "engineVersion": "v0.15.3",
+  "sdk": "https://github.com/m-pixel/dagger/sdk/dotnet/module@m-pixel-csharp",
   "dependencies": [
     {
       "name": "gha",
-      "source": "github.com/shykes/gha@770b562f7a763e662fcde67ffbb102c4da5abc72"
+      "source": "github.com/dagger/dagger/modules/gha@main",
+      "pin": "736eabb66f8cbe32ecac21cd49d2696e41110084"
     }
   ],
-  "source": "dagger",
-  "engineVersion": "v0.12.5"
+  "source": "dagger"
 }

@@ -1,0 +1,2028 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Dagger.Generated</name>
+    </assembly>
+    <members>
+        <member name="T:Dagger.BuildArg">
+            <param name="Name">The build argument name.</param>
+            <param name="Value">The build argument value.</param>
+        </member>
+        <member name="M:Dagger.BuildArg.#ctor(System.String,System.String)">
+            <param name="Name">The build argument name.</param>
+            <param name="Value">The build argument value.</param>
+        </member>
+        <member name="P:Dagger.BuildArg.Name">
+            <summary>The build argument name.</summary>
+        </member>
+        <member name="P:Dagger.BuildArg.Value">
+            <summary>The build argument value.</summary>
+        </member>
+        <member name="T:Dagger.CacheSharingMode">
+            <summary>Sharing mode of the cache volume.</summary>
+        </member>
+        <member name="T:Dagger.CacheVolumeID">
+            <summary>The `CacheVolumeID` scalar type represents an identifier for an object of type CacheVolume.</summary>
+        </member>
+        <member name="M:Dagger.CacheVolumeID.#ctor(System.String)">
+            <summary>The `CacheVolumeID` scalar type represents an identifier for an object of type CacheVolume.</summary>
+        </member>
+        <member name="T:Dagger.ContainerID">
+            <summary>The `ContainerID` scalar type represents an identifier for an object of type Container.</summary>
+        </member>
+        <member name="M:Dagger.ContainerID.#ctor(System.String)">
+            <summary>The `ContainerID` scalar type represents an identifier for an object of type Container.</summary>
+        </member>
+        <member name="T:Dagger.CurrentModuleID">
+            <summary>The `CurrentModuleID` scalar type represents an identifier for an object of type CurrentModule.</summary>
+        </member>
+        <member name="M:Dagger.CurrentModuleID.#ctor(System.String)">
+            <summary>The `CurrentModuleID` scalar type represents an identifier for an object of type CurrentModule.</summary>
+        </member>
+        <member name="T:Dagger.DirectoryID">
+            <summary>The `DirectoryID` scalar type represents an identifier for an object of type Directory.</summary>
+        </member>
+        <member name="M:Dagger.DirectoryID.#ctor(System.String)">
+            <summary>The `DirectoryID` scalar type represents an identifier for an object of type Directory.</summary>
+        </member>
+        <member name="T:Dagger.EnumTypeDefID">
+            <summary>The `EnumTypeDefID` scalar type represents an identifier for an object of type EnumTypeDef.</summary>
+        </member>
+        <member name="M:Dagger.EnumTypeDefID.#ctor(System.String)">
+            <summary>The `EnumTypeDefID` scalar type represents an identifier for an object of type EnumTypeDef.</summary>
+        </member>
+        <member name="T:Dagger.EnumValueTypeDefID">
+            <summary>The `EnumValueTypeDefID` scalar type represents an identifier for an object of type EnumValueTypeDef.</summary>
+        </member>
+        <member name="M:Dagger.EnumValueTypeDefID.#ctor(System.String)">
+            <summary>The `EnumValueTypeDefID` scalar type represents an identifier for an object of type EnumValueTypeDef.</summary>
+        </member>
+        <member name="T:Dagger.EnvVariableID">
+            <summary>The `EnvVariableID` scalar type represents an identifier for an object of type EnvVariable.</summary>
+        </member>
+        <member name="M:Dagger.EnvVariableID.#ctor(System.String)">
+            <summary>The `EnvVariableID` scalar type represents an identifier for an object of type EnvVariable.</summary>
+        </member>
+        <member name="T:Dagger.ErrorID">
+            <summary>The `ErrorID` scalar type represents an identifier for an object of type Error.</summary>
+        </member>
+        <member name="M:Dagger.ErrorID.#ctor(System.String)">
+            <summary>The `ErrorID` scalar type represents an identifier for an object of type Error.</summary>
+        </member>
+        <member name="T:Dagger.FieldTypeDefID">
+            <summary>The `FieldTypeDefID` scalar type represents an identifier for an object of type FieldTypeDef.</summary>
+        </member>
+        <member name="M:Dagger.FieldTypeDefID.#ctor(System.String)">
+            <summary>The `FieldTypeDefID` scalar type represents an identifier for an object of type FieldTypeDef.</summary>
+        </member>
+        <member name="T:Dagger.FileID">
+            <summary>The `FileID` scalar type represents an identifier for an object of type File.</summary>
+        </member>
+        <member name="M:Dagger.FileID.#ctor(System.String)">
+            <summary>The `FileID` scalar type represents an identifier for an object of type File.</summary>
+        </member>
+        <member name="T:Dagger.FunctionArgID">
+            <summary>The `FunctionArgID` scalar type represents an identifier for an object of type FunctionArg.</summary>
+        </member>
+        <member name="M:Dagger.FunctionArgID.#ctor(System.String)">
+            <summary>The `FunctionArgID` scalar type represents an identifier for an object of type FunctionArg.</summary>
+        </member>
+        <member name="T:Dagger.FunctionCallArgValueID">
+            <summary>The `FunctionCallArgValueID` scalar type represents an identifier for an object of type FunctionCallArgValue.</summary>
+        </member>
+        <member name="M:Dagger.FunctionCallArgValueID.#ctor(System.String)">
+            <summary>The `FunctionCallArgValueID` scalar type represents an identifier for an object of type FunctionCallArgValue.</summary>
+        </member>
+        <member name="T:Dagger.FunctionCallID">
+            <summary>The `FunctionCallID` scalar type represents an identifier for an object of type FunctionCall.</summary>
+        </member>
+        <member name="M:Dagger.FunctionCallID.#ctor(System.String)">
+            <summary>The `FunctionCallID` scalar type represents an identifier for an object of type FunctionCall.</summary>
+        </member>
+        <member name="T:Dagger.FunctionID">
+            <summary>The `FunctionID` scalar type represents an identifier for an object of type Function.</summary>
+        </member>
+        <member name="M:Dagger.FunctionID.#ctor(System.String)">
+            <summary>The `FunctionID` scalar type represents an identifier for an object of type Function.</summary>
+        </member>
+        <member name="T:Dagger.GeneratedCodeID">
+            <summary>The `GeneratedCodeID` scalar type represents an identifier for an object of type GeneratedCode.</summary>
+        </member>
+        <member name="M:Dagger.GeneratedCodeID.#ctor(System.String)">
+            <summary>The `GeneratedCodeID` scalar type represents an identifier for an object of type GeneratedCode.</summary>
+        </member>
+        <member name="T:Dagger.GhaID">
+            <summary>The `GhaID` scalar type represents an identifier for an object of type Gha.</summary>
+        </member>
+        <member name="M:Dagger.GhaID.#ctor(System.String)">
+            <summary>The `GhaID` scalar type represents an identifier for an object of type Gha.</summary>
+        </member>
+        <member name="T:Dagger.GhaJobID">
+            <summary>The `GhaJobID` scalar type represents an identifier for an object of type GhaJob.</summary>
+        </member>
+        <member name="M:Dagger.GhaJobID.#ctor(System.String)">
+            <summary>The `GhaJobID` scalar type represents an identifier for an object of type GhaJob.</summary>
+        </member>
+        <member name="T:Dagger.GhaWorkflowID">
+            <summary>The `GhaWorkflowID` scalar type represents an identifier for an object of type GhaWorkflow.</summary>
+        </member>
+        <member name="M:Dagger.GhaWorkflowID.#ctor(System.String)">
+            <summary>The `GhaWorkflowID` scalar type represents an identifier for an object of type GhaWorkflow.</summary>
+        </member>
+        <member name="T:Dagger.GitModuleSourceID">
+            <summary>The `GitModuleSourceID` scalar type represents an identifier for an object of type GitModuleSource.</summary>
+        </member>
+        <member name="M:Dagger.GitModuleSourceID.#ctor(System.String)">
+            <summary>The `GitModuleSourceID` scalar type represents an identifier for an object of type GitModuleSource.</summary>
+        </member>
+        <member name="T:Dagger.GitRefID">
+            <summary>The `GitRefID` scalar type represents an identifier for an object of type GitRef.</summary>
+        </member>
+        <member name="M:Dagger.GitRefID.#ctor(System.String)">
+            <summary>The `GitRefID` scalar type represents an identifier for an object of type GitRef.</summary>
+        </member>
+        <member name="T:Dagger.GitRepositoryID">
+            <summary>The `GitRepositoryID` scalar type represents an identifier for an object of type GitRepository.</summary>
+        </member>
+        <member name="M:Dagger.GitRepositoryID.#ctor(System.String)">
+            <summary>The `GitRepositoryID` scalar type represents an identifier for an object of type GitRepository.</summary>
+        </member>
+        <member name="T:Dagger.ImageLayerCompression">
+            <summary>Compression algorithm to use for image layers.</summary>
+        </member>
+        <member name="T:Dagger.ImageMediaTypes">
+            <summary>Mediatypes to use in published or exported image metadata.</summary>
+        </member>
+        <member name="T:Dagger.InputTypeDefID">
+            <summary>The `InputTypeDefID` scalar type represents an identifier for an object of type InputTypeDef.</summary>
+        </member>
+        <member name="M:Dagger.InputTypeDefID.#ctor(System.String)">
+            <summary>The `InputTypeDefID` scalar type represents an identifier for an object of type InputTypeDef.</summary>
+        </member>
+        <member name="T:Dagger.InterfaceTypeDefID">
+            <summary>The `InterfaceTypeDefID` scalar type represents an identifier for an object of type InterfaceTypeDef.</summary>
+        </member>
+        <member name="M:Dagger.InterfaceTypeDefID.#ctor(System.String)">
+            <summary>The `InterfaceTypeDefID` scalar type represents an identifier for an object of type InterfaceTypeDef.</summary>
+        </member>
+        <member name="T:Dagger.JSON">
+            <summary>An arbitrary JSON-encoded value.</summary>
+        </member>
+        <member name="M:Dagger.JSON.#ctor(System.String)">
+            <summary>An arbitrary JSON-encoded value.</summary>
+        </member>
+        <member name="T:Dagger.LabelID">
+            <summary>The `LabelID` scalar type represents an identifier for an object of type Label.</summary>
+        </member>
+        <member name="M:Dagger.LabelID.#ctor(System.String)">
+            <summary>The `LabelID` scalar type represents an identifier for an object of type Label.</summary>
+        </member>
+        <member name="T:Dagger.ListTypeDefID">
+            <summary>The `ListTypeDefID` scalar type represents an identifier for an object of type ListTypeDef.</summary>
+        </member>
+        <member name="M:Dagger.ListTypeDefID.#ctor(System.String)">
+            <summary>The `ListTypeDefID` scalar type represents an identifier for an object of type ListTypeDef.</summary>
+        </member>
+        <member name="T:Dagger.LocalModuleSourceID">
+            <summary>The `LocalModuleSourceID` scalar type represents an identifier for an object of type LocalModuleSource.</summary>
+        </member>
+        <member name="M:Dagger.LocalModuleSourceID.#ctor(System.String)">
+            <summary>The `LocalModuleSourceID` scalar type represents an identifier for an object of type LocalModuleSource.</summary>
+        </member>
+        <member name="T:Dagger.ModuleDependencyID">
+            <summary>The `ModuleDependencyID` scalar type represents an identifier for an object of type ModuleDependency.</summary>
+        </member>
+        <member name="M:Dagger.ModuleDependencyID.#ctor(System.String)">
+            <summary>The `ModuleDependencyID` scalar type represents an identifier for an object of type ModuleDependency.</summary>
+        </member>
+        <member name="T:Dagger.ModuleID">
+            <summary>The `ModuleID` scalar type represents an identifier for an object of type Module.</summary>
+        </member>
+        <member name="M:Dagger.ModuleID.#ctor(System.String)">
+            <summary>The `ModuleID` scalar type represents an identifier for an object of type Module.</summary>
+        </member>
+        <member name="T:Dagger.ModuleSourceID">
+            <summary>The `ModuleSourceID` scalar type represents an identifier for an object of type ModuleSource.</summary>
+        </member>
+        <member name="M:Dagger.ModuleSourceID.#ctor(System.String)">
+            <summary>The `ModuleSourceID` scalar type represents an identifier for an object of type ModuleSource.</summary>
+        </member>
+        <member name="T:Dagger.ModuleSourceKind">
+            <summary>The kind of module source.</summary>
+        </member>
+        <member name="T:Dagger.ModuleSourceViewID">
+            <summary>The `ModuleSourceViewID` scalar type represents an identifier for an object of type ModuleSourceView.</summary>
+        </member>
+        <member name="M:Dagger.ModuleSourceViewID.#ctor(System.String)">
+            <summary>The `ModuleSourceViewID` scalar type represents an identifier for an object of type ModuleSourceView.</summary>
+        </member>
+        <member name="T:Dagger.NetworkProtocol">
+            <summary>Transport layer network protocol associated to a port.</summary>
+        </member>
+        <member name="T:Dagger.ObjectTypeDefID">
+            <summary>The `ObjectTypeDefID` scalar type represents an identifier for an object of type ObjectTypeDef.</summary>
+        </member>
+        <member name="M:Dagger.ObjectTypeDefID.#ctor(System.String)">
+            <summary>The `ObjectTypeDefID` scalar type represents an identifier for an object of type ObjectTypeDef.</summary>
+        </member>
+        <member name="T:Dagger.PipelineLabel">
+            <param name="Name">Label name.</param>
+            <param name="Value">Label value.</param>
+        </member>
+        <member name="M:Dagger.PipelineLabel.#ctor(System.String,System.String)">
+            <param name="Name">Label name.</param>
+            <param name="Value">Label value.</param>
+        </member>
+        <member name="P:Dagger.PipelineLabel.Name">
+            <summary>Label name.</summary>
+        </member>
+        <member name="P:Dagger.PipelineLabel.Value">
+            <summary>Label value.</summary>
+        </member>
+        <member name="T:Dagger.Platform">
+            <summary><para>The platform config OS and architecture in a Container.</para><para>The format is [os]/[platform]/[version] (e.g., "darwin/arm64/v7", "windows/amd64", "linux/arm64").</para></summary>
+        </member>
+        <member name="M:Dagger.Platform.#ctor(System.String)">
+            <summary><para>The platform config OS and architecture in a Container.</para><para>The format is [os]/[platform]/[version] (e.g., "darwin/arm64/v7", "windows/amd64", "linux/arm64").</para></summary>
+        </member>
+        <member name="T:Dagger.PortForward">
+            <param name="Frontend">Port to expose to clients. If unspecified, a default will be chosen.</param>
+            <param name="Backend">Destination port for traffic.</param>
+            <param name="Protocol">Transport layer protocol to use for traffic.</param>
+        </member>
+        <member name="M:Dagger.PortForward.#ctor(System.Int32,System.Nullable{System.Int32},System.Nullable{Dagger.NetworkProtocol})">
+            <param name="Frontend">Port to expose to clients. If unspecified, a default will be chosen.</param>
+            <param name="Backend">Destination port for traffic.</param>
+            <param name="Protocol">Transport layer protocol to use for traffic.</param>
+        </member>
+        <member name="P:Dagger.PortForward.Backend">
+            <summary>Destination port for traffic.</summary>
+        </member>
+        <member name="P:Dagger.PortForward.Frontend">
+            <summary>Port to expose to clients. If unspecified, a default will be chosen.</summary>
+        </member>
+        <member name="P:Dagger.PortForward.Protocol">
+            <summary>Transport layer protocol to use for traffic.</summary>
+        </member>
+        <member name="T:Dagger.PortID">
+            <summary>The `PortID` scalar type represents an identifier for an object of type Port.</summary>
+        </member>
+        <member name="M:Dagger.PortID.#ctor(System.String)">
+            <summary>The `PortID` scalar type represents an identifier for an object of type Port.</summary>
+        </member>
+        <member name="T:Dagger.ReturnType">
+            <summary>Expected return type of an execution</summary>
+        </member>
+        <member name="T:Dagger.ScalarTypeDefID">
+            <summary>The `ScalarTypeDefID` scalar type represents an identifier for an object of type ScalarTypeDef.</summary>
+        </member>
+        <member name="M:Dagger.ScalarTypeDefID.#ctor(System.String)">
+            <summary>The `ScalarTypeDefID` scalar type represents an identifier for an object of type ScalarTypeDef.</summary>
+        </member>
+        <member name="T:Dagger.SecretID">
+            <summary>The `SecretID` scalar type represents an identifier for an object of type Secret.</summary>
+        </member>
+        <member name="M:Dagger.SecretID.#ctor(System.String)">
+            <summary>The `SecretID` scalar type represents an identifier for an object of type Secret.</summary>
+        </member>
+        <member name="T:Dagger.ServiceID">
+            <summary>The `ServiceID` scalar type represents an identifier for an object of type Service.</summary>
+        </member>
+        <member name="M:Dagger.ServiceID.#ctor(System.String)">
+            <summary>The `ServiceID` scalar type represents an identifier for an object of type Service.</summary>
+        </member>
+        <member name="T:Dagger.SocketID">
+            <summary>The `SocketID` scalar type represents an identifier for an object of type Socket.</summary>
+        </member>
+        <member name="M:Dagger.SocketID.#ctor(System.String)">
+            <summary>The `SocketID` scalar type represents an identifier for an object of type Socket.</summary>
+        </member>
+        <member name="T:Dagger.SourceMapID">
+            <summary>The `SourceMapID` scalar type represents an identifier for an object of type SourceMap.</summary>
+        </member>
+        <member name="M:Dagger.SourceMapID.#ctor(System.String)">
+            <summary>The `SourceMapID` scalar type represents an identifier for an object of type SourceMap.</summary>
+        </member>
+        <member name="T:Dagger.TerminalID">
+            <summary>The `TerminalID` scalar type represents an identifier for an object of type Terminal.</summary>
+        </member>
+        <member name="M:Dagger.TerminalID.#ctor(System.String)">
+            <summary>The `TerminalID` scalar type represents an identifier for an object of type Terminal.</summary>
+        </member>
+        <member name="T:Dagger.TypeDefID">
+            <summary>The `TypeDefID` scalar type represents an identifier for an object of type TypeDef.</summary>
+        </member>
+        <member name="M:Dagger.TypeDefID.#ctor(System.String)">
+            <summary>The `TypeDefID` scalar type represents an identifier for an object of type TypeDef.</summary>
+        </member>
+        <member name="T:Dagger.TypeDefKind">
+            <summary>Distinguishes the different kinds of TypeDefs.</summary>
+        </member>
+        <member name="T:Dagger.Void">
+            <summary><para>The absence of a value.</para><para>A Null Void is used as a placeholder for resolvers that do not return anything.</para></summary>
+        </member>
+        <member name="M:Dagger.Void.#ctor(System.String)">
+            <summary><para>The absence of a value.</para><para>A Null Void is used as a placeholder for resolvers that do not return anything.</para></summary>
+        </member>
+        <member name="T:Dagger.CacheVolume">
+            <summary>A directory whose contents persist across runs.</summary>
+        </member>
+        <member name="M:Dagger.CacheVolume.Id">
+            <summary>A unique identifier for this CacheVolume.</summary>
+        </member>
+        <member name="T:Dagger.Container">
+            <summary>An OCI-compatible container, also known as a Docker container.</summary>
+        </member>
+        <member name="M:Dagger.Container.Id">
+            <summary>A unique identifier for this Container.</summary>
+        </member>
+        <member name="M:Dagger.Container.AsService(System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
+            <summary><para>Turn the container into a Service.</para><para>Be sure to set any exposed ports before this conversion.</para></summary>
+            <param name="Args"><para>Command to run instead of the container's default command (e.g., ["go", "run", "main.go"]).</para><para>If empty, the container's default command is used.</para></param>
+            <param name="UseEntrypoint">If the container has an entrypoint, prepend it to the args.</param>
+            <param name="ExperimentalPrivilegedNesting"><para>Provides Dagger access to the executed command.</para><para>Do not use this option unless you trust the command being executed; the command being executed WILL BE GRANTED FULL ACCESS TO YOUR HOST FILESYSTEM.</para></param>
+            <param name="InsecureRootCapabilities">Execute the command with all root capabilities. This is similar to running a command with "sudo" or executing "docker run" with the "--privileged" flag. Containerization does not provide any security guarantees when using this option. It should only be used when absolutely necessary and only with trusted commands.</param>
+            <param name="Expand">Replace "${VAR}" or "$VAR" in the args according to the current environment variables defined in the container (e.g. "/$VAR/foo").</param>
+            <param name="NoInit"><para>If set, skip the automatic init process injected into containers by default.</para><para>This should only be used if the user requires that their exec process be the pid 1 process in the container. Otherwise it may result in unexpected behavior.</para></param>
+        </member>
+        <member name="M:Dagger.Container.AsTarball(System.Collections.Generic.IEnumerable{Dagger.Container},System.Nullable{Dagger.ImageLayerCompression},System.Nullable{Dagger.ImageMediaTypes})">
+            <summary>Returns a File representing the container serialized to a tarball.</summary>
+            <param name="PlatformVariants"><para>Identifiers for other platform specific containers.</para><para>Used for multi-platform images.</para></param>
+            <param name="ForcedCompression"><para>Force each layer of the image to use the specified compression algorithm.</para><para>If this is unset, then if a layer already has a compressed blob in the engine's cache, that will be used (this can result in a mix of compression algorithms for different layers). If this is unset and a layer has no compressed blob in the engine's cache, then it will be compressed using Gzip.</para></param>
+            <param name="MediaTypes"><para>Use the specified media types for the image's layers.</para><para>Defaults to OCI, which is largely compatible with most recent container runtimes, but Docker may be needed for older runtimes without OCI support.</para></param>
+        </member>
+        <member name="M:Dagger.Container.Build(Dagger.Directory,System.String,System.String,System.Collections.Generic.IEnumerable{Dagger.BuildArg},System.Collections.Generic.IEnumerable{Dagger.Secret})">
+            <summary>Initializes this container from a Dockerfile build.</summary>
+            <param name="Context">Directory context used by the Dockerfile.</param>
+            <param name="Dockerfile">Path to the Dockerfile to use.</param>
+            <param name="Target">Target build stage to build.</param>
+            <param name="BuildArgs">Additional build arguments.</param>
+            <param name="Secrets"><para>Secrets to pass to the build.</para><para>They will be mounted at /run/secrets/[secret-name] in the build container</para><para>They can be accessed in the Dockerfile using the "secret" mount type and mount path /run/secrets/[secret-name], e.g. RUN --mount=type=secret,id=my-secret curl [http://example.com?token=$(cat /run/secrets/my-secret)](http://example.com?token=$(cat /run/secrets/my-secret))</para></param>
+        </member>
+        <member name="M:Dagger.Container.DefaultArgs">
+            <summary>Retrieves default arguments for future commands.</summary>
+        </member>
+        <member name="M:Dagger.Container.Directory(System.String,System.Nullable{System.Boolean})">
+            <summary><para>Retrieves a directory at the given path.</para><para>Mounts are included.</para></summary>
+            <param name="Path">The path of the directory to retrieve (e.g., "./src").</param>
+            <param name="Expand">Replace "${VAR}" or "$VAR" in the value of path according to the current environment variables defined in the container (e.g. "/$VAR/foo").</param>
+        </member>
+        <member name="M:Dagger.Container.Entrypoint">
+            <summary>Retrieves entrypoint to be prepended to the arguments of all commands.</summary>
+        </member>
+        <member name="M:Dagger.Container.EnvVariable(System.String)">
+            <summary>Retrieves the value of the specified environment variable.</summary>
+            <param name="Name">The name of the environment variable to retrieve (e.g., "PATH").</param>
+        </member>
+        <member name="M:Dagger.Container.EnvVariables">
+            <summary>Retrieves the list of environment variables passed to commands.</summary>
+        </member>
+        <member name="M:Dagger.Container.ExitCode">
+            <summary><para>The exit code of the last executed command.</para><para>Returns an error if no command was set.</para></summary>
+        </member>
+        <member name="M:Dagger.Container.ExperimentalWithAllGPUs">
+            <summary><para>EXPERIMENTAL API! Subject to change/removal at any time.</para><para>Configures all available GPUs on the host to be accessible to this container.</para><para>This currently works for Nvidia devices only.</para></summary>
+        </member>
+        <member name="M:Dagger.Container.ExperimentalWithGPU(System.Collections.Generic.IEnumerable{System.String})">
+            <summary><para>EXPERIMENTAL API! Subject to change/removal at any time.</para><para>Configures the provided list of devices to be accessible to this container.</para><para>This currently works for Nvidia devices only.</para></summary>
+            <param name="Devices">List of devices to be accessible to this container.</param>
+        </member>
+        <member name="M:Dagger.Container.Export(System.String,System.Collections.Generic.IEnumerable{Dagger.Container},System.Nullable{Dagger.ImageLayerCompression},System.Nullable{Dagger.ImageMediaTypes},System.Nullable{System.Boolean})">
+            <summary><para>Writes the container as an OCI tarball to the destination file path on the host.</para><para>It can also export platform variants.</para></summary>
+            <param name="Path"><para>Host's destination path (e.g., "./tarball").</para><para>Path can be relative to the engine's workdir or absolute.</para></param>
+            <param name="PlatformVariants"><para>Identifiers for other platform specific containers.</para><para>Used for multi-platform image.</para></param>
+            <param name="ForcedCompression"><para>Force each layer of the exported image to use the specified compression algorithm.</para><para>If this is unset, then if a layer already has a compressed blob in the engine's cache, that will be used (this can result in a mix of compression algorithms for different layers). If this is unset and a layer has no compressed blob in the engine's cache, then it will be compressed using Gzip.</para></param>
+            <param name="MediaTypes"><para>Use the specified media types for the exported image's layers.</para><para>Defaults to OCI, which is largely compatible with most recent container runtimes, but Docker may be needed for older runtimes without OCI support.</para></param>
+            <param name="Expand">Replace "${VAR}" or "$VAR" in the value of path according to the current environment variables defined in the container (e.g. "/$VAR/foo").</param>
+        </member>
+        <member name="M:Dagger.Container.ExposedPorts">
+            <summary><para>Retrieves the list of exposed ports.</para><para>This includes ports already exposed by the image, even if not explicitly added with dagger.</para></summary>
+        </member>
+        <member name="M:Dagger.Container.File(System.String,System.Nullable{System.Boolean})">
+            <summary><para>Retrieves a file at the given path.</para><para>Mounts are included.</para></summary>
+            <param name="Path">The path of the file to retrieve (e.g., "./README.md").</param>
+            <param name="Expand">Replace "${VAR}" or "$VAR" in the value of path according to the current environment variables defined in the container (e.g. "/$VAR/foo.txt").</param>
+        </member>
+        <member name="M:Dagger.Container.From(System.String)">
+            <summary>Initializes this container from a pulled base image.</summary>
+            <param name="Address"><para>Image's address from its registry.</para><para>Formatted as [host]/[user]/[repo]:[tag] (e.g., "docker.io/dagger/dagger:main").</para></param>
+        </member>
+        <member name="M:Dagger.Container.ImageRef">
+            <summary>The unique image reference which can only be retrieved immediately after the 'Container.From' call.</summary>
+        </member>
+        <member name="M:Dagger.Container.Import(Dagger.File,System.String)">
+            <summary>Reads the container from an OCI tarball.</summary>
+            <param name="Source">File to read the container from.</param>
+            <param name="Tag">Identifies the tag to import from the archive, if the archive bundles multiple tags.</param>
+        </member>
+        <member name="M:Dagger.Container.Label(System.String)">
+            <summary>Retrieves the value of the specified label.</summary>
+            <param name="Name">The name of the label (e.g., "org.opencontainers.artifact.created").</param>
+        </member>
+        <member name="M:Dagger.Container.Labels">
+            <summary>Retrieves the list of labels passed to container.</summary>
+        </member>
+        <member name="M:Dagger.Container.Mounts">
+            <summary>Retrieves the list of paths where a directory is mounted.</summary>
+        </member>
+        <member name="M:Dagger.Container.GetPlatform">
+            <summary>The platform this container executes and publishes as.</summary>
+        </member>
+        <member name="M:Dagger.Container.Publish(System.String,System.Collections.Generic.IEnumerable{Dagger.Container},System.Nullable{Dagger.ImageLayerCompression},System.Nullable{Dagger.ImageMediaTypes})">
+            <summary><para>Publishes this container as a new image to the specified address.</para><para>Publish returns a fully qualified ref.</para><para>It can also publish platform variants.</para></summary>
+            <param name="Address"><para>Registry's address to publish the image to.</para><para>Formatted as [host]/[user]/[repo]:[tag] (e.g. "docker.io/dagger/dagger:main").</para></param>
+            <param name="PlatformVariants"><para>Identifiers for other platform specific containers.</para><para>Used for multi-platform image.</para></param>
+            <param name="ForcedCompression"><para>Force each layer of the published image to use the specified compression algorithm.</para><para>If this is unset, then if a layer already has a compressed blob in the engine's cache, that will be used (this can result in a mix of compression algorithms for different layers). If this is unset and a layer has no compressed blob in the engine's cache, then it will be compressed using Gzip.</para></param>
+            <param name="MediaTypes"><para>Use the specified media types for the published image's layers.</para><para>Defaults to OCI, which is largely compatible with most recent registries, but Docker may be needed for older registries without OCI support.</para></param>
+        </member>
+        <member name="M:Dagger.Container.Rootfs">
+            <summary>Retrieves this container's root filesystem. Mounts are not included.</summary>
+        </member>
+        <member name="M:Dagger.Container.Stderr">
+            <summary><para>The error stream of the last executed command.</para><para>Returns an error if no command was set.</para></summary>
+        </member>
+        <member name="M:Dagger.Container.Stdout">
+            <summary><para>The output stream of the last executed command.</para><para>Returns an error if no command was set.</para></summary>
+        </member>
+        <member name="M:Dagger.Container.Sync">
+            <summary><para>Forces evaluation of the pipeline in the engine.</para><para>It doesn't run the default command if no exec has been set.</para></summary>
+        </member>
+        <member name="M:Dagger.Container.Terminal(System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
+            <summary>Opens an interactive terminal for this container using its configured default terminal command if not overridden by args (or sh as a fallback default).</summary>
+            <param name="Cmd">If set, override the container's default terminal command and invoke these command arguments instead.</param>
+            <param name="ExperimentalPrivilegedNesting"><para>Provides Dagger access to the executed command.</para><para>Do not use this option unless you trust the command being executed; the command being executed WILL BE GRANTED FULL ACCESS TO YOUR HOST FILESYSTEM.</para></param>
+            <param name="InsecureRootCapabilities">Execute the command with all root capabilities. This is similar to running a command with "sudo" or executing "docker run" with the "--privileged" flag. Containerization does not provide any security guarantees when using this option. It should only be used when absolutely necessary and only with trusted commands.</param>
+        </member>
+        <member name="M:Dagger.Container.Up(System.Collections.Generic.IEnumerable{Dagger.PortForward},System.Nullable{System.Boolean},System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
+            <summary><para>Starts a Service and creates a tunnel that forwards traffic from the caller's network to that service.</para><para>Be sure to set any exposed ports before calling this api.</para></summary>
+            <param name="Ports"><para>List of frontend/backend port mappings to forward.</para><para>Frontend is the port accepting traffic on the host, backend is the service port.</para></param>
+            <param name="Random">Bind each tunnel port to a random port on the host.</param>
+            <param name="Args"><para>Command to run instead of the container's default command (e.g., ["go", "run", "main.go"]).</para><para>If empty, the container's default command is used.</para></param>
+            <param name="UseEntrypoint">If the container has an entrypoint, prepend it to the args.</param>
+            <param name="ExperimentalPrivilegedNesting"><para>Provides Dagger access to the executed command.</para><para>Do not use this option unless you trust the command being executed; the command being executed WILL BE GRANTED FULL ACCESS TO YOUR HOST FILESYSTEM.</para></param>
+            <param name="InsecureRootCapabilities">Execute the command with all root capabilities. This is similar to running a command with "sudo" or executing "docker run" with the "--privileged" flag. Containerization does not provide any security guarantees when using this option. It should only be used when absolutely necessary and only with trusted commands.</param>
+            <param name="Expand">Replace "${VAR}" or "$VAR" in the args according to the current environment variables defined in the container (e.g. "/$VAR/foo").</param>
+            <param name="NoInit"><para>If set, skip the automatic init process injected into containers by default.</para><para>This should only be used if the user requires that their exec process be the pid 1 process in the container. Otherwise it may result in unexpected behavior.</para></param>
+        </member>
+        <member name="M:Dagger.Container.User">
+            <summary>Retrieves the user to be set for all commands.</summary>
+        </member>
+        <member name="M:Dagger.Container.WithAnnotation(System.String,System.String)">
+            <summary>Retrieves this container plus the given OCI anotation.</summary>
+            <param name="Name">The name of the annotation.</param>
+            <param name="Value">The value of the annotation.</param>
+        </member>
+        <member name="M:Dagger.Container.WithDefaultArgs(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>Configures default arguments for future commands.</summary>
+            <param name="Args">Arguments to prepend to future executions (e.g., ["-v", "--no-cache"]).</param>
+        </member>
+        <member name="M:Dagger.Container.WithDefaultTerminalCmd(System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
+            <summary>Set the default command to invoke for the container's terminal API.</summary>
+            <param name="Args">The args of the command.</param>
+            <param name="ExperimentalPrivilegedNesting"><para>Provides Dagger access to the executed command.</para><para>Do not use this option unless you trust the command being executed; the command being executed WILL BE GRANTED FULL ACCESS TO YOUR HOST FILESYSTEM.</para></param>
+            <param name="InsecureRootCapabilities">Execute the command with all root capabilities. This is similar to running a command with "sudo" or executing "docker run" with the "--privileged" flag. Containerization does not provide any security guarantees when using this option. It should only be used when absolutely necessary and only with trusted commands.</param>
+        </member>
+        <member name="M:Dagger.Container.WithDirectory(System.String,Dagger.Directory,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.String,System.Nullable{System.Boolean})">
+            <summary>Retrieves this container plus a directory written at the given path.</summary>
+            <param name="Path">Location of the written directory (e.g., "/tmp/directory").</param>
+            <param name="Directory">Identifier of the directory to write</param>
+            <param name="Exclude">Patterns to exclude in the written directory (e.g. ["node_modules/**", ".gitignore", ".git/"]).</param>
+            <param name="Include">Patterns to include in the written directory (e.g. ["*.go", "go.mod", "go.sum"]).</param>
+            <param name="Owner"><para>A user:group to set for the directory and its contents.</para><para>The user and group can either be an ID (1000:1000) or a name (foo:bar).</para><para>If the group is omitted, it defaults to the same as the user.</para></param>
+            <param name="Expand">Replace "${VAR}" or "$VAR" in the value of path according to the current environment variables defined in the container (e.g. "/$VAR/foo").</param>
+        </member>
+        <member name="M:Dagger.Container.WithEntrypoint(System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.Boolean})">
+            <summary>Retrieves this container but with a different command entrypoint.</summary>
+            <param name="Args">Entrypoint to use for future executions (e.g., ["go", "run"]).</param>
+            <param name="KeepDefaultArgs">Don't remove the default arguments when setting the entrypoint.</param>
+        </member>
+        <member name="M:Dagger.Container.WithEnvVariable(System.String,System.String,System.Nullable{System.Boolean})">
+            <summary>Retrieves this container plus the given environment variable.</summary>
+            <param name="Name">The name of the environment variable (e.g., "HOST").</param>
+            <param name="Value">The value of the environment variable. (e.g., "localhost").</param>
+            <param name="Expand">Replace "${VAR}" or "$VAR" in the value according to the current environment variables defined in the container (e.g. "/opt/bin:$PATH").</param>
+        </member>
+        <member name="M:Dagger.Container.WithExec(System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.Boolean},System.String,System.String,System.String,System.Nullable{Dagger.ReturnType},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
+            <summary>Retrieves this container after executing the specified command inside it.</summary>
+            <param name="Args"><para>Command to run instead of the container's default command (e.g., ["go", "run", "main.go"]).</para><para>If empty, the container's default command is used.</para></param>
+            <param name="UseEntrypoint">If the container has an entrypoint, prepend it to the args.</param>
+            <param name="Stdin">Content to write to the command's standard input before closing (e.g., "Hello world").</param>
+            <param name="RedirectStdout">Redirect the command's standard output to a file in the container (e.g., "/tmp/stdout").</param>
+            <param name="RedirectStderr">Redirect the command's standard error to a file in the container (e.g., "/tmp/stderr").</param>
+            <param name="Expect">Exit codes this command is allowed to exit with without error</param>
+            <param name="ExperimentalPrivilegedNesting"><para>Provides Dagger access to the executed command.</para><para>Do not use this option unless you trust the command being executed; the command being executed WILL BE GRANTED FULL ACCESS TO YOUR HOST FILESYSTEM.</para></param>
+            <param name="InsecureRootCapabilities">Execute the command with all root capabilities. This is similar to running a command with "sudo" or executing "docker run" with the "--privileged" flag. Containerization does not provide any security guarantees when using this option. It should only be used when absolutely necessary and only with trusted commands.</param>
+            <param name="Expand">Replace "${VAR}" or "$VAR" in the args according to the current environment variables defined in the container (e.g. "/$VAR/foo").</param>
+            <param name="NoInit"><para>If set, skip the automatic init process injected into containers by default.</para><para>This should only be used if the user requires that their exec process be the pid 1 process in the container. Otherwise it may result in unexpected behavior.</para></param>
+        </member>
+        <member name="M:Dagger.Container.WithExposedPort(System.Int32,System.Nullable{Dagger.NetworkProtocol},System.String,System.Nullable{System.Boolean})">
+            <summary><para>Expose a network port.</para><para>Exposed ports serve two purposes:</para><para>- For health checks and introspection, when running services</para><para>- For setting the EXPOSE OCI field when publishing the container</para></summary>
+            <param name="Port">Port number to expose</param>
+            <param name="Protocol">Transport layer network protocol</param>
+            <param name="Description">Optional port description</param>
+            <param name="ExperimentalSkipHealthcheck">Skip the health check when run as a service.</param>
+        </member>
+        <member name="M:Dagger.Container.WithFile(System.String,Dagger.File,System.Nullable{System.Int32},System.String,System.Nullable{System.Boolean})">
+            <summary>Retrieves this container plus the contents of the given file copied to the given path.</summary>
+            <param name="Path">Location of the copied file (e.g., "/tmp/file.txt").</param>
+            <param name="Source">Identifier of the file to copy.</param>
+            <param name="Permissions">Permission given to the copied file (e.g., 0600).</param>
+            <param name="Owner"><para>A user:group to set for the file.</para><para>The user and group can either be an ID (1000:1000) or a name (foo:bar).</para><para>If the group is omitted, it defaults to the same as the user.</para></param>
+            <param name="Expand">Replace "${VAR}" or "$VAR" in the value of path according to the current environment variables defined in the container (e.g. "/$VAR/foo.txt").</param>
+        </member>
+        <member name="M:Dagger.Container.WithFiles(System.String,System.Collections.Generic.IEnumerable{Dagger.File},System.Nullable{System.Int32},System.String,System.Nullable{System.Boolean})">
+            <summary>Retrieves this container plus the contents of the given files copied to the given path.</summary>
+            <param name="Path">Location where copied files should be placed (e.g., "/src").</param>
+            <param name="Sources">Identifiers of the files to copy.</param>
+            <param name="Permissions">Permission given to the copied files (e.g., 0600).</param>
+            <param name="Owner"><para>A user:group to set for the files.</para><para>The user and group can either be an ID (1000:1000) or a name (foo:bar).</para><para>If the group is omitted, it defaults to the same as the user.</para></param>
+            <param name="Expand">Replace "${VAR}" or "$VAR" in the value of path according to the current environment variables defined in the container (e.g. "/$VAR/foo.txt").</param>
+        </member>
+        <member name="M:Dagger.Container.WithLabel(System.String,System.String)">
+            <summary>Retrieves this container plus the given label.</summary>
+            <param name="Name">The name of the label (e.g., "org.opencontainers.artifact.created").</param>
+            <param name="Value">The value of the label (e.g., "2023-01-01T00:00:00Z").</param>
+        </member>
+        <member name="M:Dagger.Container.WithMountedCache(System.String,Dagger.CacheVolume,Dagger.Directory,System.Nullable{Dagger.CacheSharingMode},System.String,System.Nullable{System.Boolean})">
+            <summary>Retrieves this container plus a cache volume mounted at the given path.</summary>
+            <param name="Path">Location of the cache directory (e.g., "/root/.npm").</param>
+            <param name="Cache">Identifier of the cache volume to mount.</param>
+            <param name="Source">Identifier of the directory to use as the cache volume's root.</param>
+            <param name="Sharing">Sharing mode of the cache volume.</param>
+            <param name="Owner"><para>A user:group to set for the mounted cache directory.</para><para>Note that this changes the ownership of the specified mount along with the initial filesystem provided by source (if any). It does not have any effect if/when the cache has already been created.</para><para>The user and group can either be an ID (1000:1000) or a name (foo:bar).</para><para>If the group is omitted, it defaults to the same as the user.</para></param>
+            <param name="Expand">Replace "${VAR}" or "$VAR" in the value of path according to the current environment variables defined in the container (e.g. "/$VAR/foo").</param>
+        </member>
+        <member name="M:Dagger.Container.WithMountedDirectory(System.String,Dagger.Directory,System.String,System.Nullable{System.Boolean})">
+            <summary>Retrieves this container plus a directory mounted at the given path.</summary>
+            <param name="Path">Location of the mounted directory (e.g., "/mnt/directory").</param>
+            <param name="Source">Identifier of the mounted directory.</param>
+            <param name="Owner"><para>A user:group to set for the mounted directory and its contents.</para><para>The user and group can either be an ID (1000:1000) or a name (foo:bar).</para><para>If the group is omitted, it defaults to the same as the user.</para></param>
+            <param name="Expand">Replace "${VAR}" or "$VAR" in the value of path according to the current environment variables defined in the container (e.g. "/$VAR/foo").</param>
+        </member>
+        <member name="M:Dagger.Container.WithMountedFile(System.String,Dagger.File,System.String,System.Nullable{System.Boolean})">
+            <summary>Retrieves this container plus a file mounted at the given path.</summary>
+            <param name="Path">Location of the mounted file (e.g., "/tmp/file.txt").</param>
+            <param name="Source">Identifier of the mounted file.</param>
+            <param name="Owner"><para>A user or user:group to set for the mounted file.</para><para>The user and group can either be an ID (1000:1000) or a name (foo:bar).</para><para>If the group is omitted, it defaults to the same as the user.</para></param>
+            <param name="Expand">Replace "${VAR}" or "$VAR" in the value of path according to the current environment variables defined in the container (e.g. "/$VAR/foo.txt").</param>
+        </member>
+        <member name="M:Dagger.Container.WithMountedSecret(System.String,Dagger.Secret,System.String,System.Nullable{System.Int32},System.Nullable{System.Boolean})">
+            <summary>Retrieves this container plus a secret mounted into a file at the given path.</summary>
+            <param name="Path">Location of the secret file (e.g., "/tmp/secret.txt").</param>
+            <param name="Source">Identifier of the secret to mount.</param>
+            <param name="Owner"><para>A user:group to set for the mounted secret.</para><para>The user and group can either be an ID (1000:1000) or a name (foo:bar).</para><para>If the group is omitted, it defaults to the same as the user.</para></param>
+            <param name="Mode"><para>Permission given to the mounted secret (e.g., 0600).</para><para>This option requires an owner to be set to be active.</para></param>
+            <param name="Expand">Replace "${VAR}" or "$VAR" in the value of path according to the current environment variables defined in the container (e.g. "/$VAR/foo").</param>
+        </member>
+        <member name="M:Dagger.Container.WithMountedTemp(System.String,System.Nullable{System.Int32},System.Nullable{System.Boolean})">
+            <summary>Retrieves this container plus a temporary directory mounted at the given path. Any writes will be ephemeral to a single withExec call; they will not be persisted to subsequent withExecs.</summary>
+            <param name="Path">Location of the temporary directory (e.g., "/tmp/temp_dir").</param>
+            <param name="Size">Size of the temporary directory in bytes.</param>
+            <param name="Expand">Replace "${VAR}" or "$VAR" in the value of path according to the current environment variables defined in the container (e.g. "/$VAR/foo").</param>
+        </member>
+        <member name="M:Dagger.Container.WithNewFile(System.String,System.String,System.Nullable{System.Int32},System.String,System.Nullable{System.Boolean})">
+            <summary>Retrieves this container plus a new file written at the given path.</summary>
+            <param name="Path">Location of the written file (e.g., "/tmp/file.txt").</param>
+            <param name="Contents">Content of the file to write (e.g., "Hello world!").</param>
+            <param name="Permissions">Permission given to the written file (e.g., 0600).</param>
+            <param name="Owner"><para>A user:group to set for the file.</para><para>The user and group can either be an ID (1000:1000) or a name (foo:bar).</para><para>If the group is omitted, it defaults to the same as the user.</para></param>
+            <param name="Expand">Replace "${VAR}" or "$VAR" in the value of path according to the current environment variables defined in the container (e.g. "/$VAR/foo.txt").</param>
+        </member>
+        <member name="M:Dagger.Container.WithRegistryAuth(System.String,System.String,Dagger.Secret)">
+            <summary>Retrieves this container with a registry authentication for a given address.</summary>
+            <param name="Address"><para>Registry's address to bind the authentication to.</para><para>Formatted as [host]/[user]/[repo]:[tag] (e.g. docker.io/dagger/dagger:main).</para></param>
+            <param name="Username">The username of the registry's account (e.g., "Dagger").</param>
+            <param name="Secret">The API key, password or token to authenticate to this registry.</param>
+        </member>
+        <member name="M:Dagger.Container.WithRootfs(Dagger.Directory)">
+            <summary>Retrieves the container with the given directory mounted to /.</summary>
+            <param name="Directory">Directory to mount.</param>
+        </member>
+        <member name="M:Dagger.Container.WithSecretVariable(System.String,Dagger.Secret)">
+            <summary>Retrieves this container plus an env variable containing the given secret.</summary>
+            <param name="Name">The name of the secret variable (e.g., "API_SECRET").</param>
+            <param name="Secret">The identifier of the secret value.</param>
+        </member>
+        <member name="M:Dagger.Container.WithServiceBinding(System.String,Dagger.Service)">
+            <summary><para>Establish a runtime dependency on a service.</para><para>The service will be started automatically when needed and detached when it is no longer needed, executing the default command if none is set.</para><para>The service will be reachable from the container via the provided hostname alias.</para><para>The service dependency will also convey to any files or directories produced by the container.</para></summary>
+            <param name="Alias">A name that can be used to reach the service from the container</param>
+            <param name="Service">Identifier of the service container</param>
+        </member>
+        <member name="M:Dagger.Container.WithUnixSocket(System.String,Dagger.Socket,System.String,System.Nullable{System.Boolean})">
+            <summary>Retrieves this container plus a socket forwarded to the given Unix socket path.</summary>
+            <param name="Path">Location of the forwarded Unix socket (e.g., "/tmp/socket").</param>
+            <param name="Source">Identifier of the socket to forward.</param>
+            <param name="Owner"><para>A user:group to set for the mounted socket.</para><para>The user and group can either be an ID (1000:1000) or a name (foo:bar).</para><para>If the group is omitted, it defaults to the same as the user.</para></param>
+            <param name="Expand">Replace "${VAR}" or "$VAR" in the value of path according to the current environment variables defined in the container (e.g. "/$VAR/foo").</param>
+        </member>
+        <member name="M:Dagger.Container.WithUser(System.String)">
+            <summary>Retrieves this container with a different command user.</summary>
+            <param name="Name">The user to set (e.g., "root").</param>
+        </member>
+        <member name="M:Dagger.Container.WithWorkdir(System.String,System.Nullable{System.Boolean})">
+            <summary>Retrieves this container with a different working directory.</summary>
+            <param name="Path">The path to set as the working directory (e.g., "/app").</param>
+            <param name="Expand">Replace "${VAR}" or "$VAR" in the value of path according to the current environment variables defined in the container (e.g. "/$VAR/foo").</param>
+        </member>
+        <member name="M:Dagger.Container.WithoutAnnotation(System.String)">
+            <summary>Retrieves this container minus the given OCI annotation.</summary>
+            <param name="Name">The name of the annotation.</param>
+        </member>
+        <member name="M:Dagger.Container.WithoutDefaultArgs">
+            <summary>Retrieves this container with unset default arguments for future commands.</summary>
+        </member>
+        <member name="M:Dagger.Container.WithoutDirectory(System.String,System.Nullable{System.Boolean})">
+            <summary>Retrieves this container with the directory at the given path removed.</summary>
+            <param name="Path">Location of the directory to remove (e.g., ".github/").</param>
+            <param name="Expand">Replace "${VAR}" or "$VAR" in the value of path according to the current environment variables defined in the container (e.g. "/$VAR/foo").</param>
+        </member>
+        <member name="M:Dagger.Container.WithoutEntrypoint(System.Nullable{System.Boolean})">
+            <summary>Retrieves this container with an unset command entrypoint.</summary>
+            <param name="KeepDefaultArgs">Don't remove the default arguments when unsetting the entrypoint.</param>
+        </member>
+        <member name="M:Dagger.Container.WithoutEnvVariable(System.String)">
+            <summary>Retrieves this container minus the given environment variable.</summary>
+            <param name="Name">The name of the environment variable (e.g., "HOST").</param>
+        </member>
+        <member name="M:Dagger.Container.WithoutExposedPort(System.Int32,System.Nullable{Dagger.NetworkProtocol})">
+            <summary>Unexpose a previously exposed port.</summary>
+            <param name="Port">Port number to unexpose</param>
+            <param name="Protocol">Port protocol to unexpose</param>
+        </member>
+        <member name="M:Dagger.Container.WithoutFile(System.String,System.Nullable{System.Boolean})">
+            <summary>Retrieves this container with the file at the given path removed.</summary>
+            <param name="Path">Location of the file to remove (e.g., "/file.txt").</param>
+            <param name="Expand">Replace "${VAR}" or "$VAR" in the value of path according to the current environment variables defined in the container (e.g. "/$VAR/foo.txt").</param>
+        </member>
+        <member name="M:Dagger.Container.WithoutFiles(System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.Boolean})">
+            <summary>Retrieves this container with the files at the given paths removed.</summary>
+            <param name="Paths">Location of the files to remove (e.g., ["/file.txt"]).</param>
+            <param name="Expand">Replace "${VAR}" or "$VAR" in the value of paths according to the current environment variables defined in the container (e.g. "/$VAR/foo.txt").</param>
+        </member>
+        <member name="M:Dagger.Container.WithoutLabel(System.String)">
+            <summary>Retrieves this container minus the given environment label.</summary>
+            <param name="Name">The name of the label to remove (e.g., "org.opencontainers.artifact.created").</param>
+        </member>
+        <member name="M:Dagger.Container.WithoutMount(System.String,System.Nullable{System.Boolean})">
+            <summary>Retrieves this container after unmounting everything at the given path.</summary>
+            <param name="Path">Location of the cache directory (e.g., "/root/.npm").</param>
+            <param name="Expand">Replace "${VAR}" or "$VAR" in the value of path according to the current environment variables defined in the container (e.g. "/$VAR/foo").</param>
+        </member>
+        <member name="M:Dagger.Container.WithoutRegistryAuth(System.String)">
+            <summary>Retrieves this container without the registry authentication of a given address.</summary>
+            <param name="Address"><para>Registry's address to remove the authentication from.</para><para>Formatted as [host]/[user]/[repo]:[tag] (e.g. docker.io/dagger/dagger:main).</para></param>
+        </member>
+        <member name="M:Dagger.Container.WithoutSecretVariable(System.String)">
+            <summary>Retrieves this container minus the given environment variable containing the secret.</summary>
+            <param name="Name">The name of the environment variable (e.g., "HOST").</param>
+        </member>
+        <member name="M:Dagger.Container.WithoutUnixSocket(System.String,System.Nullable{System.Boolean})">
+            <summary>Retrieves this container with a previously added Unix socket removed.</summary>
+            <param name="Path">Location of the socket to remove (e.g., "/tmp/socket").</param>
+            <param name="Expand">Replace "${VAR}" or "$VAR" in the value of path according to the current environment variables defined in the container (e.g. "/$VAR/foo").</param>
+        </member>
+        <member name="M:Dagger.Container.WithoutUser">
+            <summary><para>Retrieves this container with an unset command user.</para><para>Should default to root.</para></summary>
+        </member>
+        <member name="M:Dagger.Container.WithoutWorkdir">
+            <summary><para>Retrieves this container with an unset working directory.</para><para>Should default to "/".</para></summary>
+        </member>
+        <member name="M:Dagger.Container.Workdir">
+            <summary>Retrieves the working directory for all commands.</summary>
+        </member>
+        <member name="T:Dagger.CurrentModule">
+            <summary>Reflective module API provided to functions at runtime.</summary>
+        </member>
+        <member name="M:Dagger.CurrentModule.Id">
+            <summary>A unique identifier for this CurrentModule.</summary>
+        </member>
+        <member name="M:Dagger.CurrentModule.Name">
+            <summary>The name of the module being executed in</summary>
+        </member>
+        <member name="M:Dagger.CurrentModule.Source">
+            <summary>The directory containing the module's source code loaded into the engine (plus any generated code that may have been created).</summary>
+        </member>
+        <member name="M:Dagger.CurrentModule.Workdir(System.String,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String})">
+            <summary>Load a directory from the module's scratch working directory, including any changes that may have been made to it during module function execution.</summary>
+            <param name="Path">Location of the directory to access (e.g., ".").</param>
+            <param name="Exclude">Exclude artifacts that match the given pattern (e.g., ["node_modules/", ".git*"]).</param>
+            <param name="Include">Include only artifacts that match the given pattern (e.g., ["app/", "package.*"]).</param>
+        </member>
+        <member name="M:Dagger.CurrentModule.WorkdirFile(System.String)">
+            <summary>Load a file from the module's scratch working directory, including any changes that may have been made to it during module function execution.Load a file from the module's scratch working directory, including any changes that may have been made to it during module function execution.</summary>
+            <param name="Path">Location of the file to retrieve (e.g., "README.md").</param>
+        </member>
+        <member name="T:Dagger.Directory">
+            <summary>A directory.</summary>
+        </member>
+        <member name="M:Dagger.Directory.Id">
+            <summary>A unique identifier for this Directory.</summary>
+        </member>
+        <member name="M:Dagger.Directory.AsModule(System.String,System.String)">
+            <summary>Load the directory as a Dagger module</summary>
+            <param name="SourceRootPath"><para>An optional subpath of the directory which contains the module's configuration file.</para><para>This is needed when the module code is in a subdirectory but requires parent directories to be loaded in order to execute. For example, the module source code may need a go.mod, project.toml, package.json, etc. file from a parent directory.</para><para>If not set, the module source code is loaded from the root of the directory.</para></param>
+            <param name="EngineVersion">The engine version to upgrade to.</param>
+        </member>
+        <member name="M:Dagger.Directory.Diff(Dagger.Directory)">
+            <summary>Gets the difference between this directory and an another directory.</summary>
+            <param name="Other">Identifier of the directory to compare.</param>
+        </member>
+        <member name="M:Dagger.Directory.Digest">
+            <summary>Return the directory's digest. The format of the digest is not guaranteed to be stable between releases of Dagger. It is guaranteed to be stable between invocations of the same Dagger engine.</summary>
+        </member>
+        <member name="M:Dagger.Directory.SubDirectory(System.String)">
+            <summary>Retrieves a directory at the given path.</summary>
+            <param name="Path">Location of the directory to retrieve (e.g., "/src").</param>
+        </member>
+        <member name="M:Dagger.Directory.DockerBuild(Dagger.Platform,System.String,System.String,System.Collections.Generic.IEnumerable{Dagger.BuildArg},System.Collections.Generic.IEnumerable{Dagger.Secret})">
+            <summary>Builds a new Docker container from this directory.</summary>
+            <param name="Platform">The platform to build.</param>
+            <param name="Dockerfile">Path to the Dockerfile to use (e.g., "frontend.Dockerfile").</param>
+            <param name="Target">Target build stage to build.</param>
+            <param name="BuildArgs">Build arguments to use in the build.</param>
+            <param name="Secrets"><para>Secrets to pass to the build.</para><para>They will be mounted at /run/secrets/[secret-name].</para></param>
+        </member>
+        <member name="M:Dagger.Directory.Entries(System.String)">
+            <summary>Returns a list of files and directories at the given path.</summary>
+            <param name="Path">Location of the directory to look at (e.g., "/src").</param>
+        </member>
+        <member name="M:Dagger.Directory.Export(System.String,System.Nullable{System.Boolean})">
+            <summary>Writes the contents of the directory to a path on the host.</summary>
+            <param name="Path">Location of the copied directory (e.g., "logs/").</param>
+            <param name="Wipe">If true, then the host directory will be wiped clean before exporting so that it exactly matches the directory being exported; this means it will delete any files on the host that aren't in the exported dir. If false (the default), the contents of the directory will be merged with any existing contents of the host directory, leaving any existing files on the host that aren't in the exported directory alone.</param>
+        </member>
+        <member name="M:Dagger.Directory.File(System.String)">
+            <summary>Retrieves a file at the given path.</summary>
+            <param name="Path">Location of the file to retrieve (e.g., "README.md").</param>
+        </member>
+        <member name="M:Dagger.Directory.Glob(System.String)">
+            <summary>Returns a list of files and directories that matche the given pattern.</summary>
+            <param name="Pattern">Pattern to match (e.g., "*.md").</param>
+        </member>
+        <member name="M:Dagger.Directory.Sync">
+            <summary>Force evaluation in the engine.</summary>
+        </member>
+        <member name="M:Dagger.Directory.Terminal(System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.Boolean},System.Nullable{System.Boolean},Dagger.Container)">
+            <summary>Opens an interactive terminal in new container with this directory mounted inside.</summary>
+            <param name="Cmd">If set, override the container's default terminal command and invoke these command arguments instead.</param>
+            <param name="ExperimentalPrivilegedNesting"><para>Provides Dagger access to the executed command.</para><para>Do not use this option unless you trust the command being executed; the command being executed WILL BE GRANTED FULL ACCESS TO YOUR HOST FILESYSTEM.</para></param>
+            <param name="InsecureRootCapabilities">Execute the command with all root capabilities. This is similar to running a command with "sudo" or executing "docker run" with the "--privileged" flag. Containerization does not provide any security guarantees when using this option. It should only be used when absolutely necessary and only with trusted commands.</param>
+            <param name="Container">If set, override the default container used for the terminal.</param>
+        </member>
+        <member name="M:Dagger.Directory.WithDirectory(System.String,Dagger.Directory,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String})">
+            <summary>Retrieves this directory plus a directory written at the given path.</summary>
+            <param name="Path">Location of the written directory (e.g., "/src/").</param>
+            <param name="Directory">Identifier of the directory to copy.</param>
+            <param name="Exclude">Exclude artifacts that match the given pattern (e.g., ["node_modules/", ".git*"]).</param>
+            <param name="Include">Include only artifacts that match the given pattern (e.g., ["app/", "package.*"]).</param>
+        </member>
+        <member name="M:Dagger.Directory.WithFile(System.String,Dagger.File,System.Nullable{System.Int32})">
+            <summary>Retrieves this directory plus the contents of the given file copied to the given path.</summary>
+            <param name="Path">Location of the copied file (e.g., "/file.txt").</param>
+            <param name="Source">Identifier of the file to copy.</param>
+            <param name="Permissions">Permission given to the copied file (e.g., 0600).</param>
+        </member>
+        <member name="M:Dagger.Directory.WithFiles(System.String,System.Collections.Generic.IEnumerable{Dagger.File},System.Nullable{System.Int32})">
+            <summary>Retrieves this directory plus the contents of the given files copied to the given path.</summary>
+            <param name="Path">Location where copied files should be placed (e.g., "/src").</param>
+            <param name="Sources">Identifiers of the files to copy.</param>
+            <param name="Permissions">Permission given to the copied files (e.g., 0600).</param>
+        </member>
+        <member name="M:Dagger.Directory.WithNewDirectory(System.String,System.Nullable{System.Int32})">
+            <summary>Retrieves this directory plus a new directory created at the given path.</summary>
+            <param name="Path">Location of the directory created (e.g., "/logs").</param>
+            <param name="Permissions">Permission granted to the created directory (e.g., 0777).</param>
+        </member>
+        <member name="M:Dagger.Directory.WithNewFile(System.String,System.String,System.Nullable{System.Int32})">
+            <summary>Retrieves this directory plus a new file written at the given path.</summary>
+            <param name="Path">Location of the written file (e.g., "/file.txt").</param>
+            <param name="Contents">Content of the written file (e.g., "Hello world!").</param>
+            <param name="Permissions">Permission given to the copied file (e.g., 0600).</param>
+        </member>
+        <member name="M:Dagger.Directory.WithTimestamps(System.Int32)">
+            <summary>Retrieves this directory with all file/dir timestamps set to the given time.</summary>
+            <param name="Timestamp"><para>Timestamp to set dir/files in.</para><para>Formatted in seconds following Unix epoch (e.g., 1672531199).</para></param>
+        </member>
+        <member name="M:Dagger.Directory.WithoutDirectory(System.String)">
+            <summary>Retrieves this directory with the directory at the given path removed.</summary>
+            <param name="Path">Location of the directory to remove (e.g., ".github/").</param>
+        </member>
+        <member name="M:Dagger.Directory.WithoutFile(System.String)">
+            <summary>Retrieves this directory with the file at the given path removed.</summary>
+            <param name="Path">Location of the file to remove (e.g., "/file.txt").</param>
+        </member>
+        <member name="M:Dagger.Directory.WithoutFiles(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>Retrieves this directory with the files at the given paths removed.</summary>
+            <param name="Paths">Location of the file to remove (e.g., ["/file.txt"]).</param>
+        </member>
+        <member name="T:Dagger.EnumTypeDef">
+            <summary>A definition of a custom enum defined in a Module.</summary>
+        </member>
+        <member name="M:Dagger.EnumTypeDef.Id">
+            <summary>A unique identifier for this EnumTypeDef.</summary>
+        </member>
+        <member name="M:Dagger.EnumTypeDef.Description">
+            <summary>A doc string for the enum, if any.</summary>
+        </member>
+        <member name="M:Dagger.EnumTypeDef.Name">
+            <summary>The name of the enum.</summary>
+        </member>
+        <member name="M:Dagger.EnumTypeDef.GetSourceMap">
+            <summary>The location of this enum declaration.</summary>
+        </member>
+        <member name="M:Dagger.EnumTypeDef.SourceModuleName">
+            <summary>If this EnumTypeDef is associated with a Module, the name of the module. Unset otherwise.</summary>
+        </member>
+        <member name="M:Dagger.EnumTypeDef.Values">
+            <summary>The values of the enum.</summary>
+        </member>
+        <member name="T:Dagger.EnumValueTypeDef">
+            <summary>A definition of a value in a custom enum defined in a Module.</summary>
+        </member>
+        <member name="M:Dagger.EnumValueTypeDef.Id">
+            <summary>A unique identifier for this EnumValueTypeDef.</summary>
+        </member>
+        <member name="M:Dagger.EnumValueTypeDef.Description">
+            <summary>A doc string for the enum value, if any.</summary>
+        </member>
+        <member name="M:Dagger.EnumValueTypeDef.Name">
+            <summary>The name of the enum value.</summary>
+        </member>
+        <member name="M:Dagger.EnumValueTypeDef.GetSourceMap">
+            <summary>The location of this enum value declaration.</summary>
+        </member>
+        <member name="T:Dagger.EnvVariable">
+            <summary>An environment variable name and value.</summary>
+        </member>
+        <member name="M:Dagger.EnvVariable.Id">
+            <summary>A unique identifier for this EnvVariable.</summary>
+        </member>
+        <member name="M:Dagger.EnvVariable.Name">
+            <summary>The environment variable name.</summary>
+        </member>
+        <member name="M:Dagger.EnvVariable.Value">
+            <summary>The environment variable value.</summary>
+        </member>
+        <member name="M:Dagger.Error.Id">
+            <summary>A unique identifier for this Error.</summary>
+        </member>
+        <member name="M:Dagger.Error.Message">
+            <summary>A description of the error.</summary>
+        </member>
+        <member name="T:Dagger.FieldTypeDef">
+            <summary><para>A definition of a field on a custom object defined in a Module.</para><para>A field on an object has a static value, as opposed to a function on an object whose value is computed by invoking code (and can accept arguments).</para></summary>
+        </member>
+        <member name="M:Dagger.FieldTypeDef.Id">
+            <summary>A unique identifier for this FieldTypeDef.</summary>
+        </member>
+        <member name="M:Dagger.FieldTypeDef.Description">
+            <summary>A doc string for the field, if any.</summary>
+        </member>
+        <member name="M:Dagger.FieldTypeDef.Name">
+            <summary>The name of the field in lowerCamelCase format.</summary>
+        </member>
+        <member name="M:Dagger.FieldTypeDef.GetSourceMap">
+            <summary>The location of this field declaration.</summary>
+        </member>
+        <member name="M:Dagger.FieldTypeDef.GetTypeDef">
+            <summary>The type of the field.</summary>
+        </member>
+        <member name="T:Dagger.File">
+            <summary>A file.</summary>
+        </member>
+        <member name="M:Dagger.File.Id">
+            <summary>A unique identifier for this File.</summary>
+        </member>
+        <member name="M:Dagger.File.Contents">
+            <summary>Retrieves the contents of the file.</summary>
+        </member>
+        <member name="M:Dagger.File.Digest(System.Nullable{System.Boolean})">
+            <summary>Return the file's digest. The format of the digest is not guaranteed to be stable between releases of Dagger. It is guaranteed to be stable between invocations of the same Dagger engine.</summary>
+            <param name="ExcludeMetadata">If true, exclude metadata from the digest.</param>
+        </member>
+        <member name="M:Dagger.File.Export(System.String,System.Nullable{System.Boolean})">
+            <summary>Writes the file to a file path on the host.</summary>
+            <param name="Path">Location of the written directory (e.g., "output.txt").</param>
+            <param name="AllowParentDirPath">If allowParentDirPath is true, the path argument can be a directory path, in which case the file will be created in that directory.</param>
+        </member>
+        <member name="M:Dagger.File.Name">
+            <summary>Retrieves the name of the file.</summary>
+        </member>
+        <member name="M:Dagger.File.Size">
+            <summary>Retrieves the size of the file, in bytes.</summary>
+        </member>
+        <member name="M:Dagger.File.Sync">
+            <summary>Force evaluation in the engine.</summary>
+        </member>
+        <member name="M:Dagger.File.WithName(System.String)">
+            <summary>Retrieves this file with its name set to the given name.</summary>
+            <param name="Name">Name to set file to.</param>
+        </member>
+        <member name="M:Dagger.File.WithTimestamps(System.Int32)">
+            <summary>Retrieves this file with its created/modified timestamps set to the given time.</summary>
+            <param name="Timestamp"><para>Timestamp to set dir/files in.</para><para>Formatted in seconds following Unix epoch (e.g., 1672531199).</para></param>
+        </member>
+        <member name="T:Dagger.Function">
+            <summary><para>Function represents a resolver provided by a Module.</para><para>A function always evaluates against a parent object and is given a set of named arguments.</para></summary>
+        </member>
+        <member name="M:Dagger.Function.Id">
+            <summary>A unique identifier for this Function.</summary>
+        </member>
+        <member name="M:Dagger.Function.Args">
+            <summary>Arguments accepted by the function, if any.</summary>
+        </member>
+        <member name="M:Dagger.Function.Description">
+            <summary>A doc string for the function, if any.</summary>
+        </member>
+        <member name="M:Dagger.Function.Name">
+            <summary>The name of the function.</summary>
+        </member>
+        <member name="M:Dagger.Function.ReturnType">
+            <summary>The type returned by the function.</summary>
+        </member>
+        <member name="M:Dagger.Function.GetSourceMap">
+            <summary>The location of this function declaration.</summary>
+        </member>
+        <member name="M:Dagger.Function.WithArg(System.String,Dagger.TypeDef,System.String,Dagger.JSON,System.String,System.Collections.Generic.IEnumerable{System.String},Dagger.SourceMap)">
+            <summary>Returns the function with the provided argument</summary>
+            <param name="Name">The name of the argument</param>
+            <param name="TypeDef">The type of the argument</param>
+            <param name="Description">A doc string for the argument, if any</param>
+            <param name="DefaultValue">A default value to use for this argument if not explicitly set by the caller, if any</param>
+            <param name="DefaultPath">If the argument is a Directory or File type, default to load path from context directory, relative to root directory.</param>
+            <param name="Ignore">Patterns to ignore when loading the contextual argument value.</param>
+            <param name="SourceMap"></param>
+        </member>
+        <member name="M:Dagger.Function.WithDescription(System.String)">
+            <summary>Returns the function with the given doc string.</summary>
+            <param name="Description">The doc string to set.</param>
+        </member>
+        <member name="M:Dagger.Function.WithSourceMap(Dagger.SourceMap)">
+            <summary>Returns the function with the given source map.</summary>
+            <param name="SourceMap">The source map for the function definition.</param>
+        </member>
+        <member name="T:Dagger.FunctionArg">
+            <summary><para>An argument accepted by a function.</para><para>This is a specification for an argument at function definition time, not an argument passed at function call time.</para></summary>
+        </member>
+        <member name="M:Dagger.FunctionArg.Id">
+            <summary>A unique identifier for this FunctionArg.</summary>
+        </member>
+        <member name="M:Dagger.FunctionArg.DefaultPath">
+            <summary>Only applies to arguments of type File or Directory. If the argument is not set, load it from the given path in the context directory</summary>
+        </member>
+        <member name="M:Dagger.FunctionArg.DefaultValue">
+            <summary>A default value to use for this argument when not explicitly set by the caller, if any.</summary>
+        </member>
+        <member name="M:Dagger.FunctionArg.Description">
+            <summary>A doc string for the argument, if any.</summary>
+        </member>
+        <member name="M:Dagger.FunctionArg.Ignore">
+            <summary>Only applies to arguments of type Directory. The ignore patterns are applied to the input directory, and matching entries are filtered out, in a cache-efficient manner.</summary>
+        </member>
+        <member name="M:Dagger.FunctionArg.Name">
+            <summary>The name of the argument in lowerCamelCase format.</summary>
+        </member>
+        <member name="M:Dagger.FunctionArg.GetSourceMap">
+            <summary>The location of this arg declaration.</summary>
+        </member>
+        <member name="M:Dagger.FunctionArg.GetTypeDef">
+            <summary>The type of the argument.</summary>
+        </member>
+        <member name="T:Dagger.FunctionCall">
+            <summary>An active function call.</summary>
+        </member>
+        <member name="M:Dagger.FunctionCall.Id">
+            <summary>A unique identifier for this FunctionCall.</summary>
+        </member>
+        <member name="M:Dagger.FunctionCall.InputArgs">
+            <summary>The argument values the function is being invoked with.</summary>
+        </member>
+        <member name="M:Dagger.FunctionCall.Name">
+            <summary>The name of the function being called.</summary>
+        </member>
+        <member name="M:Dagger.FunctionCall.Parent">
+            <summary>The value of the parent object of the function being called. If the function is top-level to the module, this is always an empty object.</summary>
+        </member>
+        <member name="M:Dagger.FunctionCall.ParentName">
+            <summary>The name of the parent object of the function being called. If the function is top-level to the module, this is the name of the module.</summary>
+        </member>
+        <member name="M:Dagger.FunctionCall.ReturnError(Dagger.Error)">
+            <summary>Return an error from the function.</summary>
+            <param name="Error">The error to return.</param>
+        </member>
+        <member name="M:Dagger.FunctionCall.ReturnValue(Dagger.JSON)">
+            <summary>Set the return value of the function call to the provided value.</summary>
+            <param name="Value">JSON serialization of the return value.</param>
+        </member>
+        <member name="T:Dagger.FunctionCallArgValue">
+            <summary>A value passed as a named argument to a function call.</summary>
+        </member>
+        <member name="M:Dagger.FunctionCallArgValue.Id">
+            <summary>A unique identifier for this FunctionCallArgValue.</summary>
+        </member>
+        <member name="M:Dagger.FunctionCallArgValue.Name">
+            <summary>The name of the argument.</summary>
+        </member>
+        <member name="M:Dagger.FunctionCallArgValue.Value">
+            <summary>The value of the argument represented as a JSON serialized string.</summary>
+        </member>
+        <member name="T:Dagger.GeneratedCode">
+            <summary>The result of running an SDK's codegen.</summary>
+        </member>
+        <member name="M:Dagger.GeneratedCode.Id">
+            <summary>A unique identifier for this GeneratedCode.</summary>
+        </member>
+        <member name="M:Dagger.GeneratedCode.Code">
+            <summary>The directory containing the generated code.</summary>
+        </member>
+        <member name="M:Dagger.GeneratedCode.VcsGeneratedPaths">
+            <summary>List of paths to mark generated in version control (i.e. .gitattributes).</summary>
+        </member>
+        <member name="M:Dagger.GeneratedCode.VcsIgnoredPaths">
+            <summary>List of paths to ignore in version control (i.e. .gitignore).</summary>
+        </member>
+        <member name="M:Dagger.GeneratedCode.WithVCSGeneratedPaths(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>Set the list of paths to mark generated in version control.</summary>
+            <param name="Paths"></param>
+        </member>
+        <member name="M:Dagger.GeneratedCode.WithVCSIgnoredPaths(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>Set the list of paths to ignore in version control.</summary>
+            <param name="Paths"></param>
+        </member>
+        <member name="M:Dagger.Gha.Id">
+            <summary>A unique identifier for this Gha.</summary>
+        </member>
+        <member name="M:Dagger.Gha.Generate(Dagger.Directory,System.Nullable{System.Boolean},System.String)">
+            <summary></summary>
+            <param name="Directory"></param>
+            <param name="AsJson"></param>
+            <param name="FileExtension"></param>
+        </member>
+        <member name="M:Dagger.Gha.Job(System.String,System.String,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.String,System.Nullable{System.Boolean},System.Nullable{System.Int32},System.Nullable{System.Boolean},System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.Boolean},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.String,System.String,System.Nullable{System.Boolean})">
+            <summary></summary>
+            <param name="Name"></param>
+            <param name="Command"></param>
+            <param name="SetupCommands"> Additional commands to run before the main one. </param>
+            <param name="TeardownCommands"> Additional commands to run after the main one. </param>
+            <param name="PublicToken"> Public Dagger Cloud token, for open-source projects. DO NOT PASS YOUR PRIVATE DAGGER CLOUD TOKEN! This is for a special "public" token which can safely be shared publicly. To get one, contact support@dagger.io </param>
+            <param name="StopEngine"> Explicitly stop the dagger engine after completing the workflow. </param>
+            <param name="TimeoutMinutes"> The maximum number of minutes to run the workflow before killing the process </param>
+            <param name="Debug"> Run the workflow in debug mode </param>
+            <param name="SparseCheckout"> Use a sparse git checkout, only including the given paths Example: ["src", "tests", "Dockerfile"] </param>
+            <param name="Lfs"> Enable lfs on git checkout </param>
+            <param name="Secrets"> Github secrets to inject into the workflow environment. For each secret, an env variable with the same name is created. Example: ["PROD_DEPLOY_TOKEN", "PRIVATE_SSH_KEY"] </param>
+            <param name="Runner"> Dispatch jobs to the given runner Example: ["ubuntu-latest"] </param>
+            <param name="Module"> The Dagger module to load </param>
+            <param name="DaggerVersion"> Dagger version to run this workflow </param>
+            <param name="UploadLogs"> Redirect logs to an artifact </param>
+        </member>
+        <member name="M:Dagger.Gha.WithWorkflow(Dagger.GhaWorkflow)">
+            <summary></summary>
+            <param name="Workflow"></param>
+        </member>
+        <member name="M:Dagger.Gha.Workflow(System.String,System.String,System.Nullable{System.Boolean},System.Collections.Generic.IEnumerable{Dagger.GhaPermission},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String})">
+            <summary> Add a workflow </summary>
+            <param name="Name"> Workflow name </param>
+            <param name="PullRequestConcurrency"> Configure this workflow's concurrency for each PR. This is triggered when the workflow is scheduled concurrently on the same PR.   - allow: all instances are allowed to run concurrently   - queue: new instances are queued, and run sequentially   - preempt: new instances run immediately, older ones are canceled Possible values: "allow", "preempt", "queue" </param>
+            <param name="NoDispatch"> Disable manual "dispatch" of this workflow </param>
+            <param name="Permissions"> Permissions to grant the workflow </param>
+            <param name="OnIssueComment"> Run the workflow on any issue comment activity </param>
+            <param name="OnIssueCommentCreated"></param>
+            <param name="OnIssueCommentEdited"></param>
+            <param name="OnIssueCommentDeleted"></param>
+            <param name="OnPullRequest"> Run the workflow on any pull request activity </param>
+            <param name="OnPullRequestBranches"></param>
+            <param name="OnPullRequestPaths"></param>
+            <param name="OnPullRequestAssigned"></param>
+            <param name="OnPullRequestUnassigned"></param>
+            <param name="OnPullRequestLabeled"></param>
+            <param name="OnPullRequestUnlabeled"></param>
+            <param name="OnPullRequestOpened"></param>
+            <param name="OnPullRequestEdited"></param>
+            <param name="OnPullRequestClosed"></param>
+            <param name="OnPullRequestReopened"></param>
+            <param name="OnPullRequestSynchronize"></param>
+            <param name="OnPullRequestConvertedToDraft"></param>
+            <param name="OnPullRequestLocked"></param>
+            <param name="OnPullRequestUnlocked"></param>
+            <param name="OnPullRequestEnqueued"></param>
+            <param name="OnPullRequestDequeued"></param>
+            <param name="OnPullRequestMilestoned"></param>
+            <param name="OnPullRequestDemilestoned"></param>
+            <param name="OnPullRequestReadyForReview"></param>
+            <param name="OnPullRequestReviewRequested"></param>
+            <param name="OnPullRequestReviewRequestRemoved"></param>
+            <param name="OnPullRequestAutoMergeEnabled"></param>
+            <param name="OnPullRequestAutoMergeDisabled"></param>
+            <param name="OnPush"> Run the workflow on any git push </param>
+            <param name="OnPushTags"> Run the workflow on git push to the specified tags </param>
+            <param name="OnPushBranches"> Run the workflow on git push to the specified branches </param>
+            <param name="OnSchedule"> Run the workflow at a schedule time </param>
+        </member>
+        <member name="M:Dagger.Gha.Workflows">
+            <summary></summary>
+        </member>
+        <member name="M:Dagger.GhaJob.Id">
+            <summary>A unique identifier for this GhaJob.</summary>
+        </member>
+        <member name="M:Dagger.GhaJob.Command">
+            <summary></summary>
+        </member>
+        <member name="M:Dagger.GhaJob.DaggerVersion">
+            <summary>Dagger version to run this workflow</summary>
+        </member>
+        <member name="M:Dagger.GhaJob.IsDebug">
+            <summary>Run the workflow in debug mode</summary>
+        </member>
+        <member name="M:Dagger.GhaJob.IsLfs">
+            <summary>Enable lfs on git checkout</summary>
+        </member>
+        <member name="M:Dagger.GhaJob.Module">
+            <summary>The Dagger module to load</summary>
+        </member>
+        <member name="M:Dagger.GhaJob.Name">
+            <summary></summary>
+        </member>
+        <member name="M:Dagger.GhaJob.PublicToken">
+            <summary>Public Dagger Cloud token, for open-source projects. DO NOT PASS YOUR PRIVATE DAGGER CLOUD TOKEN! This is for a special "public" token which can safely be shared publicly. To get one, contact support@dagger.io</summary>
+        </member>
+        <member name="M:Dagger.GhaJob.Runner">
+            <summary>Dispatch jobs to the given runner Example: ["ubuntu-latest"]</summary>
+        </member>
+        <member name="M:Dagger.GhaJob.Secrets">
+            <summary>Github secrets to inject into the workflow environment. For each secret, an env variable with the same name is created. Example: ["PROD_DEPLOY_TOKEN", "PRIVATE_SSH_KEY"]</summary>
+        </member>
+        <member name="M:Dagger.GhaJob.SetupCommands">
+            <summary>Additional commands to run before the main one</summary>
+        </member>
+        <member name="M:Dagger.GhaJob.SparseCheckout">
+            <summary>Use a sparse git checkout, only including the given paths Example: ["src", "tests", "Dockerfile"]</summary>
+        </member>
+        <member name="M:Dagger.GhaJob.IsStopEngine">
+            <summary>Explicitly stop the dagger engine after completing the workflow.</summary>
+        </member>
+        <member name="M:Dagger.GhaJob.TeardownCommands">
+            <summary>Additional commands to run after the main one</summary>
+        </member>
+        <member name="M:Dagger.GhaJob.TimeoutMinutes">
+            <summary>The maximum number of minutes to run the workflow before killing the process</summary>
+        </member>
+        <member name="M:Dagger.GhaJob.IsUploadLogs">
+            <summary>Redirect logs to an artifact</summary>
+        </member>
+        <member name="M:Dagger.GhaWorkflow.Id">
+            <summary>A unique identifier for this GhaWorkflow.</summary>
+        </member>
+        <member name="M:Dagger.GhaWorkflow.Check(Dagger.Directory)">
+            <summary> Check that the workflow is valid, in a best effort way </summary>
+            <param name="Repo"></param>
+        </member>
+        <member name="M:Dagger.GhaWorkflow.Jobs">
+            <summary></summary>
+        </member>
+        <member name="M:Dagger.GhaWorkflow.Name">
+            <summary></summary>
+        </member>
+        <member name="M:Dagger.GhaWorkflow.WithJob(Dagger.GhaJob)">
+            <summary></summary>
+            <param name="Job"></param>
+        </member>
+        <member name="T:Dagger.GitModuleSource">
+            <summary>Module source originating from a git repo.</summary>
+        </member>
+        <member name="M:Dagger.GitModuleSource.Id">
+            <summary>A unique identifier for this GitModuleSource.</summary>
+        </member>
+        <member name="M:Dagger.GitModuleSource.CloneRef">
+            <summary>The ref to clone the root of the git repo from</summary>
+        </member>
+        <member name="M:Dagger.GitModuleSource.Commit">
+            <summary>The resolved commit of the git repo this source points to.</summary>
+        </member>
+        <member name="M:Dagger.GitModuleSource.ContextDirectory">
+            <summary>The directory containing everything needed to load load and use the module.</summary>
+        </member>
+        <member name="M:Dagger.GitModuleSource.HtmlRepoURL">
+            <summary>The URL to access the web view of the repository (e.g., GitHub, GitLab, Bitbucket)</summary>
+        </member>
+        <member name="M:Dagger.GitModuleSource.HtmlURL">
+            <summary>The URL to the source's git repo in a web browser</summary>
+        </member>
+        <member name="M:Dagger.GitModuleSource.Root">
+            <summary>The clean module name of the root of the module</summary>
+        </member>
+        <member name="M:Dagger.GitModuleSource.RootSubpath">
+            <summary>The path to the root of the module source under the context directory. This directory contains its configuration file. It also contains its source code (possibly as a subdirectory).</summary>
+        </member>
+        <member name="M:Dagger.GitModuleSource.Version">
+            <summary>The specified version of the git repo this source points to.</summary>
+        </member>
+        <member name="T:Dagger.GitRef">
+            <summary>A git ref (tag, branch, or commit).</summary>
+        </member>
+        <member name="M:Dagger.GitRef.Id">
+            <summary>A unique identifier for this GitRef.</summary>
+        </member>
+        <member name="M:Dagger.GitRef.Commit">
+            <summary>The resolved commit id at this ref.</summary>
+        </member>
+        <member name="M:Dagger.GitRef.Tree(System.Nullable{System.Boolean})">
+            <summary>The filesystem tree at this ref.</summary>
+            <param name="DiscardGitDir">Set to true to discard .git directory.</param>
+        </member>
+        <member name="T:Dagger.GitRepository">
+            <summary>A git repository.</summary>
+        </member>
+        <member name="M:Dagger.GitRepository.Id">
+            <summary>A unique identifier for this GitRepository.</summary>
+        </member>
+        <member name="M:Dagger.GitRepository.Branch(System.String)">
+            <summary>Returns details of a branch.</summary>
+            <param name="Name">Branch's name (e.g., "main").</param>
+        </member>
+        <member name="M:Dagger.GitRepository.Commit(System.String)">
+            <summary>Returns details of a commit.</summary>
+            <param name="Id">Identifier of the commit (e.g., "b6315d8f2810962c601af73f86831f6866ea798b").</param>
+        </member>
+        <member name="M:Dagger.GitRepository.Head">
+            <summary>Returns details for HEAD.</summary>
+        </member>
+        <member name="M:Dagger.GitRepository.Ref(System.String)">
+            <summary>Returns details of a ref.</summary>
+            <param name="Name">Ref's name (can be a commit identifier, a tag name, a branch name, or a fully-qualified ref).</param>
+        </member>
+        <member name="M:Dagger.GitRepository.Tag(System.String)">
+            <summary>Returns details of a tag.</summary>
+            <param name="Name">Tag's name (e.g., "v0.3.9").</param>
+        </member>
+        <member name="M:Dagger.GitRepository.Tags(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>tags that match any of the given glob patterns.</summary>
+            <param name="Patterns">Glob patterns (e.g., "refs/tags/v*").</param>
+        </member>
+        <member name="M:Dagger.GitRepository.WithAuthHeader(Dagger.Secret)">
+            <summary>Header to authenticate the remote with.</summary>
+            <param name="Header">Secret used to populate the Authorization HTTP header</param>
+        </member>
+        <member name="M:Dagger.GitRepository.WithAuthToken(Dagger.Secret)">
+            <summary>Token to authenticate the remote with.</summary>
+            <param name="Token">Secret used to populate the password during basic HTTP Authorization</param>
+        </member>
+        <member name="T:Dagger.InputTypeDef">
+            <summary>A graphql input type, which is essentially just a group of named args. This is currently only used to represent pre-existing usage of graphql input types in the core API. It is not used by user modules and shouldn't ever be as user module accept input objects via their id rather than graphql input types.</summary>
+        </member>
+        <member name="M:Dagger.InputTypeDef.Id">
+            <summary>A unique identifier for this InputTypeDef.</summary>
+        </member>
+        <member name="M:Dagger.InputTypeDef.Fields">
+            <summary>Static fields defined on this input object, if any.</summary>
+        </member>
+        <member name="M:Dagger.InputTypeDef.Name">
+            <summary>The name of the input object.</summary>
+        </member>
+        <member name="T:Dagger.InterfaceTypeDef">
+            <summary>A definition of a custom interface defined in a Module.</summary>
+        </member>
+        <member name="M:Dagger.InterfaceTypeDef.Id">
+            <summary>A unique identifier for this InterfaceTypeDef.</summary>
+        </member>
+        <member name="M:Dagger.InterfaceTypeDef.Description">
+            <summary>The doc string for the interface, if any.</summary>
+        </member>
+        <member name="M:Dagger.InterfaceTypeDef.Functions">
+            <summary>Functions defined on this interface, if any.</summary>
+        </member>
+        <member name="M:Dagger.InterfaceTypeDef.Name">
+            <summary>The name of the interface.</summary>
+        </member>
+        <member name="M:Dagger.InterfaceTypeDef.GetSourceMap">
+            <summary>The location of this interface declaration.</summary>
+        </member>
+        <member name="M:Dagger.InterfaceTypeDef.SourceModuleName">
+            <summary>If this InterfaceTypeDef is associated with a Module, the name of the module. Unset otherwise.</summary>
+        </member>
+        <member name="T:Dagger.Label">
+            <summary>A simple key value object that represents a label.</summary>
+        </member>
+        <member name="M:Dagger.Label.Id">
+            <summary>A unique identifier for this Label.</summary>
+        </member>
+        <member name="M:Dagger.Label.Name">
+            <summary>The label name.</summary>
+        </member>
+        <member name="M:Dagger.Label.Value">
+            <summary>The label value.</summary>
+        </member>
+        <member name="T:Dagger.ListTypeDef">
+            <summary>A definition of a list type in a Module.</summary>
+        </member>
+        <member name="M:Dagger.ListTypeDef.Id">
+            <summary>A unique identifier for this ListTypeDef.</summary>
+        </member>
+        <member name="M:Dagger.ListTypeDef.ElementTypeDef">
+            <summary>The type of the elements in the list.</summary>
+        </member>
+        <member name="T:Dagger.LocalModuleSource">
+            <summary>Module source that that originates from a path locally relative to an arbitrary directory.</summary>
+        </member>
+        <member name="M:Dagger.LocalModuleSource.Id">
+            <summary>A unique identifier for this LocalModuleSource.</summary>
+        </member>
+        <member name="M:Dagger.LocalModuleSource.ContextDirectory">
+            <summary>The directory containing everything needed to load load and use the module.</summary>
+        </member>
+        <member name="M:Dagger.LocalModuleSource.RelHostPath">
+            <summary>The relative path to the module root from the host directory</summary>
+        </member>
+        <member name="M:Dagger.LocalModuleSource.RootSubpath">
+            <summary>The path to the root of the module source under the context directory. This directory contains its configuration file. It also contains its source code (possibly as a subdirectory).</summary>
+        </member>
+        <member name="T:Dagger.Module">
+            <summary>A Dagger module.</summary>
+        </member>
+        <member name="M:Dagger.Module.Id">
+            <summary>A unique identifier for this Module.</summary>
+        </member>
+        <member name="M:Dagger.Module.Dependencies">
+            <summary>Modules used by this module.</summary>
+        </member>
+        <member name="M:Dagger.Module.DependencyConfig">
+            <summary>The dependencies as configured by the module.</summary>
+        </member>
+        <member name="M:Dagger.Module.Description">
+            <summary>The doc string of the module, if any</summary>
+        </member>
+        <member name="M:Dagger.Module.Enums">
+            <summary>Enumerations served by this module.</summary>
+        </member>
+        <member name="M:Dagger.Module.GeneratedContextDiff">
+            <summary>The generated files and directories made on top of the module source's context directory.</summary>
+        </member>
+        <member name="M:Dagger.Module.GeneratedContextDirectory">
+            <summary>The module source's context plus any configuration and source files created by codegen.</summary>
+        </member>
+        <member name="M:Dagger.Module.Initialize">
+            <summary>Retrieves the module with the objects loaded via its SDK.</summary>
+        </member>
+        <member name="M:Dagger.Module.Interfaces">
+            <summary>Interfaces served by this module.</summary>
+        </member>
+        <member name="M:Dagger.Module.Name">
+            <summary>The name of the module</summary>
+        </member>
+        <member name="M:Dagger.Module.Objects">
+            <summary>Objects served by this module.</summary>
+        </member>
+        <member name="M:Dagger.Module.Runtime">
+            <summary>The container that runs the module's entrypoint. It will fail to execute if the module doesn't compile.</summary>
+        </member>
+        <member name="M:Dagger.Module.Sdk">
+            <summary>The SDK used by this module. Either a name of a builtin SDK or a module source ref string pointing to the SDK's implementation.</summary>
+        </member>
+        <member name="M:Dagger.Module.Serve">
+            <summary><para>Serve a module's API in the current session.</para><para>Note: this can only be called once per session. In the future, it could return a stream or service to remove the side effect.</para></summary>
+        </member>
+        <member name="M:Dagger.Module.Source">
+            <summary>The source for the module.</summary>
+        </member>
+        <member name="M:Dagger.Module.WithDescription(System.String)">
+            <summary>Retrieves the module with the given description</summary>
+            <param name="Description">The description to set</param>
+        </member>
+        <member name="M:Dagger.Module.WithEnum(Dagger.TypeDef)">
+            <summary>This module plus the given Enum type and associated values</summary>
+            <param name="Enum"></param>
+        </member>
+        <member name="M:Dagger.Module.WithInterface(Dagger.TypeDef)">
+            <summary>This module plus the given Interface type and associated functions</summary>
+            <param name="Iface"></param>
+        </member>
+        <member name="M:Dagger.Module.WithObject(Dagger.TypeDef)">
+            <summary>This module plus the given Object type and associated functions.</summary>
+            <param name="Object"></param>
+        </member>
+        <member name="M:Dagger.Module.WithSource(Dagger.ModuleSource,System.String)">
+            <summary>Retrieves the module with basic configuration loaded if present.</summary>
+            <param name="Source">The module source to initialize from.</param>
+            <param name="EngineVersion">The engine version to upgrade to.</param>
+        </member>
+        <member name="T:Dagger.ModuleDependency">
+            <summary>The configuration of dependency of a module.</summary>
+        </member>
+        <member name="M:Dagger.ModuleDependency.Id">
+            <summary>A unique identifier for this ModuleDependency.</summary>
+        </member>
+        <member name="M:Dagger.ModuleDependency.Name">
+            <summary>The name of the dependency module.</summary>
+        </member>
+        <member name="M:Dagger.ModuleDependency.Source">
+            <summary>The source for the dependency module.</summary>
+        </member>
+        <member name="T:Dagger.ModuleSource">
+            <summary>The source needed to load and run a module, along with any metadata about the source such as versions/urls/etc.</summary>
+        </member>
+        <member name="M:Dagger.ModuleSource.Id">
+            <summary>A unique identifier for this ModuleSource.</summary>
+        </member>
+        <member name="M:Dagger.ModuleSource.AsGitSource">
+            <summary>If the source is a of kind git, the git source representation of it.</summary>
+        </member>
+        <member name="M:Dagger.ModuleSource.AsLocalSource">
+            <summary>If the source is of kind local, the local source representation of it.</summary>
+        </member>
+        <member name="M:Dagger.ModuleSource.AsModule(System.String)">
+            <summary>Load the source as a module. If this is a local source, the parent directory must have been provided during module source creation</summary>
+            <param name="EngineVersion">The engine version to upgrade to.</param>
+        </member>
+        <member name="M:Dagger.ModuleSource.AsString">
+            <summary>A human readable ref string representation of this module source.</summary>
+        </member>
+        <member name="M:Dagger.ModuleSource.IsConfigExists">
+            <summary>Returns whether the module source has a configuration file.</summary>
+        </member>
+        <member name="M:Dagger.ModuleSource.ContextDirectory">
+            <summary>The directory containing everything needed to load and use the module.</summary>
+        </member>
+        <member name="M:Dagger.ModuleSource.Dependencies">
+            <summary>The effective module source dependencies from the configuration, and calls to withDependencies and withoutDependencies.</summary>
+        </member>
+        <member name="M:Dagger.ModuleSource.Digest">
+            <summary>Return the module source's content digest. The format of the digest is not guaranteed to be stable between releases of Dagger. It is guaranteed to be stable between invocations of the same Dagger engine.</summary>
+        </member>
+        <member name="M:Dagger.ModuleSource.Directory(System.String)">
+            <summary>The directory containing the module configuration and source code (source code may be in a subdir).</summary>
+            <param name="Path">The path from the source directory to select.</param>
+        </member>
+        <member name="M:Dagger.ModuleSource.Kind">
+            <summary>The kind of source (e.g. local, git, etc.)</summary>
+        </member>
+        <member name="M:Dagger.ModuleSource.ModuleName">
+            <summary>If set, the name of the module this source references, including any overrides at runtime by callers.</summary>
+        </member>
+        <member name="M:Dagger.ModuleSource.ModuleOriginalName">
+            <summary>The original name of the module this source references, as defined in the module configuration.</summary>
+        </member>
+        <member name="M:Dagger.ModuleSource.Pin">
+            <summary>The pinned version of this module source.</summary>
+        </member>
+        <member name="M:Dagger.ModuleSource.ResolveContextPathFromCaller">
+            <summary>The path to the module source's context directory on the caller's filesystem. Only valid for local sources.</summary>
+        </member>
+        <member name="M:Dagger.ModuleSource.ResolveDependency(Dagger.ModuleSource)">
+            <summary>Resolve the provided module source arg as a dependency relative to this module source.</summary>
+            <param name="Dep">The dependency module source to resolve.</param>
+        </member>
+        <member name="M:Dagger.ModuleSource.ResolveDirectoryFromCaller(System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>Load a directory from the caller optionally with a given view applied.</summary>
+            <param name="Path">The path on the caller's filesystem to load.</param>
+            <param name="ViewName">If set, the name of the view to apply to the path.</param>
+            <param name="Ignore">Patterns to ignore when loading the directory.</param>
+        </member>
+        <member name="M:Dagger.ModuleSource.ResolveFromCaller">
+            <summary>Load the source from its path on the caller's filesystem, including only needed+configured files and directories. Only valid for local sources.</summary>
+        </member>
+        <member name="M:Dagger.ModuleSource.SourceRootSubpath">
+            <summary>The path relative to context of the root of the module source, which contains dagger.json. It also contains the module implementation source code, but that may or may not being a subdir of this root.</summary>
+        </member>
+        <member name="M:Dagger.ModuleSource.SourceSubpath">
+            <summary>The path relative to context of the module implementation source code.</summary>
+        </member>
+        <member name="M:Dagger.ModuleSource.View(System.String)">
+            <summary>Retrieve a named view defined for this module source.</summary>
+            <param name="Name">The name of the view to retrieve.</param>
+        </member>
+        <member name="M:Dagger.ModuleSource.Views">
+            <summary>The named views defined for this module source, which are sets of directory filters that can be applied to directory arguments provided to functions.</summary>
+        </member>
+        <member name="M:Dagger.ModuleSource.WithContextDirectory(Dagger.Directory)">
+            <summary>Update the module source with a new context directory. Only valid for local sources.</summary>
+            <param name="Dir">The directory to set as the context directory.</param>
+        </member>
+        <member name="M:Dagger.ModuleSource.WithDependencies(System.Collections.Generic.IEnumerable{Dagger.ModuleDependency})">
+            <summary>Append the provided dependencies to the module source's dependency list.</summary>
+            <param name="Dependencies">The dependencies to append.</param>
+        </member>
+        <member name="M:Dagger.ModuleSource.WithInit(System.Nullable{System.Boolean})">
+            <summary>Sets module init arguments</summary>
+            <param name="Merge">Merge module dependencies into the current project's</param>
+        </member>
+        <member name="M:Dagger.ModuleSource.WithName(System.String)">
+            <summary>Update the module source with a new name.</summary>
+            <param name="Name">The name to set.</param>
+        </member>
+        <member name="M:Dagger.ModuleSource.WithSDK(System.String)">
+            <summary>Update the module source with a new SDK.</summary>
+            <param name="Sdk">The SDK to set.</param>
+        </member>
+        <member name="M:Dagger.ModuleSource.WithSourceSubpath(System.String)">
+            <summary>Update the module source with a new source subpath.</summary>
+            <param name="Path">The path to set as the source subpath.</param>
+        </member>
+        <member name="M:Dagger.ModuleSource.WithUpdateDependencies(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>Update one or more module dependencies.</summary>
+            <param name="Dependencies">The dependencies to update.</param>
+        </member>
+        <member name="M:Dagger.ModuleSource.WithView(System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>Update the module source with a new named view.</summary>
+            <param name="Name">The name of the view to set.</param>
+            <param name="Patterns">The patterns to set as the view filters.</param>
+        </member>
+        <member name="M:Dagger.ModuleSource.WithoutDependencies(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>Remove the provided dependencies from the module source's dependency list.</summary>
+            <param name="Dependencies">The dependencies to remove.</param>
+        </member>
+        <member name="T:Dagger.ModuleSourceView">
+            <summary>A named set of path filters that can be applied to directory arguments provided to functions.</summary>
+        </member>
+        <member name="M:Dagger.ModuleSourceView.Id">
+            <summary>A unique identifier for this ModuleSourceView.</summary>
+        </member>
+        <member name="M:Dagger.ModuleSourceView.Name">
+            <summary>The name of the view</summary>
+        </member>
+        <member name="M:Dagger.ModuleSourceView.Patterns">
+            <summary>The patterns of the view used to filter paths</summary>
+        </member>
+        <member name="T:Dagger.ObjectTypeDef">
+            <summary>A definition of a custom object defined in a Module.</summary>
+        </member>
+        <member name="M:Dagger.ObjectTypeDef.Id">
+            <summary>A unique identifier for this ObjectTypeDef.</summary>
+        </member>
+        <member name="M:Dagger.ObjectTypeDef.Constructor">
+            <summary>The function used to construct new instances of this object, if any</summary>
+        </member>
+        <member name="M:Dagger.ObjectTypeDef.Description">
+            <summary>The doc string for the object, if any.</summary>
+        </member>
+        <member name="M:Dagger.ObjectTypeDef.Fields">
+            <summary>Static fields defined on this object, if any.</summary>
+        </member>
+        <member name="M:Dagger.ObjectTypeDef.Functions">
+            <summary>Functions defined on this object, if any.</summary>
+        </member>
+        <member name="M:Dagger.ObjectTypeDef.Name">
+            <summary>The name of the object.</summary>
+        </member>
+        <member name="M:Dagger.ObjectTypeDef.GetSourceMap">
+            <summary>The location of this object declaration.</summary>
+        </member>
+        <member name="M:Dagger.ObjectTypeDef.SourceModuleName">
+            <summary>If this ObjectTypeDef is associated with a Module, the name of the module. Unset otherwise.</summary>
+        </member>
+        <member name="T:Dagger.Port">
+            <summary>A port exposed by a container.</summary>
+        </member>
+        <member name="M:Dagger.Port.Id">
+            <summary>A unique identifier for this Port.</summary>
+        </member>
+        <member name="M:Dagger.Port.Description">
+            <summary>The port description.</summary>
+        </member>
+        <member name="M:Dagger.Port.IsExperimentalSkipHealthcheck">
+            <summary>Skip the health check when run as a service.</summary>
+        </member>
+        <member name="M:Dagger.Port.SubPort">
+            <summary>The port number.</summary>
+        </member>
+        <member name="M:Dagger.Port.Protocol">
+            <summary>The transport layer protocol.</summary>
+        </member>
+        <member name="T:Dagger.Query">
+            <summary>The root of the DAG.</summary>
+        </member>
+        <member name="M:Dagger.Query.BuiltinContainer(System.String)">
+            <summary>Retrieves a container builtin to the engine.</summary>
+            <param name="Digest">Digest of the image manifest</param>
+        </member>
+        <member name="M:Dagger.Query.CacheVolume(System.String,System.String)">
+            <summary>Constructs a cache volume for a given cache key.</summary>
+            <param name="Key">A string identifier to target this cache volume (e.g., "modules-cache").</param>
+            <param name="Namespace"></param>
+        </member>
+        <member name="M:Dagger.Query.Container(Dagger.Platform)">
+            <summary><para>Creates a scratch container.</para><para>Optional platform argument initializes new containers to execute and publish as that platform. Platform defaults to that of the builder's host.</para></summary>
+            <param name="Platform">Platform to initialize the container with.</param>
+        </member>
+        <member name="M:Dagger.Query.CurrentFunctionCall">
+            <summary><para>The FunctionCall context that the SDK caller is currently executing in.</para><para>If the caller is not currently executing in a function, this will return an error.</para></summary>
+        </member>
+        <member name="M:Dagger.Query.GetCurrentModule">
+            <summary>The module currently being served in the session, if any.</summary>
+        </member>
+        <member name="M:Dagger.Query.CurrentTypeDefs">
+            <summary>The TypeDef representations of the objects currently being served in the session.</summary>
+        </member>
+        <member name="M:Dagger.Query.DefaultPlatform">
+            <summary>The default platform of the engine.</summary>
+        </member>
+        <member name="M:Dagger.Query.GetDirectory">
+            <summary>Creates an empty directory.</summary>
+        </member>
+        <member name="M:Dagger.Query.Error(System.String)">
+            <summary>Create a new error.</summary>
+            <param name="Message">A brief description of the error.</param>
+        </member>
+        <member name="M:Dagger.Query.Function(System.String,Dagger.TypeDef)">
+            <summary>Creates a function.</summary>
+            <param name="Name">Name of the function, in its original format from the implementation language.</param>
+            <param name="ReturnType">Return type of the function.</param>
+        </member>
+        <member name="M:Dagger.Query.GeneratedCode(Dagger.Directory)">
+            <summary>Create a code generation result, given a directory containing the generated code.</summary>
+            <param name="Code"></param>
+        </member>
+        <member name="M:Dagger.Query.Gha(Dagger.GhaJob,Dagger.GhaWorkflow)">
+            <summary></summary>
+            <param name="JobDefaults"></param>
+            <param name="WorkflowDefaults"></param>
+        </member>
+        <member name="M:Dagger.Query.Git(System.String,System.Nullable{System.Boolean},Dagger.Service,System.String,Dagger.Socket)">
+            <summary>Queries a Git repository.</summary>
+            <param name="Url"><para>URL of the git repository.</para><para>Can be formatted as `https://{host}/{owner}/{repo}`, `git@{host}:{owner}/{repo}`.</para><para>Suffix ".git" is optional.</para></param>
+            <param name="KeepGitDir">DEPRECATED: Set to true to keep .git directory.</param>
+            <param name="ExperimentalServiceHost">A service which must be started before the repo is fetched.</param>
+            <param name="SshKnownHosts">Set SSH known hosts</param>
+            <param name="SshAuthSocket">Set SSH auth socket</param>
+        </member>
+        <member name="M:Dagger.Query.Http(System.String,Dagger.Service)">
+            <summary>Returns a file containing an http remote url content.</summary>
+            <param name="Url">HTTP url to get the content from (e.g., "https://docs.dagger.io").</param>
+            <param name="ExperimentalServiceHost">A service which must be started before the URL is fetched.</param>
+        </member>
+        <member name="M:Dagger.Query.LoadCacheVolumeFromID(Dagger.CacheVolumeID)">
+            <summary>Load a CacheVolume from its ID.</summary>
+            <param name="Id"></param>
+        </member>
+        <member name="M:Dagger.Query.LoadContainerFromID(Dagger.ContainerID)">
+            <summary>Load a Container from its ID.</summary>
+            <param name="Id"></param>
+        </member>
+        <member name="M:Dagger.Query.LoadCurrentModuleFromID(Dagger.CurrentModuleID)">
+            <summary>Load a CurrentModule from its ID.</summary>
+            <param name="Id"></param>
+        </member>
+        <member name="M:Dagger.Query.LoadDirectoryFromID(Dagger.DirectoryID)">
+            <summary>Load a Directory from its ID.</summary>
+            <param name="Id"></param>
+        </member>
+        <member name="M:Dagger.Query.LoadEnumTypeDefFromID(Dagger.EnumTypeDefID)">
+            <summary>Load a EnumTypeDef from its ID.</summary>
+            <param name="Id"></param>
+        </member>
+        <member name="M:Dagger.Query.LoadEnumValueTypeDefFromID(Dagger.EnumValueTypeDefID)">
+            <summary>Load a EnumValueTypeDef from its ID.</summary>
+            <param name="Id"></param>
+        </member>
+        <member name="M:Dagger.Query.LoadEnvVariableFromID(Dagger.EnvVariableID)">
+            <summary>Load a EnvVariable from its ID.</summary>
+            <param name="Id"></param>
+        </member>
+        <member name="M:Dagger.Query.LoadErrorFromID(Dagger.ErrorID)">
+            <summary>Load a Error from its ID.</summary>
+            <param name="Id"></param>
+        </member>
+        <member name="M:Dagger.Query.LoadFieldTypeDefFromID(Dagger.FieldTypeDefID)">
+            <summary>Load a FieldTypeDef from its ID.</summary>
+            <param name="Id"></param>
+        </member>
+        <member name="M:Dagger.Query.LoadFileFromID(Dagger.FileID)">
+            <summary>Load a File from its ID.</summary>
+            <param name="Id"></param>
+        </member>
+        <member name="M:Dagger.Query.LoadFunctionArgFromID(Dagger.FunctionArgID)">
+            <summary>Load a FunctionArg from its ID.</summary>
+            <param name="Id"></param>
+        </member>
+        <member name="M:Dagger.Query.LoadFunctionCallArgValueFromID(Dagger.FunctionCallArgValueID)">
+            <summary>Load a FunctionCallArgValue from its ID.</summary>
+            <param name="Id"></param>
+        </member>
+        <member name="M:Dagger.Query.LoadFunctionCallFromID(Dagger.FunctionCallID)">
+            <summary>Load a FunctionCall from its ID.</summary>
+            <param name="Id"></param>
+        </member>
+        <member name="M:Dagger.Query.LoadFunctionFromID(Dagger.FunctionID)">
+            <summary>Load a Function from its ID.</summary>
+            <param name="Id"></param>
+        </member>
+        <member name="M:Dagger.Query.LoadGeneratedCodeFromID(Dagger.GeneratedCodeID)">
+            <summary>Load a GeneratedCode from its ID.</summary>
+            <param name="Id"></param>
+        </member>
+        <member name="M:Dagger.Query.LoadGhaFromID(Dagger.GhaID)">
+            <summary>Load a Gha from its ID.</summary>
+            <param name="Id"></param>
+        </member>
+        <member name="M:Dagger.Query.LoadGhaJobFromID(Dagger.GhaJobID)">
+            <summary>Load a GhaJob from its ID.</summary>
+            <param name="Id"></param>
+        </member>
+        <member name="M:Dagger.Query.LoadGhaWorkflowFromID(Dagger.GhaWorkflowID)">
+            <summary>Load a GhaWorkflow from its ID.</summary>
+            <param name="Id"></param>
+        </member>
+        <member name="M:Dagger.Query.LoadGitModuleSourceFromID(Dagger.GitModuleSourceID)">
+            <summary>Load a GitModuleSource from its ID.</summary>
+            <param name="Id"></param>
+        </member>
+        <member name="M:Dagger.Query.LoadGitRefFromID(Dagger.GitRefID)">
+            <summary>Load a GitRef from its ID.</summary>
+            <param name="Id"></param>
+        </member>
+        <member name="M:Dagger.Query.LoadGitRepositoryFromID(Dagger.GitRepositoryID)">
+            <summary>Load a GitRepository from its ID.</summary>
+            <param name="Id"></param>
+        </member>
+        <member name="M:Dagger.Query.LoadInputTypeDefFromID(Dagger.InputTypeDefID)">
+            <summary>Load a InputTypeDef from its ID.</summary>
+            <param name="Id"></param>
+        </member>
+        <member name="M:Dagger.Query.LoadInterfaceTypeDefFromID(Dagger.InterfaceTypeDefID)">
+            <summary>Load a InterfaceTypeDef from its ID.</summary>
+            <param name="Id"></param>
+        </member>
+        <member name="M:Dagger.Query.LoadLabelFromID(Dagger.LabelID)">
+            <summary>Load a Label from its ID.</summary>
+            <param name="Id"></param>
+        </member>
+        <member name="M:Dagger.Query.LoadListTypeDefFromID(Dagger.ListTypeDefID)">
+            <summary>Load a ListTypeDef from its ID.</summary>
+            <param name="Id"></param>
+        </member>
+        <member name="M:Dagger.Query.LoadLocalModuleSourceFromID(Dagger.LocalModuleSourceID)">
+            <summary>Load a LocalModuleSource from its ID.</summary>
+            <param name="Id"></param>
+        </member>
+        <member name="M:Dagger.Query.LoadModuleDependencyFromID(Dagger.ModuleDependencyID)">
+            <summary>Load a ModuleDependency from its ID.</summary>
+            <param name="Id"></param>
+        </member>
+        <member name="M:Dagger.Query.LoadModuleFromID(Dagger.ModuleID)">
+            <summary>Load a Module from its ID.</summary>
+            <param name="Id"></param>
+        </member>
+        <member name="M:Dagger.Query.LoadModuleSourceFromID(Dagger.ModuleSourceID)">
+            <summary>Load a ModuleSource from its ID.</summary>
+            <param name="Id"></param>
+        </member>
+        <member name="M:Dagger.Query.LoadModuleSourceViewFromID(Dagger.ModuleSourceViewID)">
+            <summary>Load a ModuleSourceView from its ID.</summary>
+            <param name="Id"></param>
+        </member>
+        <member name="M:Dagger.Query.LoadObjectTypeDefFromID(Dagger.ObjectTypeDefID)">
+            <summary>Load a ObjectTypeDef from its ID.</summary>
+            <param name="Id"></param>
+        </member>
+        <member name="M:Dagger.Query.LoadPortFromID(Dagger.PortID)">
+            <summary>Load a Port from its ID.</summary>
+            <param name="Id"></param>
+        </member>
+        <member name="M:Dagger.Query.LoadScalarTypeDefFromID(Dagger.ScalarTypeDefID)">
+            <summary>Load a ScalarTypeDef from its ID.</summary>
+            <param name="Id"></param>
+        </member>
+        <member name="M:Dagger.Query.LoadSecretFromID(Dagger.SecretID)">
+            <summary>Load a Secret from its ID.</summary>
+            <param name="Id"></param>
+        </member>
+        <member name="M:Dagger.Query.LoadServiceFromID(Dagger.ServiceID)">
+            <summary>Load a Service from its ID.</summary>
+            <param name="Id"></param>
+        </member>
+        <member name="M:Dagger.Query.LoadSocketFromID(Dagger.SocketID)">
+            <summary>Load a Socket from its ID.</summary>
+            <param name="Id"></param>
+        </member>
+        <member name="M:Dagger.Query.LoadSourceMapFromID(Dagger.SourceMapID)">
+            <summary>Load a SourceMap from its ID.</summary>
+            <param name="Id"></param>
+        </member>
+        <member name="M:Dagger.Query.LoadTerminalFromID(Dagger.TerminalID)">
+            <summary>Load a Terminal from its ID.</summary>
+            <param name="Id"></param>
+        </member>
+        <member name="M:Dagger.Query.LoadTypeDefFromID(Dagger.TypeDefID)">
+            <summary>Load a TypeDef from its ID.</summary>
+            <param name="Id"></param>
+        </member>
+        <member name="M:Dagger.Query.GetModule">
+            <summary>Create a new module.</summary>
+        </member>
+        <member name="M:Dagger.Query.ModuleDependency(Dagger.ModuleSource,System.String)">
+            <summary>Create a new module dependency configuration from a module source and name</summary>
+            <param name="Source">The source of the dependency</param>
+            <param name="Name">If set, the name to use for the dependency. Otherwise, once installed to a parent module, the name of the dependency module will be used by default.</param>
+        </member>
+        <member name="M:Dagger.Query.ModuleSource(System.String,System.String,System.Nullable{System.Boolean},System.String)">
+            <summary>Create a new module source instance from a source ref string.</summary>
+            <param name="RefString">The string ref representation of the module source</param>
+            <param name="RefPin">The pinned version of the module source</param>
+            <param name="Stable">If true, enforce that the source is a stable version for source kinds that support versioning.</param>
+            <param name="RelHostPath">The relative path to the module root from the host directory</param>
+        </member>
+        <member name="M:Dagger.Query.Secret(System.String,System.String)">
+            <summary>Reference a secret by name.</summary>
+            <param name="Name"></param>
+            <param name="Accessor"></param>
+        </member>
+        <member name="M:Dagger.Query.SetSecret(System.String,System.String)">
+            <summary><para>Sets a secret given a user defined name to its plaintext and returns the secret.</para><para>The plaintext value is limited to a size of 128000 bytes.</para></summary>
+            <param name="Name">The user defined name for this secret</param>
+            <param name="Plaintext">The plaintext of the secret</param>
+        </member>
+        <member name="M:Dagger.Query.SourceMap(System.String,System.Int32,System.Int32)">
+            <summary>Creates source map metadata.</summary>
+            <param name="Filename">The filename from the module source.</param>
+            <param name="Line">The line number within the filename.</param>
+            <param name="Column">The column number within the line.</param>
+        </member>
+        <member name="M:Dagger.Query.GetTypeDef">
+            <summary>Create a new TypeDef.</summary>
+        </member>
+        <member name="M:Dagger.Query.Version">
+            <summary>Get the current Dagger Engine version.</summary>
+        </member>
+        <member name="T:Dagger.ScalarTypeDef">
+            <summary>A definition of a custom scalar defined in a Module.</summary>
+        </member>
+        <member name="M:Dagger.ScalarTypeDef.Id">
+            <summary>A unique identifier for this ScalarTypeDef.</summary>
+        </member>
+        <member name="M:Dagger.ScalarTypeDef.Description">
+            <summary>A doc string for the scalar, if any.</summary>
+        </member>
+        <member name="M:Dagger.ScalarTypeDef.Name">
+            <summary>The name of the scalar.</summary>
+        </member>
+        <member name="M:Dagger.ScalarTypeDef.SourceModuleName">
+            <summary>If this ScalarTypeDef is associated with a Module, the name of the module. Unset otherwise.</summary>
+        </member>
+        <member name="T:Dagger.Secret">
+            <summary>A reference to a secret value, which can be handled more safely than the value itself.</summary>
+        </member>
+        <member name="M:Dagger.Secret.Id">
+            <summary>A unique identifier for this Secret.</summary>
+        </member>
+        <member name="M:Dagger.Secret.Name">
+            <summary>The name of this secret.</summary>
+        </member>
+        <member name="M:Dagger.Secret.Plaintext">
+            <summary>The value of this secret.</summary>
+        </member>
+        <member name="T:Dagger.Service">
+            <summary>A content-addressed service providing TCP connectivity.</summary>
+        </member>
+        <member name="M:Dagger.Service.Id">
+            <summary>A unique identifier for this Service.</summary>
+        </member>
+        <member name="M:Dagger.Service.Endpoint(System.Nullable{System.Int32},System.String)">
+            <summary><para>Retrieves an endpoint that clients can use to reach this container.</para><para>If no port is specified, the first exposed port is used. If none exist an error is returned.</para><para>If a scheme is specified, a URL is returned. Otherwise, a host:port pair is returned.</para></summary>
+            <param name="Port">The exposed port number for the endpoint</param>
+            <param name="Scheme">Return a URL with the given scheme, eg. http for http://</param>
+        </member>
+        <member name="M:Dagger.Service.Hostname">
+            <summary>Retrieves a hostname which can be used by clients to reach this container.</summary>
+        </member>
+        <member name="M:Dagger.Service.Ports">
+            <summary>Retrieves the list of ports provided by the service.</summary>
+        </member>
+        <member name="M:Dagger.Service.Start">
+            <summary><para>Start the service and wait for its health checks to succeed.</para><para>Services bound to a Container do not need to be manually started.</para></summary>
+        </member>
+        <member name="M:Dagger.Service.Stop(System.Nullable{System.Boolean})">
+            <summary>Stop the service.</summary>
+            <param name="Kill">Immediately kill the service without waiting for a graceful exit</param>
+        </member>
+        <member name="M:Dagger.Service.Up(System.Collections.Generic.IEnumerable{Dagger.PortForward},System.Nullable{System.Boolean})">
+            <summary>Creates a tunnel that forwards traffic from the caller's network to this service.</summary>
+            <param name="Ports"><para>List of frontend/backend port mappings to forward.</para><para>Frontend is the port accepting traffic on the host, backend is the service port.</para></param>
+            <param name="Random">Bind each tunnel port to a random port on the host.</param>
+        </member>
+        <member name="M:Dagger.Service.WithHostname(System.String)">
+            <summary>Configures a hostname which can be used by clients within the session to reach this container.</summary>
+            <param name="Hostname">The hostname to use.</param>
+        </member>
+        <member name="T:Dagger.Socket">
+            <summary>A Unix or TCP/IP socket that can be mounted into a container.</summary>
+        </member>
+        <member name="M:Dagger.Socket.Id">
+            <summary>A unique identifier for this Socket.</summary>
+        </member>
+        <member name="T:Dagger.SourceMap">
+            <summary>Source location information.</summary>
+        </member>
+        <member name="M:Dagger.SourceMap.Id">
+            <summary>A unique identifier for this SourceMap.</summary>
+        </member>
+        <member name="M:Dagger.SourceMap.Column">
+            <summary>The column number within the line.</summary>
+        </member>
+        <member name="M:Dagger.SourceMap.Filename">
+            <summary>The filename from the module source.</summary>
+        </member>
+        <member name="M:Dagger.SourceMap.Line">
+            <summary>The line number within the filename.</summary>
+        </member>
+        <member name="M:Dagger.SourceMap.Module">
+            <summary>The module dependency this was declared in.</summary>
+        </member>
+        <member name="T:Dagger.Terminal">
+            <summary>An interactive terminal that clients can connect to.</summary>
+        </member>
+        <member name="M:Dagger.Terminal.Id">
+            <summary>A unique identifier for this Terminal.</summary>
+        </member>
+        <member name="M:Dagger.Terminal.Sync">
+            <summary><para>Forces evaluation of the pipeline in the engine.</para><para>It doesn't run the default command if no exec has been set.</para></summary>
+        </member>
+        <member name="T:Dagger.TypeDef">
+            <summary>A definition of a parameter or return type in a Module.</summary>
+        </member>
+        <member name="M:Dagger.TypeDef.Id">
+            <summary>A unique identifier for this TypeDef.</summary>
+        </member>
+        <member name="M:Dagger.TypeDef.AsEnum">
+            <summary>If kind is ENUM, the enum-specific type definition. If kind is not ENUM, this will be null.</summary>
+        </member>
+        <member name="M:Dagger.TypeDef.AsInput">
+            <summary>If kind is INPUT, the input-specific type definition. If kind is not INPUT, this will be null.</summary>
+        </member>
+        <member name="M:Dagger.TypeDef.AsInterface">
+            <summary>If kind is INTERFACE, the interface-specific type definition. If kind is not INTERFACE, this will be null.</summary>
+        </member>
+        <member name="M:Dagger.TypeDef.AsList">
+            <summary>If kind is LIST, the list-specific type definition. If kind is not LIST, this will be null.</summary>
+        </member>
+        <member name="M:Dagger.TypeDef.AsObject">
+            <summary>If kind is OBJECT, the object-specific type definition. If kind is not OBJECT, this will be null.</summary>
+        </member>
+        <member name="M:Dagger.TypeDef.AsScalar">
+            <summary>If kind is SCALAR, the scalar-specific type definition. If kind is not SCALAR, this will be null.</summary>
+        </member>
+        <member name="M:Dagger.TypeDef.Kind">
+            <summary>The kind of type this is (e.g. primitive, list, object).</summary>
+        </member>
+        <member name="M:Dagger.TypeDef.IsOptional">
+            <summary>Whether this type can be set to null. Defaults to false.</summary>
+        </member>
+        <member name="M:Dagger.TypeDef.WithConstructor(Dagger.Function)">
+            <summary>Adds a function for constructing a new instance of an Object TypeDef, failing if the type is not an object.</summary>
+            <param name="Function"></param>
+        </member>
+        <member name="M:Dagger.TypeDef.WithEnum(System.String,System.String,Dagger.SourceMap)">
+            <summary><para>Returns a TypeDef of kind Enum with the provided name.</para><para>Note that an enum's values may be omitted if the intent is only to refer to an enum. This is how functions are able to return their own, or any other circular reference.</para></summary>
+            <param name="Name">The name of the enum</param>
+            <param name="Description">A doc string for the enum, if any</param>
+            <param name="SourceMap">The source map for the enum definition.</param>
+        </member>
+        <member name="M:Dagger.TypeDef.WithEnumValue(System.String,System.String,Dagger.SourceMap)">
+            <summary>Adds a static value for an Enum TypeDef, failing if the type is not an enum.</summary>
+            <param name="Value">The name of the value in the enum</param>
+            <param name="Description">A doc string for the value, if any</param>
+            <param name="SourceMap">The source map for the enum value definition.</param>
+        </member>
+        <member name="M:Dagger.TypeDef.WithField(System.String,Dagger.TypeDef,System.String,Dagger.SourceMap)">
+            <summary>Adds a static field for an Object TypeDef, failing if the type is not an object.</summary>
+            <param name="Name">The name of the field in the object</param>
+            <param name="TypeDef">The type of the field</param>
+            <param name="Description">A doc string for the field, if any</param>
+            <param name="SourceMap">The source map for the field definition.</param>
+        </member>
+        <member name="M:Dagger.TypeDef.WithFunction(Dagger.Function)">
+            <summary>Adds a function for an Object or Interface TypeDef, failing if the type is not one of those kinds.</summary>
+            <param name="Function"></param>
+        </member>
+        <member name="M:Dagger.TypeDef.WithInterface(System.String,System.String,Dagger.SourceMap)">
+            <summary>Returns a TypeDef of kind Interface with the provided name.</summary>
+            <param name="Name"></param>
+            <param name="Description"></param>
+            <param name="SourceMap"></param>
+        </member>
+        <member name="M:Dagger.TypeDef.WithKind(Dagger.TypeDefKind)">
+            <summary>Sets the kind of the type.</summary>
+            <param name="Kind"></param>
+        </member>
+        <member name="M:Dagger.TypeDef.WithListOf(Dagger.TypeDef)">
+            <summary>Returns a TypeDef of kind List with the provided type for its elements.</summary>
+            <param name="ElementType"></param>
+        </member>
+        <member name="M:Dagger.TypeDef.WithObject(System.String,System.String,Dagger.SourceMap)">
+            <summary><para>Returns a TypeDef of kind Object with the provided name.</para><para>Note that an object's fields and functions may be omitted if the intent is only to refer to an object. This is how functions are able to return their own object, or any other circular reference.</para></summary>
+            <param name="Name"></param>
+            <param name="Description"></param>
+            <param name="SourceMap"></param>
+        </member>
+        <member name="M:Dagger.TypeDef.WithOptional(System.Boolean)">
+            <summary>Sets whether this type can be set to null.</summary>
+            <param name="Optional"></param>
+        </member>
+        <member name="M:Dagger.TypeDef.WithScalar(System.String,System.String)">
+            <summary>Returns a TypeDef of kind Scalar with the provided name.</summary>
+            <param name="Name"></param>
+            <param name="Description"></param>
+        </member>
+        <member name="T:Dagger.Alias">
+            <summary>Static-use this class (using static Dagger.Alias) to use "DAG" as a shortcut for "Query.FromDefaultSession".</summary>
+        </member>
+    </members>
+</doc>

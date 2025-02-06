@@ -1,13 +1,10 @@
-# This file was generated. See https://daggerverse.dev/mod/github.com/shykes/gha
+# This file was generated. See https://daggerverse.dev/mod/github.com/dagger/dagger/modules/gha
 name: build and run features
 "on":
-    push:
-        branches:
-            - main
     workflow_dispatch: {}
 jobs:
-    dagger:
-        runs-on: ubuntu-latest
+    build-and-run-features:
+        runs-on: []
         name: build and run features
         steps:
             - name: Checkout
@@ -37,7 +34,7 @@ jobs:
                 # The install.sh script creates path ${prefix_dir}/bin
                 curl -fsS https://dl.dagger.io/dagger/install.sh | BIN_DIR=${prefix_dir}/bin sh
               env:
-                DAGGER_VERSION: latest
+                DAGGER_VERSION: ""
               shell: bash
             - name: scripts/warm-engine.sh
               id: warm-engine
@@ -54,7 +51,21 @@ jobs:
               run: |
                 #!/bin/bash --noprofile --norc -e -o pipefail
 
-                GITHUB_OUTPUT="${GITHUB_OUTPUT:=github-output.txt}"
+                if [[ -n "$DEBUG" && "$DEBUG" != "0" ]]; then
+                    set -x
+                    env
+                    which dagger
+                    pwd
+                    ls -l
+                    ps aux
+                fi
+
+                # Detect if a dev engine is available, if so: use that
+                # We don't rely on PATH because the GHA runner messes with that
+                if [[ -n "$_EXPERIMENTAL_DAGGER_CLI_BIN" ]]; then
+                    export PATH=$(dirname "$_EXPERIMENTAL_DAGGER_CLI_BIN"):$PATH
+                fi
+
                 GITHUB_STEP_SUMMARY="${GITHUB_STEP_SUMMARY:=github-summary.md}"
                 export NO_COLOR="${NO_COLOR:=1}" # Disable colors in dagger logs
 
@@ -72,8 +83,13 @@ jobs:
                     mkfifo stdout.fifo stderr.fifo
 
                     # Set up tee to capture and display stdout and stderr
-                    tee stdout.txt < stdout.fifo &
-                    tee stderr.txt < stderr.fifo >&2 &
+                    if [ -n "$NO_OUTPUT" ]; then
+                        tee stdout.txt < stdout.fifo > /dev/null &
+                        tee stderr.txt < stderr.fifo > /dev/null &
+                    else
+                        tee stdout.txt < stdout.fifo &
+                        tee stderr.txt < stderr.fifo >&2 &
+                    fi
                 )
 
                 # Run the command, capturing stdout and stderr in the FIFOs
@@ -86,17 +102,6 @@ jobs:
 
                 # Extra trace URL
                 TRACE_URL=$(sed -En 's/^Full trace at (.*)/\1/p' < $tmp/stderr.txt)
-
-                # Expose the outputs as GitHub Actions step outputs directly from the files
-                # Multi-line outputs are handled with the '<<EOF' syntax
-                {
-                    echo 'stdout<<EOF'
-                    cat "$tmp/stdout.txt"
-                    echo 'EOF'
-                    echo 'stderr<<EOF'
-                    cat "$tmp/stderr.txt"
-                    echo 'EOF'
-                } > "${GITHUB_OUTPUT}"
 
                 {
                 cat <<'.'
@@ -158,7 +163,7 @@ jobs:
                 ```
                 .
 
-                cat $tmp/stderr.txt
+                tail -n 1000 $tmp/stderr.txt
 
                 cat <<'.'
                 ```
@@ -166,50 +171,10 @@ jobs:
 
                 } >"${GITHUB_STEP_SUMMARY}"
 
+                echo "stdout_file=$tmp/stdout.txt" >>"$GITHUB_OUTPUT"
+                echo "stderr_file=$tmp/stderr.txt" >>"$GITHUB_OUTPUT"
+
                 exit $EXIT_CODE
               env:
-                _EXPERIMENTAL_DAGGER_CLOUD_TOKEN: ${{ secrets.DAGGER_CLOUD_TOKEN }}
                 COMMAND: dagger call -q run --directory-arg .
-                DAGGER_CLOUD_TOKEN: ${{ secrets.DAGGER_CLOUD_TOKEN }}
-                GITHUB_ACTION: ${{ github.action }}
-                GITHUB_ACTION_PATH: ${{ github.action_path }}
-                GITHUB_ACTION_REF: ${{ github.action_ref }}
-                GITHUB_ACTION_REPOSITORY: ${{ github.action_repository }}
-                GITHUB_ACTION_STATUS: ${{ github.action_status }}
-                GITHUB_ACTOR: ${{ github.actor }}
-                GITHUB_ACTOR_ID: ${{ github.actor_id }}
-                GITHUB_API_URL: ${{ github.api_url }}
-                GITHUB_BASE_REF: ${{ github.base_ref }}
-                GITHUB_ENV: ${{ github.env }}
-                GITHUB_EVENT_NAME: ${{ github.event_name }}
-                GITHUB_EVENT_PATH: ${{ github.event_path }}
-                GITHUB_GRAPHQL_URL: ${{ github.graphql_url }}
-                GITHUB_HEAD_REF: ${{ github.head_ref }}
-                GITHUB_JOB: ${{ github.job }}
-                GITHUB_PATH: ${{ github.path }}
-                GITHUB_REF: ${{ github.ref }}
-                GITHUB_REF_NAME: ${{ github.ref_name }}
-                GITHUB_REF_PROTECTED: ${{ github.ref_protected }}
-                GITHUB_REF_TYPE: ${{ github.ref_type }}
-                GITHUB_REPOSITORY: ${{ github.repository }}
-                GITHUB_REPOSITORY_ID: ${{ github.repository_id }}
-                GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
-                GITHUB_REPOSITORY_OWNER_ID: ${{ github.repository_owner_id }}
-                GITHUB_REPOSITORYURL: ${{ github.repositoryUrl }}
-                GITHUB_RETENTION_DAYS: ${{ github.retention_days }}
-                GITHUB_RUN_ATTEMPT: ${{ github.run_attempt }}
-                GITHUB_RUN_ID: ${{ github.run_id }}
-                GITHUB_RUN_NUMBER: ${{ github.run_number }}
-                GITHUB_SECRET_SOURCE: ${{ github.secret_source }}
-                GITHUB_SERVER_URL: ${{ github.server_url }}
-                GITHUB_SHA: ${{ github.sha }}
-                GITHUB_TOKEN: ${{ github.token }}
-                GITHUB_TRIGGERING_ACTOR: ${{ github.triggering_actor }}
-                GITHUB_WORKFLOW: ${{ github.workflow }}
-                GITHUB_WORKFLOW_REF: ${{ github.workflow_ref }}
-                GITHUB_WORKFLOW_SHA: ${{ github.workflow_sha }}
-                GITHUB_WORKSPACE: ${{ github.workspace }}
               shell: bash
-        outputs:
-            stderr: ${{ steps.exec.outputs.stderr }}
-            stdout: ${{ steps.exec.outputs.stdout }}
