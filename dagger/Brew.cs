@@ -2,6 +2,8 @@ using System.Text.Json.Serialization;
 using Dagger;
 using static Dagger.Alias;
 
+namespace Brew;
+
 public class BrewModule : IJsonOnDeserialized
 {
 	/// <summary>
