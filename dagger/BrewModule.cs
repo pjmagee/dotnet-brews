@@ -42,7 +42,8 @@ public class BrewModule : IJsonOnDeserialized
 		return DAG.Gha().WithWorkflow(
 			DAG.Gha().Workflow("build and run features").WithJob(DAG.Gha().Job(
 					name: "build and run features",
-					command: "run"
+					command: "run",
+					runner: ["ubuntu-latest"]
 				)
 			)
 		).Generate();
