@@ -107,8 +107,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Brew.Features.Scripting.IPy
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Brew.Features.Scripting.Pwsh", "Brew.Features.Scripting.Pwsh\Brew.Features.Scripting.Pwsh.csproj", "{341E9D62-D75B-43B1-937D-D67FB0988904}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Brew.Ci", "dagger\Brew.Ci.csproj", "{AE42DF52-25FE-4EBA-8260-05BCC0471E2B}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

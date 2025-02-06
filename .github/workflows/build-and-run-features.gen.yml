@@ -4,7 +4,8 @@ name: build and run features
     workflow_dispatch: {}
 jobs:
     build-and-run-features:
-        runs-on: []
+        runs-on:
+            - ubuntu-latest
         name: build and run features
         steps:
             - name: Checkout
@@ -176,5 +177,5 @@ jobs:
 
                 exit $EXIT_CODE
               env:
-                COMMAND: dagger call -q run --directory-arg .
+                COMMAND: dagger call -q run
               shell: bash

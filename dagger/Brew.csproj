@@ -3,12 +3,10 @@
 		<TargetFramework>net8.0</TargetFramework>
 		<ImplicitUsings>disable</ImplicitUsings>
 		<Nullable>enable</Nullable>		
-		<RootNamespace>Brew.CiCd</RootNamespace>
-		<AssemblyName>BrewModule.Brew</AssemblyName>
+		<AssemblyName>Brew</AssemblyName>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>		
 		<NoWarn>1591,1573</NoWarn>
 		<Deterministic>true</Deterministic>
-		<PackageId>Brew.Ci</PackageId>
 	</PropertyGroup>
 	<ItemGroup>
 		<Reference Include="Dagger.Generated">
