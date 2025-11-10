@@ -6,79 +6,60 @@ using static Microsoft.CodeAnalysis.CSharp.SyntaxFactory;
 namespace Brew.Generators;
 
 [Generator]
-
-public class HelloWorldGenerator : ISourceGenerator
+public sealed class HelloWorldGenerator : IIncrementalGenerator
 {
-    private SyntaxList<AttributeListSyntax> Generated => SingletonList(
-        AttributeList(
-            SingletonSeparatedList(
-                Attribute(IdentifierName("GeneratedCode")).WithArgumentList(AttributeArgumentList(SeparatedList<AttributeArgumentSyntax>(new SyntaxNodeOrToken[]
-                    {
-                            AttributeArgument(LiteralExpression(SyntaxKind.StringLiteralExpression, Literal(nameof(HelloWorldGenerator)))), Token(SyntaxKind.CommaToken),
-                            AttributeArgument(LiteralExpression(SyntaxKind.StringLiteralExpression, Literal("1.0.0")))
-                    })
-                ))
-            )));
-
-
-    public void Initialize(GeneratorInitializationContext context)
+    public void Initialize(IncrementalGeneratorInitializationContext context)
     {
-
-    }
-
-    public void Execute(GeneratorExecutionContext context)
-    {
-        var code =
-
-            CompilationUnit()
-                .WithUsings
-                (
-                    new SyntaxList<UsingDirectiveSyntax>(new[] { UsingDirective(IdentifierName(nameof(System))), UsingDirective(IdentifierName("System.CodeDom.Compiler")) })
-                )
-                .WithMembers
-                (
-                    SingletonList<MemberDeclarationSyntax>
+        context.RegisterPostInitializationOutput(static ctx =>
+        {
+            var code =
+                CompilationUnit()
+                    .WithUsings
                     (
-                        FileScopedNamespaceDeclaration(IdentifierName(nameof(Brew)))
-                            .WithMembers
-                            (
-                                SingletonList<MemberDeclarationSyntax>
-                                (
-                                    ClassDeclaration("Hello")
-                                        //.WithAttributeLists(Generated)
-                                        .WithModifiers(TokenList(Token(SyntaxKind.PublicKeyword))
-                                )
+                        new SyntaxList<UsingDirectiveSyntax>(new[] { UsingDirective(IdentifierName(nameof(System))), UsingDirective(IdentifierName("System.CodeDom.Compiler")) })
+                    )
+                    .WithMembers
+                    (
+                        SingletonList<MemberDeclarationSyntax>
+                        (
+                            FileScopedNamespaceDeclaration(IdentifierName(nameof(Brew)))
                                 .WithMembers
                                 (
                                     SingletonList<MemberDeclarationSyntax>
                                     (
-                                        MethodDeclaration
+                                        ClassDeclaration("Hello")
+                                            .WithModifiers(TokenList(Token(SyntaxKind.PublicKeyword)))
+                                            .WithMembers
                                             (
-                                                PredefinedType(Token(SyntaxKind.VoidKeyword)), Identifier("World"))
-                                                    .WithBody(
-                                                        Block
-                                                        (
-                                                            SingletonList<StatementSyntax>(ExpressionStatement(InvocationExpression(MemberAccessExpression(SyntaxKind.SimpleMemberAccessExpression, IdentifierName("Console"), IdentifierName("WriteLine"))
-                                                        )
-                                                        .WithArgumentList
-                                                        (
-                                                            ArgumentList
+                                                SingletonList<MemberDeclarationSyntax>
+                                                (
+                                                    MethodDeclaration
+                                                    (
+                                                        PredefinedType(Token(SyntaxKind.VoidKeyword)), Identifier("World"))
+                                                        .WithBody(
+                                                            Block
                                                             (
-                                                                SingletonSeparatedList(Argument(LiteralExpression(SyntaxKind.StringLiteralExpression, Literal("Hello World"))))
-                                                            )
-                                                        )
-                                                    )
+                                                                SingletonList<StatementSyntax>(
+                                                                    ExpressionStatement(
+                                                                        InvocationExpression(
+                                                                            MemberAccessExpression(
+                                                                                SyntaxKind.SimpleMemberAccessExpression,
+                                                                                IdentifierName("Console"),
+                                                                                IdentifierName("WriteLine")))
+                                                                        .WithArgumentList(
+                                                                            ArgumentList(
+                                                                                SingletonSeparatedList(
+                                                                                    Argument(LiteralExpression(SyntaxKind.StringLiteralExpression, Literal("Hello World"))))))))))
+                                                .WithModifiers(TokenList(Token(SyntaxKind.PublicKeyword)))
                                                 )
                                             )
-                                        ).WithModifiers(TokenList(Token(SyntaxKind.PublicKeyword)))
                                     )
                                 )
-                            )
                         )
                     )
-                )
-                .NormalizeWhitespace();
+                    .NormalizeWhitespace();
 
-        context.AddSource("Hello.g.cs", code.NormalizeWhitespace().ToFullString());
+            ctx.AddSource("Hello.g.cs", code.ToFullString());
+        });
     }
 }

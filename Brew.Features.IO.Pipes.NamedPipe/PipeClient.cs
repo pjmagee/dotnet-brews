@@ -11,34 +11,58 @@ public class PipeClient(NamedPipeClientStream client, ILogger<PipeClient> logger
     
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        await Task.Delay(1000, stoppingToken); // Wait for server to start
-        
-        logger.LogInformation("{ClientId}: Client connecting to server...", ClientId);
-        await client.ConnectAsync(stoppingToken);
-
-        while (!stoppingToken.IsCancellationRequested)
+        try
         {
-            // Send "Hello" message
-            var message = Encoding.UTF8.GetBytes("Hello");
-            var messageLength = BitConverter.GetBytes(message.Length);
-            await client.WriteAsync(messageLength, 0, messageLength.Length, stoppingToken);
-            await client.WriteAsync(message, 0, message.Length, stoppingToken);
-
-            // Read response length
-            var lengthBuffer = new byte[4];
-            await client.ReadAsync(lengthBuffer, 0, lengthBuffer.Length, stoppingToken);
-            int responseLength = BitConverter.ToInt32(lengthBuffer, 0);
-
+            await Task.Delay(1000, stoppingToken); // Wait for server to start
             
-            var buffer = new byte[responseLength];
-            await client.ReadAsync(buffer, 0, buffer.Length, stoppingToken);
-            var response = Encoding.UTF8.GetString(buffer);
-            logger.LogInformation("{ClientId}: Client received: {Response}", ClientId, response);
+            logger.LogInformation("{ClientId}: Client connecting to server...", ClientId);
+            await client.ConnectAsync(stoppingToken);
 
+            while (!stoppingToken.IsCancellationRequested)
+            {
+                try
+                {
+                    // Send "Hello" message
+                    var message = Encoding.UTF8.GetBytes("Hello");
+                    var messageLength = BitConverter.GetBytes(message.Length);
+                    await client.WriteAsync(messageLength, stoppingToken);
+                    await client.WriteAsync(message, stoppingToken);
+
+                    // Read response length
+                    var lengthBuffer = new byte[4];
+                    await client.ReadExactlyAsync(lengthBuffer, stoppingToken);
+                    int responseLength = BitConverter.ToInt32(lengthBuffer, 0);
+
+                    var buffer = new byte[responseLength];
+                    await client.ReadExactlyAsync(buffer, stoppingToken);
+                    var response = Encoding.UTF8.GetString(buffer);
+                    logger.LogInformation("{ClientId}: Client received: {Response}", ClientId, response);
+
+                    await Task.Delay(1000, stoppingToken);
+                }
+                catch (OperationCanceledException)
+                {
+                    // Exit the loop on cancellation
+                    break;
+                }
+                catch (Exception ex)
+                {
+                    logger.LogError(ex, "Error processing pipe message");
+                }
+            }
             
-            await Task.Delay(1000, stoppingToken);
+            logger.LogInformation("{ClientId}: PipeClient is shutting down", ClientId);
         }
-
-        client.Close();
+        catch (OperationCanceledException)
+        {
+            logger.LogInformation("{ClientId}: PipeClient has been cancelled", ClientId);
+        }
+        finally
+        {
+            if (client.IsConnected)
+            {
+                client.Close();
+            }
+        }
     }
 }
