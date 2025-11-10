@@ -7,19 +7,39 @@ internal sealed class QueueProcessor(InMemoryMessageQueue queue, ILogger<QueuePr
 {
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        while (!stoppingToken.IsCancellationRequested)
+        try
         {
-            var @event = await queue.Reader.ReadAsync(stoppingToken);
-                
-            if (@event is HelloWorldEvent e)
+            while (!stoppingToken.IsCancellationRequested)
             {
-                logger.LogInformation("Event received: {Event}", e.Message);    
+                try
+                {
+                    var @event = await queue.Reader.ReadAsync(stoppingToken);
+                    
+                    if (@event is HelloWorldEvent e)
+                    {
+                        logger.LogInformation("Event received: {Event}", e.Message);    
+                    }
+                    else
+                    {
+                        logger.LogWarning("Unknown event received: {Event}", @event);
+                    }
+                }
+                catch (OperationCanceledException)
+                {
+                    // Exit the loop on cancellation
+                    break;
+                }
+                catch (Exception ex)
+                {
+                    logger.LogError(ex, "Error processing event from queue");
+                }
             }
-            else
-            {
-                logger.LogWarning("Unknown event received: {Event}", @event);
-            }
-                
+            
+            logger.LogInformation("QueueProcessor is shutting down");
+        }
+        catch (OperationCanceledException)
+        {
+            logger.LogInformation("QueueProcessor has been cancelled");
         }
     }
 }
