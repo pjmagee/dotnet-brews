@@ -96,21 +96,28 @@ export class DotnetBrews {
       .map(line => line.trim().substring(2).split(':')[0].trim())
       .filter(name => name.length > 0)
 
-    // Workflow 1: List all available brews
+    // Workflow 1: CI Build (for README badge and PR checks)
+    const buildJobOpts: GhaJobOpts = {
+      runner: ["ubuntu-latest"],     
+    }
+    const buildJob: GhaJob = dag.gha().job("build", "build", buildJobOpts)
+    const buildWorkflow = dag.gha().workflow("ci").withJob(buildJob)
+
+    // Workflow 2: List all available brews
     const listJobOpts: GhaJobOpts = {
       runner: ["ubuntu-latest"],     
     }
     const listJob: GhaJob = dag.gha().job("list", "list", listJobOpts)
     const listWorkflow = dag.gha().workflow("list-brews").withJob(listJob)
 
-    // Workflow 2: Run all brews in parallel
+    // Workflow 3: Run all brews in parallel
     const runAllJobOpts: GhaJobOpts = {
       runner: ["ubuntu-latest"],     
     }
     const runAllJob: GhaJob = dag.gha().job("run-all", "run", runAllJobOpts)
     const runAllWorkflow = dag.gha().workflow("run-all-brews").withJob(runAllJob)
 
-    // Workflow 3: Run individual brews (demonstrates running a specific brew)
+    // Workflow 4: Run individual brews (demonstrates running a specific brew)
     // Pick the first brew as an example
     const exampleBrewName = brewNames.length > 0 ? brewNames[0] : "Brew.Features.Builders.Simple"
     const runOneJobOpts: GhaJobOpts = {
@@ -121,6 +128,7 @@ export class DotnetBrews {
 
     return dag
       .gha()
+      .withWorkflow(buildWorkflow)
       .withWorkflow(listWorkflow)
       .withWorkflow(runAllWorkflow)
       .withWorkflow(runOneWorkflow)
