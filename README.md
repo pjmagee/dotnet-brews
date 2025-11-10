@@ -4,6 +4,4 @@
 
 A coding playground demonstrating the use of various features, libraries, patterns and techniques in .NET.
 
-The entrypoint is the `Brew.Console` project. Each feature implements the Brew module and is dynamically executed.
-
-
+The entrypoint is the `Brew.Console` project. Each feature implements the Brew module and is a dynamically executed dynamic linked library `.dll` file.
