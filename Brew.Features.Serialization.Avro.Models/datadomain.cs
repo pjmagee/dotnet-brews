@@ -15,7 +15,7 @@ namespace datadomain
 	using global::Avro;
 	using global::Avro.Specific;
 	
-	[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Brew.Console", "1.11.3")]
+	[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Brew.Console", "1.12.1+9110c693767c1dde2665b2b57939333478b12036")]
 	public enum Suit
 	{
 		SPADES,
@@ -23,11 +23,11 @@ namespace datadomain
 		DIAMONDS,
 		CLUBS,
 	}
-	[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Brew.Console", "1.11.3")]
+	[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Brew.Console", "1.12.1+9110c693767c1dde2665b2b57939333478b12036")]
 	public partial class Person : global::Avro.Specific.ISpecificRecord
 	{
-		public static global::Avro.Schema _SCHEMA = global::Avro.Schema.Parse("{\"type\":\"record\",\"name\":\"Person\",\"namespace\":\"datadomain\",\"fields\":[{\"name\":\"Name" +
-				"\",\"type\":\"string\"},{\"name\":\"Age\",\"type\":\"long\"}]}");
+		public static global::Avro.Schema _SCHEMA = global::Avro.Schema.Parse(("{\"type\":\"record\",\"name\":\"Person\",\"namespace\":\"datadomain\",\"fields\":[{\"name\":\"Name" +
+				"\",\"type\":\"string\"},{\"name\":\"Age\",\"type\":\"long\"}]}"));
 		private string _Name;
 		private long _Age;
 		public virtual global::Avro.Schema Schema

@@ -1,7 +1,7 @@
 ﻿<Solution>
-  <Project Path="Brew.Analyzers\Brew.Generators.csproj" />
+  <Project Path="Brew.Analyzers\Brew.Analyzers.csproj" />
   <Project Path="Brew.Console\Brew.Console.csproj">
-    <BuildDependency Project="Brew.Analyzers\Brew.Generators.csproj" />
+    <BuildDependency Project="Brew.Analyzers\Brew.Analyzers.csproj" />
     <BuildDependency Project="Brew.Features.Avro.SourceGenerator\Brew.Features.Serialization.Avro.SourceGenerator\Brew.Features.Serialization.Avro.SourceGenerator.csproj" />
     <BuildDependency Project="Brew.Features.CSharp.Events\Brew.Features.CSharp.Events.csproj" />
     <BuildDependency Project="Brew.Features.CSharp.HiddenKeywords\Brew.Features.CSharp.HiddenKeywords.csproj" />
