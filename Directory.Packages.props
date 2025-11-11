@@ -5,23 +5,27 @@
     <NoWarn>$(NoWarn);NU1507</NoWarn>
   </PropertyGroup>
   <ItemGroup>
+    <!-- Updated all pre-release .NET 10 packages to final stable versions.
+      NOTE: Roslyn (Microsoft.CodeAnalysis.*) stable 5.0.0 packages are not yet published.
+      Reverting those to latest available pre-release (5.0.0-2.final) to allow restore.
+      Bumped Analyzers to 4.14.0 to remove NU1603 warning. -->
     <PackageVersion Include="Apache.Avro" Version="1.12.1" />
-    <PackageVersion Include="FSharp.Core" Version="10.0.100-rc2.25502.107" />
+    <PackageVersion Include="FSharp.Core" Version="10.0.100" />
     <PackageVersion Include="IronPython" Version="3.4.2" />
     <PackageVersion Include="MediatR" Version="12.2.0" />
-    <PackageVersion Include="Microsoft.CodeAnalysis.Analyzers" Version="3.12.0-beta1.25218.8" />
+    <PackageVersion Include="Microsoft.CodeAnalysis.Analyzers" Version="4.14.0" />
     <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="5.0.0-2.final" />
     <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="5.0.0-2.final" />
     <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="5.0.0-2.final" />
-    <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.0-rc.2.25502.107" />
-    <PackageVersion Include="Microsoft.Extensions.Hosting" Version="10.0.0-rc.2.25502.107" />
-    <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.0-rc.2.25502.107" />
-    <PackageVersion Include="Microsoft.Extensions.Logging.Console" Version="10.0.0-rc.2.25502.107" />
+    <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.0" />
+    <PackageVersion Include="Microsoft.Extensions.Hosting" Version="10.0.0" />
+    <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.0" />
+    <PackageVersion Include="Microsoft.Extensions.Logging.Console" Version="10.0.0" />
     <PackageVersion Include="Microsoft.PowerShell.MarkdownRender" Version="7.2.1" />
     <PackageVersion Include="Microsoft.PowerShell.SDK" Version="7.5.4" />
-    <PackageVersion Include="System.CodeDom" Version="10.0.0-rc.2.25502.107" />
-    <PackageVersion Include="System.Composition.AttributedModel" Version="10.0.0-rc.2.25502.107" />
-    <PackageVersion Include="System.Composition.TypedParts" Version="10.0.0-rc.2.25502.107" />
+    <PackageVersion Include="System.CodeDom" Version="10.0.0" />
+    <PackageVersion Include="System.Composition.AttributedModel" Version="10.0.0" />
+    <PackageVersion Include="System.Composition.TypedParts" Version="10.0.0" />
     <PackageVersion Include="System.IdentityModel.Tokens.Jwt" Version="8.14.0" />
     <PackageVersion Include="System.Management.Automation" Version="7.5.4" />
   </ItemGroup>

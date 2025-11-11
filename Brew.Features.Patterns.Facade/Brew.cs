@@ -1,43 +1,62 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
 namespace Brew.Features.Patterns.Facade;
 
-/*
- * Facades can be used to encapsulate sharable or repeatable logic
- * This keeps the layers above abstract and simpler
- */
+/// <summary>
+/// Demonstrates the Facade Pattern - providing a simplified interface to a complex subsystem
+/// Use Case: Report generation requiring coordination of database, auth, and audit services
+/// </summary>
 public class Brew : ModuleBase
 {
-    protected override Task BeforeAsync(CancellationToken token = default)
-    {
-        // Each time services are needed they need to be individually injected. 
-        ConsumingServiceBefore consumingService = new ConsumingServiceBefore(new ComplexServiceC(), new ComplexServiceB(), new ComplexServiceA());
-        consumingService.ComplexOperation();
-        
-        return Task.CompletedTask;
-    }
-
-    protected override Task AfterAsync(CancellationToken token = default)
-    {
-        // Facade abstracts the behaviour or wraps this behaviour for simplified consumption and flow
-        var facade = new FacadeService(new ComplexServiceC(), new ComplexServiceB(), new ComplexServiceA());
-
-        // Pass facade into any consuming service
-        var consumingService = new ConsumingServiceAfter(facade);
-        consumingService.ComplexOperation();
-        
-        return Task.CompletedTask;
-    }
-
-
     protected override void ConfigureServices(HostBuilderContext hostContext, IServiceCollection services)
     {
-        
+        // Register subsystem services
+        services.AddSingleton<ComplexServiceA>(); // Database
+        services.AddSingleton<ComplexServiceB>(); // Authentication
+        services.AddSingleton<ComplexServiceC>(); // Audit/Logging
+
+        // Register facade
+        services.AddSingleton<FacadeService>();
+
+        // Register client services
+        services.AddSingleton<ConsumingServiceBefore>();
+        services.AddSingleton<ConsumingServiceAfter>();
     }
 
-    protected override Task ExecuteAsync(CancellationToken token = default)
+    protected override async Task ExecuteAsync(CancellationToken token = default)
     {
-        return Task.CompletedTask;
+        Logger.LogInformation("=== FACADE PATTERN DEMONSTRATION ===\n");
+        Logger.LogInformation("Scenario: Generating a report requires coordinating database, auth, and audit services\n");
+
+        // BEFORE: Without Facade - Client must manage all subsystem complexity
+        Logger.LogInformation("╔════════════════════════════════════════════════════════════╗");
+        Logger.LogInformation("║  BEFORE: Without Facade (Complex, Tightly Coupled)        ║");
+        Logger.LogInformation("╚════════════════════════════════════════════════════════════╝");
+        
+        var serviceBefore = Host.Services.GetRequiredService<ConsumingServiceBefore>();
+        serviceBefore.GenerateReport();
+
+        await Task.Delay(500); // Visual separation
+
+        // AFTER: With Facade - Simple, clean interface
+        Logger.LogInformation("╔════════════════════════════════════════════════════════════╗");
+        Logger.LogInformation("║  AFTER: With Facade (Simple, Loosely Coupled)             ║");
+        Logger.LogInformation("╚════════════════════════════════════════════════════════════╝");
+
+        var serviceAfter = Host.Services.GetRequiredService<ConsumingServiceAfter>();
+        serviceAfter.GenerateReport();
+
+        // Summary
+        Logger.LogInformation("═══════════════════════════════════════════════════════════");
+        Logger.LogInformation("=== KEY BENEFITS OF FACADE PATTERN ===");
+        Logger.LogInformation("═══════════════════════════════════════════════════════════");
+        Logger.LogInformation("✓ SIMPLIFIED INTERFACE: One method instead of managing 9 method calls");
+        Logger.LogInformation("✓ REDUCED COUPLING: Client depends on Facade, not all subsystem services");
+        Logger.LogInformation("✓ ENCAPSULATION: Subsystem complexity hidden from client");
+        Logger.LogInformation("✓ EASIER MAINTENANCE: Changes to subsystem don't affect clients");
+        Logger.LogInformation("✓ IMPROVED READABILITY: facadeService.GenerateReport() is self-documenting");
+        Logger.LogInformation("\nUse Cases: API clients, library wrappers, legacy system integration, microservices");
     }
 }

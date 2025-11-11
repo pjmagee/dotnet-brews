@@ -1,6 +1,9 @@
 namespace Brew.Features.CQRS.Simple.Commands;
 
-public class PrintMessageCommand(string message) : ICommand
+public class AddProductCommand(int id, string name, int stock, decimal price) : ICommand
 {
-    public string Message { get; } = message;
+    public int Id { get; } = id;
+    public string Name { get; } = name;
+    public int Stock { get; } = stock;
+    public decimal Price { get; } = price;
 }

@@ -1,11 +1,36 @@
+using Microsoft.Extensions.Logging;
+
 namespace Brew.Features.Patterns.Facade;
 
-public class FacadeService(ComplexServiceC serviceC, ComplexServiceB serviceB, ComplexServiceA serviceA)
+/// <summary>
+/// Facade - Provides a simplified interface to the complex subsystem
+/// Hides the complexity of coordinating multiple services
+/// </summary>
+public class FacadeService(
+    ComplexServiceC auditService,
+    ComplexServiceB authService,
+    ComplexServiceA databaseService,
+    ILogger<FacadeService> logger)
 {
-    public void ComplexOperation()
+    /// <summary>
+    /// Simple method that hides all the complexity of the subsystem
+    /// </summary>
+    public void GenerateReport()
     {
-        serviceA.ComplexOperation();
-        serviceB.ComplexOperation();
-        serviceC.ComplexOperation();
+        logger.LogInformation("\n[FACADE] Starting report generation with single method call...\n");
+
+        // The facade coordinates all the complex subsystem interactions
+        // Client doesn't need to know the order or details
+        auditService.InitializeAudit();
+        authService.AuthenticateUser();
+        authService.AuthorizeOperation();
+        databaseService.ValidateDatabase();
+        databaseService.QueryData();
+        auditService.LogOperation("Report Generation");
+        databaseService.CloseConnection();
+        authService.Logout();
+        auditService.FinalizeAudit();
+
+        logger.LogInformation("\n[FACADE] ✓ Report generated successfully!\n");
     }
 }

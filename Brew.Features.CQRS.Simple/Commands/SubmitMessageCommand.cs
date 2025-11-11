@@ -1,6 +1,7 @@
 namespace Brew.Features.CQRS.Simple.Commands;
 
-public class SubmitMessageCommand(string message) : ICommand
+public class UpdateStockCommand(int productId, int quantityChange) : ICommand
 {
-    public string Message { get; } = message;
+    public int ProductId { get; } = productId;
+    public int QuantityChange { get; } = quantityChange;
 }

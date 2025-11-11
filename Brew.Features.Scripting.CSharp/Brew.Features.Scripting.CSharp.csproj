@@ -12,4 +12,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Brew\Brew.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\**" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
 </Project>

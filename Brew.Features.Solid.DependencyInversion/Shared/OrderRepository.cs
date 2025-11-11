@@ -1,10 +1,14 @@
 ﻿namespace Brew.Features.Solid.DependencyInversion.Shared;
 
-public class OrderRepository(ICollection<Order> orders)
+/// <summary>
+/// Low-level module that implements the abstraction (IOrderRepository)
+/// This is the "detail" that depends on the abstraction
+/// </summary>
+public class OrderRepository(ICollection<Order> orders) : IOrderRepository
 {
-    public virtual void Add(Order order) => orders.Add(order);
+    public void Add(Order order) => orders.Add(order);
 
-    public virtual void Remove(Order order) => orders.Remove(order);
+    public void Remove(Order order) => orders.Remove(order);
 
-    public virtual Order GetById(int id) => orders.First(x => x.Id == id);
+    public Order GetById(int id) => orders.First(x => x.Id == id);
 }
