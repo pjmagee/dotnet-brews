@@ -38,20 +38,45 @@ using(var host = ConfigureBuilder().Build())
             if (string.IsNullOrEmpty(brewName))
             {
                 Console.Error.WriteLine("Error: Brew name required for 'run' command");
-                Console.Error.WriteLine("Usage: Brew.Console run <brew-type-name>");
+                Console.Error.WriteLine("Usage: Brew.Console run <brew-name-pattern>");
+                Console.Error.WriteLine("Examples:");
+                Console.Error.WriteLine("  Brew.Console run CQRS.Simple");
+                Console.Error.WriteLine("  Brew.Console run Factory");
+                Console.Error.WriteLine("  Brew.Console run Mef");
                 Environment.Exit(1);
             }
 
-            var targetBrew = brews.FirstOrDefault(b => 
-                b.GetType().FullName?.Contains(brewName, StringComparison.OrdinalIgnoreCase) == true ||
-                b.GetType().Name.Equals(brewName, StringComparison.OrdinalIgnoreCase));
-
-            if (targetBrew == null)
+            // Find brews matching the pattern (case-insensitive)
+            var matchingBrews = brews.Where(b =>
             {
-                Console.Error.WriteLine($"Error: Brew '{brewName}' not found");
+                var fullName = b.GetType().FullName ?? "";
+                var typeName = b.GetType().Name;
+                
+                // Match against type name or any part of the full name containing the pattern
+                return fullName.Contains(brewName, StringComparison.OrdinalIgnoreCase) ||
+                       typeName.Equals(brewName, StringComparison.OrdinalIgnoreCase);
+            }).ToList();
+
+            if (matchingBrews.Count == 0)
+            {
+                Console.Error.WriteLine($"Error: No brews found matching '{brewName}'");
                 Console.Error.WriteLine("Use 'list' command to see available brews");
                 Environment.Exit(1);
             }
+
+            if (matchingBrews.Count > 1)
+            {
+                Console.Error.WriteLine($"Error: Multiple brews match '{brewName}':");
+                foreach (var brew in matchingBrews.OrderBy(b => b.GetType().FullName))
+                {
+                    Console.Error.WriteLine($"  - {brew.GetType().FullName}");
+                }
+                Console.Error.WriteLine();
+                Console.Error.WriteLine("Please provide a more specific pattern.");
+                Environment.Exit(1);
+            }
+
+            var targetBrew = matchingBrews[0];
 
             Console.WriteLine($"Running: {targetBrew.GetType().FullName}");
             Console.WriteLine($"Description: {targetBrew.Description ?? "N/A"}");
@@ -97,13 +122,30 @@ IHostBuilder ConfigureBuilder()
         .ConfigureLogging(x => x.AddConsole())
         .ConfigureServices((context, collection) =>
         {
-            var dlls = Directory.GetFiles(Directory.GetCurrentDirectory(), "Brew.Features.*.dll");
+            // Discover all IBrew implementations from referenced assemblies
+            // Force load all Brew.Features assemblies from the output directory
+            var assemblyLocation = Assembly.GetExecutingAssembly().Location;
+            var assemblyDirectory = Path.GetDirectoryName(assemblyLocation) ?? Directory.GetCurrentDirectory();
+            
+            var featureDlls = Directory.GetFiles(assemblyDirectory, "Brew.Features.*.dll");
+            var loadedAssemblies = new List<Assembly>();
 
-            foreach (var dll in dlls)
+            foreach (var dll in featureDlls)
             {
-                var assembly = Assembly.LoadFrom(dll);
+                try
+                {
+                    var assembly = Assembly.LoadFrom(dll);
+                    loadedAssemblies.Add(assembly);
+                }
+                catch
+                {
+                    // Skip assemblies that can't be loaded
+                }
+            }
 
-                foreach (var type in assembly.DefinedTypes.Where(t => typeof(IBrew).IsAssignableFrom(t) && t.IsClass))
+            foreach (var assembly in loadedAssemblies)
+            {
+                foreach (var type in assembly.DefinedTypes.Where(t => typeof(IBrew).IsAssignableFrom(t) && t.IsClass && !t.IsAbstract))
                 {
                     collection.AddSingleton(typeof(IBrew), type);
                 }

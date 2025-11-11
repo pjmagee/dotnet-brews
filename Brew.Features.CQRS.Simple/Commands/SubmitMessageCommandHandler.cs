@@ -1,11 +1,27 @@
+using Brew.Features.CQRS.Simple.Stores;
+using Microsoft.Extensions.Logging;
+
 namespace Brew.Features.CQRS.Simple.Commands;
 
-public class SubmitMessageCommandHandler(List<string> dataStore) : ICommandHandler<SubmitMessageCommand>
+public class UpdateStockCommandHandler(
+    ProductWriteStore writeStore,
+    ProductReadStore readStore,
+    ILogger<UpdateStockCommandHandler> logger) : ICommandHandler<UpdateStockCommand>
 {
-    public Task HandleAsync(SubmitMessageCommand command, CancellationToken cancellationToken)
+    public Task HandleAsync(UpdateStockCommand command, CancellationToken cancellationToken)
     {
-        dataStore.Add(command.Message);
-        Console.WriteLine($"Message submitted: {command.Message}");
+        logger.LogInformation("[COMMAND] Updating stock for product {Id}: {Change:+#;-#;0}",
+            command.ProductId, command.QuantityChange);
+
+        writeStore.Update(command.ProductId, product =>
+        {
+            product.Stock += command.QuantityChange;
+            logger.LogInformation("[COMMAND] New stock level: {Stock}", product.Stock);
+            
+            // Sync to read store
+            readStore.Sync(product);
+        });
+
         return Task.CompletedTask;
     }
 }

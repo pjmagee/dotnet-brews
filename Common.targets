@@ -1,16 +1,13 @@
 <Project>
     <PropertyGroup>
-        <!-- Set OutputPath to the desired common output directory -->
-        <!-- Adjust the path as necessary -->
+        <!-- 
+        Centralized output directory for all feature projects.
+        Console project references all features, so MSBuild automatically:
+        - Builds features before Console
+        - Copies feature DLLs to Console output
+        - Handles incremental builds correctly
+        -->
         <OutputPath>$(SolutionDir)/Brew.Console/bin/$(Configuration)/</OutputPath>
         <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>        
     </PropertyGroup>
-
-<!--    <Target Name="PostBuild" AfterTargets="PostBuildEvent">-->
-<!--        <ItemGroup>-->
-<!--            <ProjectReferenceOutputs Include="@(ProjectReference->'%(FullPath)')"/>-->
-<!--        </ItemGroup>-->
-<!--        <Copy SourceFiles="@(ProjectReferenceOutputs)" DestinationFolder="$(OutputPath)" SkipUnchangedFiles="true" />-->
-<!--    </Target>-->
-
 </Project>

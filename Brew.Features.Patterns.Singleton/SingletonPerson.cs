@@ -1,14 +1,23 @@
 namespace Brew.Features.Patterns.Singleton;
 
+/// <summary>
+/// Singleton Pattern - Only ONE instance exists for the lifetime of the application
+/// Thread-safe implementation using Lazy<T>
+/// </summary>
 public class SingletonPerson : Person
 {
-    private static SingletonPerson? _me;
+    // Thread-safe lazy initialization - the instance is created only when first accessed
+    private static readonly Lazy<SingletonPerson> _instance = new(() =>
+    {
+        Console.WriteLine("[SingletonPerson] *** CREATING THE ONE AND ONLY INSTANCE ***");
+        return new SingletonPerson();
+    });
 
-    public static SingletonPerson Me => _me ??= new SingletonPerson();
+    public static SingletonPerson Instance => _instance.Value;
 
-    // Cannot create
+    // Private constructor prevents external instantiation
     private SingletonPerson()
     {
-
+        Console.WriteLine("[SingletonPerson] Constructor called (this only happens ONCE)");
     }
 }

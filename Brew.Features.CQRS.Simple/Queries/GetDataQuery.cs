@@ -1,8 +1,8 @@
-﻿namespace Brew.Features.CQRS.Simple.Queries;
+﻿using Brew.Features.CQRS.Simple.Models;
 
+namespace Brew.Features.CQRS.Simple.Queries;
 
-
-public class GetDataQuery : IQuery<IEnumerable<string>>
+public class GetProductSummariesQuery : IQuery<IEnumerable<ProductSummary>>
 {
-    // Query parameters can be added here
+    // No parameters - fetch all
 }
