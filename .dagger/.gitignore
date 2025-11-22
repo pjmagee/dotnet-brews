@@ -1,4 +1,4 @@
 /sdk
-/**/node_modules/**
-/**/.pnpm-store/**
+/bin
+/obj
 /.env
