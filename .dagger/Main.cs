@@ -1,5 +1,4 @@
 using Dagger;
-using static Dagger.Dagger;
 
 namespace DotnetBrews;
 
