@@ -1,4 +1,5 @@
 ﻿<Solution>
+  <Project Path=".dagger\DotnetBrews.csproj" />
   <Project Path="Brew.Analyzers\Brew.Analyzers.csproj" />
   <Project Path="Brew.Console\Brew.Console.csproj">
     <BuildDependency Project="Brew.Analyzers\Brew.Analyzers.csproj" />
@@ -16,46 +17,154 @@
     <BuildDependency Project="Brew.Features.Serialization.Avro\Brew.Features.Serialization.Avro.csproj" />
     <BuildDependency Project="Brew.Features.Types\Brew.Features.Types.csproj" />
   </Project>
-  <Project Path="Brew.Features.Avro.SourceGenerator\Brew.Features.Serialization.Avro.SourceGenerator\Brew.Features.Serialization.Avro.SourceGenerator.csproj" Type="Classic C#" />
-  <Project Path="Brew.Features.Builders.FluentBuilder\Brew.Features.Builders.FluentBuilder.csproj" Type="Classic C#" />
-  <Project Path="Brew.Features.Builders.Simple\Brew.Features.Builders.Simple.csproj" Type="Classic C#" />
+  <Project
+    Path="Brew.Features.Avro.SourceGenerator\Brew.Features.Serialization.Avro.SourceGenerator\Brew.Features.Serialization.Avro.SourceGenerator.csproj"
+    Type="Classic C#"
+  />
+  <Project
+    Path="Brew.Features.Builders.FluentBuilder\Brew.Features.Builders.FluentBuilder.csproj"
+    Type="Classic C#"
+  />
+  <Project
+    Path="Brew.Features.Builders.Simple\Brew.Features.Builders.Simple.csproj"
+    Type="Classic C#"
+  />
   <Project Path="Brew.Features.CQRS.Simple\Brew.Features.CQRS.Simple.csproj" Type="Classic C#" />
-  <Project Path="Brew.Features.CSharp.Events\Brew.Features.CSharp.Events.csproj" Type="Classic C#" />
-  <Project Path="Brew.Features.CSharp.HiddenKeywords\Brew.Features.CSharp.HiddenKeywords.csproj" Type="Classic C#" />
-  <Project Path="Brew.Features.CSharp.ImmutableRecords\Brew.Features.CSharp.ImmutableRecords.csproj" Type="Classic C#" />
-  <Project Path="Brew.Features.CSharp.PatternMatching\Brew.Features.CSharp.PatternMatching.csproj" Type="Classic C#" />
-  <Project Path="Brew.Features.DynamicRuntime.Dynamic\Brew.Features.DynamicRuntime.Dynamic.csproj" Type="Classic C#" />
-  <Project Path="Brew.Features.FSharp.CSharp\Brew.Features.FSharp.CSharp.csproj" Type="Classic C#" />
-  <Project Path="Brew.Features.FSharp.Operations\Brew.Features.FSharp.Operations.fsproj" Type="Classic F#" />
-  <Project Path="Brew.Features.IO.Channels.MessageBus\Brew.Features.IO.Channels.MessageBus.csproj" Type="Classic C#" />
-  <Project Path="Brew.Features.IO.Pipes.NamedPipe\Brew.Features.IO.Pipes.NamedPipe.csproj" Type="Classic C#" />
+  <Project
+    Path="Brew.Features.CSharp.Events\Brew.Features.CSharp.Events.csproj"
+    Type="Classic C#"
+  />
+  <Project
+    Path="Brew.Features.CSharp.HiddenKeywords\Brew.Features.CSharp.HiddenKeywords.csproj"
+    Type="Classic C#"
+  />
+  <Project
+    Path="Brew.Features.CSharp.ImmutableRecords\Brew.Features.CSharp.ImmutableRecords.csproj"
+    Type="Classic C#"
+  />
+  <Project
+    Path="Brew.Features.CSharp.PatternMatching\Brew.Features.CSharp.PatternMatching.csproj"
+    Type="Classic C#"
+  />
+  <Project
+    Path="Brew.Features.DynamicRuntime.Dynamic\Brew.Features.DynamicRuntime.Dynamic.csproj"
+    Type="Classic C#"
+  />
+  <Project
+    Path="Brew.Features.FSharp.CSharp\Brew.Features.FSharp.CSharp.csproj"
+    Type="Classic C#"
+  />
+  <Project
+    Path="Brew.Features.FSharp.Operations\Brew.Features.FSharp.Operations.fsproj"
+    Type="Classic F#"
+  />
+  <Project
+    Path="Brew.Features.IO.Channels.MessageBus\Brew.Features.IO.Channels.MessageBus.csproj"
+    Type="Classic C#"
+  />
+  <Project
+    Path="Brew.Features.IO.Pipes.NamedPipe\Brew.Features.IO.Pipes.NamedPipe.csproj"
+    Type="Classic C#"
+  />
   <Project Path="Brew.Features.Jwt.Simple\Brew.Features.Jwt.Simple.csproj" Type="Classic C#" />
   <Project Path="Brew.Features.Linq\Brew.Features.Linq.csproj" Type="Classic C#" />
-  <Project Path="Brew.Features.Mef.Operations.Add\Brew.Features.Mef.Operations.Add.csproj" Type="Classic C#" />
-  <Project Path="Brew.Features.Mef.Operations.Multiply\Brew.Features.Mef.Operations.Multiply.csproj" Type="Classic C#" />
-  <Project Path="Brew.Features.Mef.Operations.Subtract\Brew.Features.Mef.Operations.Subtract.csproj" Type="Classic C#" />
+  <Project
+    Path="Brew.Features.Mef.Operations.Add\Brew.Features.Mef.Operations.Add.csproj"
+    Type="Classic C#"
+  />
+  <Project
+    Path="Brew.Features.Mef.Operations.Multiply\Brew.Features.Mef.Operations.Multiply.csproj"
+    Type="Classic C#"
+  />
+  <Project
+    Path="Brew.Features.Mef.Operations.Subtract\Brew.Features.Mef.Operations.Subtract.csproj"
+    Type="Classic C#"
+  />
   <Project Path="Brew.Features.Mef\Brew.Features.Mef.csproj" Type="Classic C#" />
-  <Project Path="Brew.Features.Patterns.Adaptor\Brew.Features.Patterns.Adaptor.csproj" Type="Classic C#" />
-  <Project Path="Brew.Features.Patterns.ChainOfResponsibility\Brew.Features.Patterns.ChainOfResponsibility.csproj" Type="Classic C#" />
-  <Project Path="Brew.Features.Patterns.DependencyInjection.PoorMansDI\Brew.Features.Patterns.DependencyInjection.PoorMansDI.csproj" Type="Classic C#" />
-  <Project Path="Brew.Features.Patterns.Facade\Brew.Features.Patterns.Facade.csproj" Type="Classic C#" />
-  <Project Path="Brew.Features.Patterns.Factory\Brew.Features.Patterns.Factory.csproj" Type="Classic C#" />
-  <Project Path="Brew.Features.Patterns.Mapper\Brew.Features.Patterns.Mapper.csproj" Type="Classic C#" />
-  <Project Path="Brew.Features.Patterns.Mediator.MediatR\Brew.Features.Patterns.Mediator.MediatR.csproj" Type="Classic C#" />
-  <Project Path="Brew.Features.Patterns.Singleton\Brew.Features.Patterns.Singleton.csproj" Type="Classic C#" />
-  <Project Path="Brew.Features.Patterns.Strategy\Brew.Features.Patterns.Strategy.csproj" Type="Classic C#" />
-  <Project Path="Brew.Features.Scripting.CSharp\Brew.Features.Scripting.CSharp.csproj" Type="Classic C#" />
-  <Project Path="Brew.Features.Scripting.IPython\Brew.Features.Scripting.IPython.csproj" Type="Classic C#" />
-  <Project Path="Brew.Features.Scripting.Pwsh\Brew.Features.Scripting.Pwsh.csproj" Type="Classic C#" />
-  <Project Path="Brew.Features.Serialization.Avro.Models\Brew.Features.Serialization.Avro.Models.csproj" Type="Classic C#" />
-  <Project Path="Brew.Features.Serialization.Avro\Brew.Features.Serialization.Avro.csproj" Type="Classic C#" />
-  <Project Path="Brew.Features.Solid.DependencyInversion\Brew.Features.Solid.DependencyInversion.csproj" Type="Classic C#" />
-  <Project Path="Brew.Features.Solid.InterfaceSegregation\Brew.Features.Solid.InterfaceSegregation.csproj" Type="Classic C#" />
-  <Project Path="Brew.Features.Solid.LiskovSubstitution\Brew.Features.Solid.LiskovSubstitution.csproj" Type="Classic C#" />
-  <Project Path="Brew.Features.Solid.OpenClosed\Brew.Features.Solid.OpenClosed.csproj" Type="Classic C#" />
-  <Project Path="Brew.Features.Solid.SingleResponsibility\Brew.Features.Solid.SingleResponsibility.csproj" Type="Classic C#" />
-  <Project Path="Brew.Features.SourceGenerators\Brew.Features.SourceGenerators.Sample\Brew.Features.SourceGenerators.Sample.csproj" Type="Classic C#" />
-  <Project Path="Brew.Features.SourceGenerators\Brew.Features.SourceGenerators\Brew.Features.SourceGenerators.csproj" Type="Classic C#" />
+  <Project
+    Path="Brew.Features.Patterns.Adaptor\Brew.Features.Patterns.Adaptor.csproj"
+    Type="Classic C#"
+  />
+  <Project
+    Path="Brew.Features.Patterns.ChainOfResponsibility\Brew.Features.Patterns.ChainOfResponsibility.csproj"
+    Type="Classic C#"
+  />
+  <Project
+    Path="Brew.Features.Patterns.DependencyInjection.PoorMansDI\Brew.Features.Patterns.DependencyInjection.PoorMansDI.csproj"
+    Type="Classic C#"
+  />
+  <Project
+    Path="Brew.Features.Patterns.Facade\Brew.Features.Patterns.Facade.csproj"
+    Type="Classic C#"
+  />
+  <Project
+    Path="Brew.Features.Patterns.Factory\Brew.Features.Patterns.Factory.csproj"
+    Type="Classic C#"
+  />
+  <Project
+    Path="Brew.Features.Patterns.Mapper\Brew.Features.Patterns.Mapper.csproj"
+    Type="Classic C#"
+  />
+  <Project
+    Path="Brew.Features.Patterns.Mediator.MediatR\Brew.Features.Patterns.Mediator.MediatR.csproj"
+    Type="Classic C#"
+  />
+  <Project
+    Path="Brew.Features.Patterns.Singleton\Brew.Features.Patterns.Singleton.csproj"
+    Type="Classic C#"
+  />
+  <Project
+    Path="Brew.Features.Patterns.Strategy\Brew.Features.Patterns.Strategy.csproj"
+    Type="Classic C#"
+  />
+  <Project
+    Path="Brew.Features.Scripting.CSharp\Brew.Features.Scripting.CSharp.csproj"
+    Type="Classic C#"
+  />
+  <Project
+    Path="Brew.Features.Scripting.IPython\Brew.Features.Scripting.IPython.csproj"
+    Type="Classic C#"
+  />
+  <Project
+    Path="Brew.Features.Scripting.Pwsh\Brew.Features.Scripting.Pwsh.csproj"
+    Type="Classic C#"
+  />
+  <Project
+    Path="Brew.Features.Serialization.Avro.Models\Brew.Features.Serialization.Avro.Models.csproj"
+    Type="Classic C#"
+  />
+  <Project
+    Path="Brew.Features.Serialization.Avro\Brew.Features.Serialization.Avro.csproj"
+    Type="Classic C#"
+  />
+  <Project
+    Path="Brew.Features.Solid.DependencyInversion\Brew.Features.Solid.DependencyInversion.csproj"
+    Type="Classic C#"
+  />
+  <Project
+    Path="Brew.Features.Solid.InterfaceSegregation\Brew.Features.Solid.InterfaceSegregation.csproj"
+    Type="Classic C#"
+  />
+  <Project
+    Path="Brew.Features.Solid.LiskovSubstitution\Brew.Features.Solid.LiskovSubstitution.csproj"
+    Type="Classic C#"
+  />
+  <Project
+    Path="Brew.Features.Solid.OpenClosed\Brew.Features.Solid.OpenClosed.csproj"
+    Type="Classic C#"
+  />
+  <Project
+    Path="Brew.Features.Solid.SingleResponsibility\Brew.Features.Solid.SingleResponsibility.csproj"
+    Type="Classic C#"
+  />
+  <Project
+    Path="Brew.Features.SourceGenerators\Brew.Features.SourceGenerators.Sample\Brew.Features.SourceGenerators.Sample.csproj"
+    Type="Classic C#"
+  />
+  <Project
+    Path="Brew.Features.SourceGenerators\Brew.Features.SourceGenerators\Brew.Features.SourceGenerators.csproj"
+    Type="Classic C#"
+  />
   <Project Path="Brew.Features.Types\Brew.Features.Types.csproj" Type="Classic C#" />
   <Project Path="Brew\Brew.csproj" />
 </Solution>

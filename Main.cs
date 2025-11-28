@@ -63,7 +63,7 @@ public class DotnetBrews
     /// Run a specific brew by name
     /// </summary>
     [Function]
-    public Container RunBrew(string brewName, [DefaultPath("/")] Directory directoryArg)
+    public Container RunBrew([Ignore] string brewName, [DefaultPath("/")] Directory directoryArg)
     {
         var build = Build(directoryArg);
 
