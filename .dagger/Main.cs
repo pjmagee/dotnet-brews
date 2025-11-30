@@ -2,8 +2,6 @@ using Dagger;
 
 namespace DotnetBrews;
 
-// Don't cache
-
 /// <summary>
 /// A Dagger module for building and running the dotnet-brews solution
 ///

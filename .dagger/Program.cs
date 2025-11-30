@@ -12,4 +12,4 @@
 //     - Terminal stderr (with --progress=plain)
 //     - /tmp/dagger-csharp-debug.log (inside the container)
 
-return await Dagger.Runtime.ModuleRuntime.RunAsync(args);
+return await Dagger.ModuleRuntime.Entrypoint.RunAsync(args);
