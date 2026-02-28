@@ -1,4 +1,5 @@
 ﻿<Solution>
+  <Project Path=".dagger\DotnetBrews.csproj" />
   <Project Path="Brew.Analyzers\Brew.Analyzers.csproj" />
   <Project Path="Brew.Console\Brew.Console.csproj">
     <BuildDependency Project="Brew.Analyzers\Brew.Analyzers.csproj" />

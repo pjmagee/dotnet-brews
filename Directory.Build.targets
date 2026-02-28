@@ -1,0 +1,16 @@
+<Project>
+  <!-- Automatically run CSharpier before each compile so code is consistently formatted. -->
+  <Target
+    Name="RunCSharpier"
+    BeforeTargets="BeforeCompile"
+    Condition="'$(IsCSharpierInstalled)' == '' and Exists('$(MSBuildProjectDirectory)\\Brew.slnx')"
+  >
+    <!-- Only execute once in the repository root (where the solution file lives).
+         running on every project caused tool errors for non-C# projects. -->
+    <Exec Command="dotnet tool restore" />
+    <Exec
+      Command="dotnet tool run csharpier -- --write-all"
+      WorkingDirectory="$(MSBuildProjectDirectory)"
+    />
+  </Target>
+</Project>
