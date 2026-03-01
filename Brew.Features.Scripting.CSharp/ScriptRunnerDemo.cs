@@ -7,8 +7,8 @@ namespace Brew.Features.Scripting.CSharp;
 
 public class ScriptRunnerDemo(ILogger<ScriptRunnerDemo> logger)
 {
-    private readonly ScriptOptions _scriptOptions = ScriptOptions.Default
-        .AddReferences(typeof(Brew).Assembly)
+    private readonly ScriptOptions _scriptOptions = ScriptOptions
+        .Default.AddReferences(typeof(Brew).Assembly)
         .AddReferences(Assembly.GetExecutingAssembly())
         .AddReferences(typeof(ILogger).Assembly)
         .AddImports("System")
@@ -26,8 +26,12 @@ public class ScriptRunnerDemo(ILogger<ScriptRunnerDemo> logger)
     {
         try
         {
-            var scriptPath = Path.Combine(Directory.GetCurrentDirectory(), "Scripts", scriptFileName);
-            
+            var scriptPath = Path.Combine(
+                Directory.GetCurrentDirectory(),
+                "Scripts",
+                scriptFileName
+            );
+
             if (!File.Exists(scriptPath))
             {
                 logger.LogError("Script file not found: {ScriptPath}", scriptPath);
@@ -35,11 +39,12 @@ public class ScriptRunnerDemo(ILogger<ScriptRunnerDemo> logger)
             }
 
             var scriptCode = await File.ReadAllTextAsync(scriptPath);
-            
+
             var result = await CSharpScript.EvaluateAsync<string>(
-                scriptCode, 
-                _scriptOptions, 
-                globals: new Globals { Logger = logger });
+                scriptCode,
+                _scriptOptions,
+                globals: new Globals { Logger = logger }
+            );
 
             logger.LogInformation("Script '{ScriptName}' result: {Result}", scriptFileName, result);
         }
@@ -57,8 +62,12 @@ public class ScriptRunnerDemo(ILogger<ScriptRunnerDemo> logger)
     {
         try
         {
-            var scriptPath = Path.Combine(Directory.GetCurrentDirectory(), "Scripts", "calculator.csx");
-            
+            var scriptPath = Path.Combine(
+                Directory.GetCurrentDirectory(),
+                "Scripts",
+                "calculator.csx"
+            );
+
             if (!File.Exists(scriptPath))
             {
                 logger.LogError("Calculator script not found: {ScriptPath}", scriptPath);
@@ -66,11 +75,18 @@ public class ScriptRunnerDemo(ILogger<ScriptRunnerDemo> logger)
             }
 
             var scriptCode = await File.ReadAllTextAsync(scriptPath);
-            
+
             var result = await CSharpScript.EvaluateAsync<double>(
                 scriptCode,
                 _scriptOptions,
-                globals: new Globals { Num1 = num1, Num2 = num2, Op = op, Logger = logger });
+                globals: new Globals
+                {
+                    Num1 = num1,
+                    Num2 = num2,
+                    Op = op,
+                    Logger = logger,
+                }
+            );
 
             logger.LogInformation("Operation result: {Result}", result);
         }

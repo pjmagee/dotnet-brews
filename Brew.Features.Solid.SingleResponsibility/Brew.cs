@@ -12,13 +12,20 @@ namespace Brew.Features.Solid.SingleResponsibility;
 /// </summary>
 public class Brew : ModuleBase
 {
-    protected override void ConfigureServices(HostBuilderContext hostContext, IServiceCollection services)
+    protected override void ConfigureServices(
+        HostBuilderContext hostContext,
+        IServiceCollection services
+    )
     {
         services.AddSingleton<BeforeExample>().AddSingleton<OrderBefore>();
 
-        services.AddSingleton<AfterExample>()
+        services
+            .AddSingleton<AfterExample>()
             .AddSingleton<OrderAfter>()
-            .AddSingleton<Emailer>(x => new Emailer(x.GetRequiredService<ILogger<Emailer>>(), "smtp://localhost"))
+            .AddSingleton<Emailer>(x => new Emailer(
+                x.GetRequiredService<ILogger<Emailer>>(),
+                "smtp://localhost"
+            ))
             .AddSingleton<PaymentProcessor>()
             .AddSingleton<Checkout>();
     }

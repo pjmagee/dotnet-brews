@@ -1,16 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-    
-    <Import Project="..\Common.targets" />
-    
-    <PropertyGroup>
-        <TargetFramework>net10.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-        <RootNamespace>Brew.Features.PatternMatching</RootNamespace>
-    </PropertyGroup>
+  <Import Project="..\Common.targets" />
 
-    <ItemGroup>
-      <ProjectReference Include="..\Brew\Brew.csproj" />
-    </ItemGroup>
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>Brew.Features.PatternMatching</RootNamespace>
+  </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Brew\Brew.csproj" />
+  </ItemGroup>
 </Project>

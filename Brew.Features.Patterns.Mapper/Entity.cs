@@ -25,7 +25,9 @@ public class Customer
 
     // Business logic
     public int GetAge() => DateTime.UtcNow.Year - DateOfBirth.Year;
+
     public decimal GetTotalSpent() => Orders.Sum(o => o.TotalAmount);
+
     public string GetFullName() => $"{FirstName} {LastName}";
 }
 

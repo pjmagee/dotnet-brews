@@ -10,7 +10,10 @@ namespace Brew.Features.Patterns.ChainOfResponsibility;
 /// </summary>
 public class ChainOfResponsibility : ModuleBase
 {
-    protected override void ConfigureServices(HostBuilderContext hostContext, IServiceCollection services)
+    protected override void ConfigureServices(
+        HostBuilderContext hostContext,
+        IServiceCollection services
+    )
     {
         services.AddSingleton<EntryLevel>();
         services.AddSingleton<MidLevel>();
@@ -20,7 +23,9 @@ public class ChainOfResponsibility : ModuleBase
     protected override async Task ExecuteAsync(CancellationToken token = default)
     {
         Logger.LogInformation("=== CHAIN OF RESPONSIBILITY PATTERN DEMONSTRATION ===\n");
-        Logger.LogInformation("Scenario: Purchase approval system with hierarchical authority levels\n");
+        Logger.LogInformation(
+            "Scenario: Purchase approval system with hierarchical authority levels\n"
+        );
 
         // Get handlers from DI
         var teamLead = Host.Services.GetRequiredService<EntryLevel>();
@@ -31,7 +36,7 @@ public class ChainOfResponsibility : ModuleBase
         Logger.LogInformation("╔════════════════════════════════════════════════════════════╗");
         Logger.LogInformation("║  Setting up Chain of Responsibility                       ║");
         Logger.LogInformation("╚════════════════════════════════════════════════════════════╝\n");
-        
+
         teamLead.SetSuccessor(manager);
         manager.SetSuccessor(director);
 
@@ -40,42 +45,42 @@ public class ChainOfResponsibility : ModuleBase
         // Create various purchase requests
         var requests = new[]
         {
-            new Request 
-            { 
-                Type = RequestType.Small, 
-                Amount = 500m, 
-                Description = "Office supplies (printer paper, pens)" 
+            new Request
+            {
+                Type = RequestType.Small,
+                Amount = 500m,
+                Description = "Office supplies (printer paper, pens)",
             },
-            new Request 
-            { 
-                Type = RequestType.Small, 
-                Amount = 850m, 
-                Description = "Software licenses for team" 
+            new Request
+            {
+                Type = RequestType.Small,
+                Amount = 850m,
+                Description = "Software licenses for team",
             },
-            new Request 
-            { 
-                Type = RequestType.Medium, 
-                Amount = 5000m, 
-                Description = "New development server" 
+            new Request
+            {
+                Type = RequestType.Medium,
+                Amount = 5000m,
+                Description = "New development server",
             },
-            new Request 
-            { 
-                Type = RequestType.Medium, 
-                Amount = 9500m, 
-                Description = "Conference attendance for 5 team members" 
+            new Request
+            {
+                Type = RequestType.Medium,
+                Amount = 9500m,
+                Description = "Conference attendance for 5 team members",
             },
-            new Request 
-            { 
-                Type = RequestType.Large, 
-                Amount = 25000m, 
-                Description = "Enterprise software upgrade" 
+            new Request
+            {
+                Type = RequestType.Large,
+                Amount = 25000m,
+                Description = "Enterprise software upgrade",
             },
-            new Request 
-            { 
-                Type = RequestType.Large, 
-                Amount = 75000m, 
-                Description = "New cloud infrastructure migration" 
-            }
+            new Request
+            {
+                Type = RequestType.Large,
+                Amount = 75000m,
+                Description = "New cloud infrastructure migration",
+            },
         };
 
         Logger.LogInformation("╔════════════════════════════════════════════════════════════╗");
@@ -97,7 +102,10 @@ public class ChainOfResponsibility : ModuleBase
             // Show final result
             if (request.IsApproved)
             {
-                Logger.LogInformation("\n✅ FINAL RESULT: Request APPROVED by {ApprovedBy}\n", request.ApprovedBy);
+                Logger.LogInformation(
+                    "\n✅ FINAL RESULT: Request APPROVED by {ApprovedBy}\n",
+                    request.ApprovedBy
+                );
             }
             else
             {
@@ -111,11 +119,17 @@ public class ChainOfResponsibility : ModuleBase
         Logger.LogInformation("\n" + new string('═', 60));
         Logger.LogInformation("=== KEY BENEFITS OF CHAIN OF RESPONSIBILITY ===");
         Logger.LogInformation(new string('═', 60));
-        Logger.LogInformation("✓ DECOUPLING: Sender doesn't need to know who will handle the request");
+        Logger.LogInformation(
+            "✓ DECOUPLING: Sender doesn't need to know who will handle the request"
+        );
         Logger.LogInformation("✓ FLEXIBILITY: Easy to add/remove handlers or change order");
         Logger.LogInformation("✓ SINGLE RESPONSIBILITY: Each handler has one clear approval level");
         Logger.LogInformation("✓ AUTOMATIC ESCALATION: Requests flow up the chain until handled");
-        Logger.LogInformation("✓ EXTENSIBILITY: New approval levels can be added without changing existing code");
-        Logger.LogInformation("\nUse Cases: Approval workflows, event handling, logging systems, request processing pipelines");
+        Logger.LogInformation(
+            "✓ EXTENSIBILITY: New approval levels can be added without changing existing code"
+        );
+        Logger.LogInformation(
+            "\nUse Cases: Approval workflows, event handling, logging systems, request processing pipelines"
+        );
     }
 }

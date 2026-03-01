@@ -10,7 +10,8 @@ public class FacadeService(
     ComplexServiceC auditService,
     ComplexServiceB authService,
     ComplexServiceA databaseService,
-    ILogger<FacadeService> logger)
+    ILogger<FacadeService> logger
+)
 {
     /// <summary>
     /// Simple method that hides all the complexity of the subsystem

@@ -15,7 +15,11 @@ public class ArgListDemo(ILogger<ArgListDemo> logger)
 
     private void PrintModern(params object[] args)
     {
-        logger.LogInformation("  Received {Count} args: {Args}", args.Length, string.Join(", ", args));
+        logger.LogInformation(
+            "  Received {Count} args: {Args}",
+            args.Length,
+            string.Join(", ", args)
+        );
     }
 
     public void LegacyApproach()
@@ -36,7 +40,11 @@ public class ArgListDemo(ILogger<ArgListDemo> logger)
             items.Add(TypedReference.ToObject(arg)!);
         }
 
-        logger.LogInformation("  Received {Count} args: {Args}", items.Count, string.Join(", ", items));
+        logger.LogInformation(
+            "  Received {Count} args: {Args}",
+            items.Count,
+            string.Join(", ", items)
+        );
         logger.LogInformation("  WARNING: No compile-time type safety!");
     }
 }

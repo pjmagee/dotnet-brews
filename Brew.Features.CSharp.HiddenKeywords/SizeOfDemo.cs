@@ -1,5 +1,5 @@
-using Microsoft.Extensions.Logging;
 using System.Runtime.InteropServices;
+using Microsoft.Extensions.Logging;
 
 namespace Brew.Features.CSharp.HiddenKeywords;
 
@@ -9,7 +9,7 @@ public class SizeOfDemo(ILogger<SizeOfDemo> logger)
     public void ShowTypeSizes()
     {
         logger.LogInformation("[sizeof] Compile-time type sizes (in bytes):");
-        
+
         // sizeof works with unmanaged types (primitives, structs without references)
         logger.LogInformation("  sizeof(byte): {Size}", sizeof(byte));
         logger.LogInformation("  sizeof(short): {Size}", sizeof(short));
@@ -20,11 +20,11 @@ public class SizeOfDemo(ILogger<SizeOfDemo> logger)
         logger.LogInformation("  sizeof(decimal): {Size}", sizeof(decimal));
         logger.LogInformation("  sizeof(bool): {Size}", sizeof(bool));
         logger.LogInformation("  sizeof(char): {Size}", sizeof(char));
-        
+
         // Custom unmanaged struct - use Marshal.SizeOf for complex types
         logger.LogInformation("  Marshal.SizeOf<Point3D>(): {Size}", Marshal.SizeOf<Point3D>());
         logger.LogInformation("  Marshal.SizeOf<Color>(): {Size}", Marshal.SizeOf<Color>());
-        
+
         logger.LogInformation("USE CASE: Interop, memory layout calculations, buffer sizing");
     }
 
@@ -43,13 +43,16 @@ public class SizeOfDemo(ILogger<SizeOfDemo> logger)
     {
         [FieldOffset(0)]
         public byte R;
+
         [FieldOffset(1)]
         public byte G;
+
         [FieldOffset(2)]
         public byte B;
+
         [FieldOffset(3)]
         public byte A;
-        
+
         [FieldOffset(0)]
         public uint Value; // Overlaps RGBA bytes
     }

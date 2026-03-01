@@ -14,9 +14,15 @@ public class Mediator(IServiceProvider serviceProvider)
         await handler.HandleAsync((dynamic)command, cancellationToken);
     }
 
-    public async Task<TResult> DispatchAsync<TResult>(IQuery<TResult> query, CancellationToken cancellationToken = default)
+    public async Task<TResult> DispatchAsync<TResult>(
+        IQuery<TResult> query,
+        CancellationToken cancellationToken = default
+    )
     {
-        var handlerType = typeof(IQueryHandler<,>).MakeGenericType(query.GetType(), typeof(TResult));
+        var handlerType = typeof(IQueryHandler<,>).MakeGenericType(
+            query.GetType(),
+            typeof(TResult)
+        );
         dynamic handler = serviceProvider.GetRequiredService(handlerType);
         return await handler.HandleAsync((dynamic)query, cancellationToken);
     }

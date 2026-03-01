@@ -6,14 +6,14 @@ namespace Brew.Features.PatternMatching;
 
 /*
  * Pattern Matching (C# 7.0+) enables sophisticated type/value checks in a concise, readable way.
- * 
+ *
  * Pattern Types:
  * - Type patterns: is Type, switch with types
  * - Property patterns: { Property: value }
  * - Relational patterns: >, <, >=, <=
  * - Logical patterns: and, or, not
  * - List patterns: [item1, item2, ..]
- * 
+ *
  * Benefits:
  * - Eliminates verbose if-else chains
  * - Exhaustive matching with compiler warnings
@@ -22,9 +22,10 @@ namespace Brew.Features.PatternMatching;
  */
 public class Brew : ModuleBase
 {
-    protected override void ConfigureServices(HostBuilderContext hostContext, IServiceCollection services)
-    {
-    }
+    protected override void ConfigureServices(
+        HostBuilderContext hostContext,
+        IServiceCollection services
+    ) { }
 
     protected override Task ExecuteAsync(CancellationToken token = default)
     {
@@ -78,7 +79,7 @@ public class Brew : ModuleBase
             string s => $"String with length {s.Length}",
             int i => $"Integer: {i}",
             Hero { Name: var name } => $"Hero: {name}",
-            _ => "Unknown type"
+            _ => "Unknown type",
         };
         Logger.LogInformation("  {Result}", result);
     }
@@ -89,9 +90,24 @@ public class Brew : ModuleBase
 
         var heroes = new[]
         {
-            new Hero { Name = "Superman", Age = 35, Power = "Flight" },
-            new Hero { Name = "Batman", Age = 40, Power = null },
-            new Hero { Name = "Wonder Woman", Age = 5000, Power = "Super Strength" }
+            new Hero
+            {
+                Name = "Superman",
+                Age = 35,
+                Power = "Flight",
+            },
+            new Hero
+            {
+                Name = "Batman",
+                Age = 40,
+                Power = null,
+            },
+            new Hero
+            {
+                Name = "Wonder Woman",
+                Age = 5000,
+                Power = "Super Strength",
+            },
         };
 
         foreach (var hero in heroes)
@@ -101,7 +117,7 @@ public class Brew : ModuleBase
                 { Name: "Superman", Power: "Flight" } => "Man of Steel",
                 { Name: "Batman", Power: null } => "Dark Knight (no powers)",
                 { Age: > 100 } => "Ancient hero",
-                _ => "Regular hero"
+                _ => "Regular hero",
             };
             Logger.LogInformation("  {Name}: {Classification}", hero.Name, classification);
         }
@@ -121,7 +137,7 @@ public class Brew : ModuleBase
                 >= 13 and < 20 => "Teenager",
                 >= 20 and < 60 => "Adult",
                 >= 60 and < 100 => "Senior",
-                _ => "Centenarian (100+)"
+                _ => "Centenarian (100+)",
             };
             Logger.LogInformation("  Age {Age}: {Category}", age, category);
         }
@@ -136,7 +152,7 @@ public class Brew : ModuleBase
             new[] { 1 },
             new[] { 1, 2 },
             new[] { 1, 2, 3 },
-            new[] { 1, 2, 3, 4, 5 }
+            new[] { 1, 2, 3, 4, 5 },
         };
 
         foreach (var list in lists)
@@ -165,7 +181,7 @@ public class Brew : ModuleBase
                 null => "Null value",
                 not int => "Not an integer",
                 < 0 or > 10 => $"Out of range: {value}",
-                _ => $"In range [0-10]: {value}"
+                _ => $"In range [0-10]: {value}",
             };
             Logger.LogInformation("  {Value}: {Check}", value ?? "null", check);
         }

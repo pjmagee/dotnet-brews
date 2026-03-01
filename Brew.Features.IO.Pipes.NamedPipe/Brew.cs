@@ -11,11 +11,25 @@ namespace Brew.Features.Pipes;
 /// </summary>
 public class Brew : ModuleBase
 {
-    protected override void ConfigureServices(HostBuilderContext hostContext, IServiceCollection services)
+    protected override void ConfigureServices(
+        HostBuilderContext hostContext,
+        IServiceCollection services
+    )
     {
         services
-            .AddSingleton<NamedPipeClientStream>(x => new NamedPipeClientStream(".", "testpipe", PipeDirection.InOut, PipeOptions.Asynchronous))
-            .AddSingleton<NamedPipeServerStream>(x => new NamedPipeServerStream("testpipe", PipeDirection.InOut, 1, PipeTransmissionMode.Byte, PipeOptions.Asynchronous))
+            .AddSingleton<NamedPipeClientStream>(x => new NamedPipeClientStream(
+                ".",
+                "testpipe",
+                PipeDirection.InOut,
+                PipeOptions.Asynchronous
+            ))
+            .AddSingleton<NamedPipeServerStream>(x => new NamedPipeServerStream(
+                "testpipe",
+                PipeDirection.InOut,
+                1,
+                PipeTransmissionMode.Byte,
+                PipeOptions.Asynchronous
+            ))
             .AddHostedService<PipeClient>()
             .AddHostedService<PipeServer>();
     }
@@ -23,8 +37,12 @@ public class Brew : ModuleBase
     protected override Task ExecuteAsync(CancellationToken token = default)
     {
         Logger.LogInformation("========== NAMED PIPES IPC DEMONSTRATION ==========");
-        Logger.LogInformation("Scenario: Bi-directional communication between client/server processes\n");
-        Logger.LogInformation("PipeServer waits for connection, then receives/responds to messages");
+        Logger.LogInformation(
+            "Scenario: Bi-directional communication between client/server processes\n"
+        );
+        Logger.LogInformation(
+            "PipeServer waits for connection, then receives/responds to messages"
+        );
         Logger.LogInformation("PipeClient connects to server and exchanges messages\n");
 
         Logger.LogInformation("---------- BENEFITS OF NAMED PIPES ----------");
@@ -44,4 +62,3 @@ public class Brew : ModuleBase
         return Host.RunAsync(cts.Token);
     }
 }
-

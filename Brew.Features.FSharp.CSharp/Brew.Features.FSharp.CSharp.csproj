@@ -1,20 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\Common.targets" />
 
-    <Import Project="..\Common.targets" />
-    
-    <PropertyGroup>
-        <TargetFramework>net10.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-    </PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
 
-    <ItemGroup>
-      <ProjectReference Include="..\Brew.Features.FSharp.Operations\Brew.Features.FSharp.Operations.fsproj" />
-      <ProjectReference Include="..\Brew\Brew.csproj" />
-    </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Brew.Features.FSharp.Operations\Brew.Features.FSharp.Operations.fsproj" />
+    <ProjectReference Include="..\Brew\Brew.csproj" />
+  </ItemGroup>
 
-    <ItemGroup>
-      <PackageReference Include="FSharp.Core" />
-    </ItemGroup>
-
+  <ItemGroup>
+    <PackageReference Include="FSharp.Core" />
+  </ItemGroup>
 </Project>

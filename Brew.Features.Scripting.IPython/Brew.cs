@@ -7,7 +7,10 @@ namespace Brew.Features.Scripting.IPython;
 
 public class Brew : ModuleBase
 {
-    protected override void ConfigureServices(HostBuilderContext hostContext, IServiceCollection services)
+    protected override void ConfigureServices(
+        HostBuilderContext hostContext,
+        IServiceCollection services
+    )
     {
         services.AddSingleton<ScriptEngine>(x => Python.CreateEngine());
     }
@@ -23,8 +26,11 @@ public class Brew : ModuleBase
         scope.SetVariable("character", character);
         scope.SetVariable("monster", monster);
         scope.SetVariable("logger", new LoggerWrapper(Logger));
-        
-        engine.ExecuteFile(Path.Combine(Directory.GetCurrentDirectory(), "Scripts", "combat.py"), scope);
+
+        engine.ExecuteFile(
+            Path.Combine(Directory.GetCurrentDirectory(), "Scripts", "combat.py"),
+            scope
+        );
 
         return Task.CompletedTask;
     }

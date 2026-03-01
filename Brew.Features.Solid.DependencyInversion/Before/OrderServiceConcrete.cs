@@ -11,6 +11,6 @@ namespace Brew.Features.Solid.DependencyInversion.Before;
 public class OrderServiceConcrete
 {
     private readonly OrderRepository _orderRepository = new(new List<Order>()); // Direct dependency on concrete class
-    
+
     public void AddOrder(Order order) => _orderRepository.Add(order);
 }

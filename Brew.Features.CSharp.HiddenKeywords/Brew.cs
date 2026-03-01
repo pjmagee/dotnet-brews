@@ -6,18 +6,21 @@ namespace Brew.Features.CSharp.HiddenKeywords;
 
 /*
  * C# has several lesser-known keywords that provide low-level functionality:
- * 
+ *
  * __arglist: Variable-length argument lists (COM interop, rarely used)
  * __makeref, __refvalue, __reftype: TypedReference manipulation (unsafe, legacy)
  * stackalloc: Allocate memory on the stack (performance-critical scenarios)
  * sizeof: Get size of unmanaged types at compile time
- * 
+ *
  * These keywords exist for backwards compatibility and very specific scenarios.
  * Modern C# offers better alternatives (params, Span<T>, generics).
  */
 public class Brew : ModuleBase
 {
-    protected override void ConfigureServices(HostBuilderContext hostContext, IServiceCollection services)
+    protected override void ConfigureServices(
+        HostBuilderContext hostContext,
+        IServiceCollection services
+    )
     {
         services.AddSingleton<ArgListDemo>();
         services.AddSingleton<TypedRefDemo>();
@@ -28,7 +31,9 @@ public class Brew : ModuleBase
     protected override Task ExecuteAsync(CancellationToken token = default)
     {
         Logger.LogInformation("=============== C# Hidden Keywords Demonstration ===============");
-        Logger.LogInformation("Showcasing lesser-known keywords: __arglist, __makeref, stackalloc, sizeof");
+        Logger.LogInformation(
+            "Showcasing lesser-known keywords: __arglist, __makeref, stackalloc, sizeof"
+        );
         Logger.LogInformation("Note: Most are legacy/low-level; modern C# has better alternatives");
         Logger.LogInformation("=================================================================");
         Logger.LogInformation("");

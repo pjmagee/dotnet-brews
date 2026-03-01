@@ -11,7 +11,10 @@ public class PaymentProcessorAdapter : IModernPaymentProcessor
     private readonly LegacyPaymentProcessor _legacyProcessor;
     private readonly ILogger<PaymentProcessorAdapter> _logger;
 
-    public PaymentProcessorAdapter(LegacyPaymentProcessor legacyProcessor, ILogger<PaymentProcessorAdapter> logger)
+    public PaymentProcessorAdapter(
+        LegacyPaymentProcessor legacyProcessor,
+        ILogger<PaymentProcessorAdapter> logger
+    )
     {
         _legacyProcessor = legacyProcessor;
         _logger = logger;
@@ -24,7 +27,9 @@ public class PaymentProcessorAdapter : IModernPaymentProcessor
     {
         _logger.LogInformation("[Adapter] Converting modern PaymentRequest to legacy format...");
         _logger.LogInformation("[Adapter] Modern format: PaymentRequest object with properties");
-        _logger.LogInformation("[Adapter] Legacy format: Individual parameters (cardNum, expiry, cvv, amt, curr)");
+        _logger.LogInformation(
+            "[Adapter] Legacy format: Individual parameters (cardNum, expiry, cvv, amt, curr)"
+        );
 
         // Adapt: Convert modern object to legacy parameters
         var transactionId = _legacyProcessor.ProcessPaymentLegacy(
@@ -35,14 +40,17 @@ public class PaymentProcessorAdapter : IModernPaymentProcessor
             request.Currency
         );
 
-        _logger.LogInformation("[Adapter] Legacy processor returned transaction ID: {TransactionId}", transactionId);
+        _logger.LogInformation(
+            "[Adapter] Legacy processor returned transaction ID: {TransactionId}",
+            transactionId
+        );
 
         // Adapt: Convert legacy response to modern format
         return new PaymentResult
         {
             Success = true,
             TransactionId = transactionId,
-            Message = "Payment processed successfully via legacy system"
+            Message = "Payment processed successfully via legacy system",
         };
     }
 
@@ -51,7 +59,9 @@ public class PaymentProcessorAdapter : IModernPaymentProcessor
     /// </summary>
     public bool ValidateCard(string cardNumber)
     {
-        _logger.LogInformation("[Adapter] Converting legacy validation (int status code) to modern format (bool)...");
+        _logger.LogInformation(
+            "[Adapter] Converting legacy validation (int status code) to modern format (bool)..."
+        );
 
         // Call legacy method that returns int
         var statusCode = _legacyProcessor.ValidateCardLegacy(cardNumber);
@@ -59,8 +69,11 @@ public class PaymentProcessorAdapter : IModernPaymentProcessor
         // Adapt: Convert legacy status code to boolean
         var isValid = statusCode == 1;
 
-        _logger.LogInformation("[Adapter] Legacy returned status code: {StatusCode}, converted to: {IsValid}", 
-            statusCode, isValid);
+        _logger.LogInformation(
+            "[Adapter] Legacy returned status code: {StatusCode}, converted to: {IsValid}",
+            statusCode,
+            isValid
+        );
 
         return isValid;
     }
@@ -78,8 +91,11 @@ public class PaymentProcessorAdapter : IModernPaymentProcessor
         // Adapt: Convert legacy status string to boolean
         var isSuccessful = status == "OK";
 
-        _logger.LogInformation("[Adapter] Legacy returned: '{Status}', converted to: {IsSuccessful}", 
-            status, isSuccessful);
+        _logger.LogInformation(
+            "[Adapter] Legacy returned: '{Status}', converted to: {IsSuccessful}",
+            status,
+            isSuccessful
+        );
 
         return isSuccessful;
     }

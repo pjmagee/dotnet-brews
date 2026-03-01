@@ -1,16 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\Common.targets" />
 
-    <Import Project="..\Common.targets" />
-    
-    <PropertyGroup>
-        <TargetFramework>net10.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-        <Description>Simple usage of CQRS without any libraries except for Microsoft Dependency Injection</Description>
-    </PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Description>Simple usage of CQRS without any libraries except for Microsoft Dependency Injection</Description>
+  </PropertyGroup>
 
-    <ItemGroup>
-      <ProjectReference Include="..\Brew\Brew.csproj" />
-    </ItemGroup>
-
+  <ItemGroup>
+    <ProjectReference Include="..\Brew\Brew.csproj" />
+  </ItemGroup>
 </Project>

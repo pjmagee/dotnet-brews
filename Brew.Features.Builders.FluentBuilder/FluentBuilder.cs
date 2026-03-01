@@ -7,21 +7,43 @@ namespace Brew.Features.Builders.FluentBuilder;
 /// Example domain: Building a Report with required Title, then one or more Sections, then optional Footer.
 /// The interfaces restrict calling order: Title -> Sections -> Footer -> Build.
 /// </summary>
-public interface IReportTitleStep { IReportContentStep WithTitle(string title); }
-public interface IReportContentStep { IReportContentStep AddSection(string heading, string body); IReportFooterStep WithFooter(string footerText); IReportBuildStep WithoutFooter(); }
-public interface IReportFooterStep { IReportBuildStep WithFooter(string footerText); }
-public interface IReportBuildStep { Report Build(); }
+public interface IReportTitleStep
+{
+    IReportContentStep WithTitle(string title);
+}
+
+public interface IReportContentStep
+{
+    IReportContentStep AddSection(string heading, string body);
+    IReportFooterStep WithFooter(string footerText);
+    IReportBuildStep WithoutFooter();
+}
+
+public interface IReportFooterStep
+{
+    IReportBuildStep WithFooter(string footerText);
+}
+
+public interface IReportBuildStep
+{
+    Report Build();
+}
 
 public sealed class Report
 {
     public string Title { get; set; } = string.Empty;
-    public List<(string Heading,string Body)> Sections { get; } = new();
+    public List<(string Heading, string Body)> Sections { get; } = new();
     public string? Footer { get; set; }
 
-    public override string ToString() => $"Report: {Title} | Sections: {Sections.Count} | Footer: {(Footer is null ? "None" : "Present" )}";
+    public override string ToString() =>
+        $"Report: {Title} | Sections: {Sections.Count} | Footer: {(Footer is null ? "None" : "Present")}";
 }
 
-public class FluentBuilder : IReportTitleStep, IReportContentStep, IReportFooterStep, IReportBuildStep
+public class FluentBuilder
+    : IReportTitleStep,
+        IReportContentStep,
+        IReportFooterStep,
+        IReportBuildStep
 {
     private readonly ILogger<FluentBuilder> _logger;
     private readonly Report _report = new() { Title = "" };
@@ -39,16 +61,20 @@ public class FluentBuilder : IReportTitleStep, IReportContentStep, IReportFooter
 
     public IReportContentStep AddSection(string heading, string body)
     {
-        if(!_titleSet)
+        if (!_titleSet)
             throw new InvalidOperationException("Title must be set before adding sections.");
         _report.Sections.Add((heading, body));
-        _logger.LogInformation("[Builder] Added section: {Heading} (length {Length} chars)", heading, body.Length);
+        _logger.LogInformation(
+            "[Builder] Added section: {Heading} (length {Length} chars)",
+            heading,
+            body.Length
+        );
         return this;
     }
 
     public IReportFooterStep WithFooter(string footerText)
     {
-        if(!_titleSet)
+        if (!_titleSet)
             throw new InvalidOperationException("Title must be set before footer.");
         _report.Footer = footerText;
         _logger.LogInformation("[Builder] (Interim) Footer prepared (will finalize on Build)");
@@ -70,9 +96,16 @@ public class FluentBuilder : IReportTitleStep, IReportContentStep, IReportFooter
 
     public Report Build()
     {
-        if(!_titleSet) throw new InvalidOperationException("Cannot build report; title missing.");
-        if(_report.Sections.Count == 0) _logger.LogWarning("[Builder] Building report with NO sections.");
-        _logger.LogInformation("[Builder] Report build complete. Title='{Title}', Sections={Count}, Footer={HasFooter}", _report.Title, _report.Sections.Count, _report.Footer is not null);
+        if (!_titleSet)
+            throw new InvalidOperationException("Cannot build report; title missing.");
+        if (_report.Sections.Count == 0)
+            _logger.LogWarning("[Builder] Building report with NO sections.");
+        _logger.LogInformation(
+            "[Builder] Report build complete. Title='{Title}', Sections={Count}, Footer={HasFooter}",
+            _report.Title,
+            _report.Sections.Count,
+            _report.Footer is not null
+        );
         return _report;
     }
 }

@@ -18,10 +18,11 @@ public class ProductSummary
     public int Stock { get; set; }
     public decimal Price { get; set; }
     public bool IsActive { get; set; }
-    public string StockStatus => Stock switch
-    {
-        <= 0 => "OUT_OF_STOCK",
-        <= 10 => "LOW_STOCK",
-        _ => "IN_STOCK"
-    };
+    public string StockStatus =>
+        Stock switch
+        {
+            <= 0 => "OUT_OF_STOCK",
+            <= 10 => "LOW_STOCK",
+            _ => "IN_STOCK",
+        };
 }

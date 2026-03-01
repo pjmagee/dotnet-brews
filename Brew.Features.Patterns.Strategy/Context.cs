@@ -27,7 +27,10 @@ public class Context(ILogger<Context> logger)
             return;
         }
 
-        logger.LogInformation("Processing payment using {StrategyName} strategy...", _strategy.Name);
+        logger.LogInformation(
+            "Processing payment using {StrategyName} strategy...",
+            _strategy.Name
+        );
         _strategy.Execute(amount);
     }
 }

@@ -15,7 +15,10 @@ namespace Brew.Features.Types;
 /// </summary>
 public class Brew : ModuleBase
 {
-    protected override void ConfigureServices(HostBuilderContext hostContext, IServiceCollection services)
+    protected override void ConfigureServices(
+        HostBuilderContext hostContext,
+        IServiceCollection services
+    )
     {
         services.AddSingleton<CSharpCodeProvider>();
     }
@@ -45,9 +48,13 @@ public class Brew : ModuleBase
         var provider = Host.Services.GetRequiredService<CSharpCodeProvider>();
         var mscorlib = Assembly.GetAssembly(typeof(int))!;
 
-        var aliases = mscorlib.DefinedTypes
-            .Where(t => t.Namespace == nameof(System))
-            .Select(type => new { Type = type, Alias = provider.GetTypeOutput(new CodeTypeReference(type)) })
+        var aliases = mscorlib
+            .DefinedTypes.Where(t => t.Namespace == nameof(System))
+            .Select(type => new
+            {
+                Type = type,
+                Alias = provider.GetTypeOutput(new CodeTypeReference(type)),
+            })
             .Where(x => !x.Alias.Contains('.')) // Only simple aliases
             .OrderBy(x => x.Alias)
             .Take(15)
@@ -59,7 +66,9 @@ public class Brew : ModuleBase
             Logger.LogInformation("    {Alias,-10} → {Type}", item.Alias, item.Type.Name);
         }
 
-        Logger.LogInformation("  Note: 'int' is alias for System.Int32, 'string' for System.String, etc.");
+        Logger.LogInformation(
+            "  Note: 'int' is alias for System.Int32, 'string' for System.String, etc."
+        );
     }
 
     private void DemonstrateReflectionBasics()
@@ -70,7 +79,11 @@ public class Brew : ModuleBase
         Logger.LogInformation("  Inspecting type: {Type}", sampleType.Name);
         Logger.LogInformation("  Namespace: {Namespace}", sampleType.Namespace);
         Logger.LogInformation("  Assembly: {Assembly}", sampleType.Assembly.GetName().Name);
-        Logger.LogInformation("  Is Class: {IsClass}, Is Value Type: {IsValueType}", sampleType.IsClass, sampleType.IsValueType);
+        Logger.LogInformation(
+            "  Is Class: {IsClass}, Is Value Type: {IsValueType}",
+            sampleType.IsClass,
+            sampleType.IsValueType
+        );
 
         Logger.LogInformation("\n  Properties:");
         foreach (var prop in sampleType.GetProperties())
@@ -79,10 +92,22 @@ public class Brew : ModuleBase
         }
 
         Logger.LogInformation("\n  Methods:");
-        foreach (var method in sampleType.GetMethods(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly))
+        foreach (
+            var method in sampleType.GetMethods(
+                BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly
+            )
+        )
         {
-            var parameters = string.Join(", ", method.GetParameters().Select(p => $"{p.ParameterType.Name} {p.Name}"));
-            Logger.LogInformation("    {ReturnType} {MethodName}({Parameters})", method.ReturnType.Name, method.Name, parameters);
+            var parameters = string.Join(
+                ", ",
+                method.GetParameters().Select(p => $"{p.ParameterType.Name} {p.Name}")
+            );
+            Logger.LogInformation(
+                "    {ReturnType} {MethodName}({Parameters})",
+                method.ReturnType.Name,
+                method.Name,
+                parameters
+            );
         }
     }
 }
@@ -97,5 +122,6 @@ public class SampleClass
     public DateTime CreatedAt { get; set; }
 
     public void DoSomething(string input) { }
+
     public int Calculate(int a, int b) => a + b;
 }

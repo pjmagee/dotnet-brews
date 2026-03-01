@@ -6,7 +6,7 @@ namespace Brew.Features.Solid.OpenClosed.After;
 public class RegularCustomerDiscount : IDiscountStrategy
 {
     public string Description => "Regular Customer (5% discount)";
-    
+
     public decimal CalculateDiscount(decimal orderTotal)
     {
         return orderTotal * 0.05m;

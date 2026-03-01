@@ -11,11 +11,14 @@ namespace Brew.Features.Patterns.Mediator.MediatR;
 /// </summary>
 public class Brew : ModuleBase
 {
-    protected override void ConfigureServices(HostBuilderContext hostContext, IServiceCollection services)
+    protected override void ConfigureServices(
+        HostBuilderContext hostContext,
+        IServiceCollection services
+    )
     {
         // Register MediatR and all handlers
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<Brew>());
-        
+
         // Register repository
         services.AddSingleton<OrderRepository>();
     }
@@ -23,18 +26,22 @@ public class Brew : ModuleBase
     protected override async Task ExecuteAsync(CancellationToken token = default)
     {
         Logger.LogInformation("=== MEDIATOR PATTERN (MediatR) DEMONSTRATION ===\n");
-        Logger.LogInformation("Scenario: Order management with decoupled command/query/notification handling\n");
+        Logger.LogInformation(
+            "Scenario: Order management with decoupled command/query/notification handling\n"
+        );
 
         var mediator = Host.Services.GetRequiredService<IMediator>();
 
         Logger.LogInformation("╔════════════════════════════════════════════════════════════╗");
         Logger.LogInformation("║  MEDIATOR PATTERN BENEFITS                                ║");
         Logger.LogInformation("╚════════════════════════════════════════════════════════════╝\n");
-        
+
         Logger.LogInformation("✓ DECOUPLING: Components don't reference each other directly");
         Logger.LogInformation("✓ SINGLE HANDLER: Commands/Queries have exactly ONE handler");
         Logger.LogInformation("✓ MULTIPLE HANDLERS: Notifications can have MANY handlers");
-        Logger.LogInformation("✓ SEPARATION: Commands (write), Queries (read), Notifications (events)");
+        Logger.LogInformation(
+            "✓ SEPARATION: Commands (write), Queries (read), Notifications (events)"
+        );
         Logger.LogInformation("✓ TESTABILITY: Easy to test handlers in isolation\n");
 
         await Task.Delay(500);
@@ -90,8 +97,13 @@ public class Brew : ModuleBase
         Logger.LogInformation("\nAll Orders Summary:");
         foreach (var o in allOrders)
         {
-            Logger.LogInformation("  • {ProductName} (Qty: {Quantity}) - ${Total:N2} [{Status}]",
-                o.ProductName, o.Quantity, o.Total, o.Status);
+            Logger.LogInformation(
+                "  • {ProductName} (Qty: {Quantity}) - ${Total:N2} [{Status}]",
+                o.ProductName,
+                o.Quantity,
+                o.Total,
+                o.Status
+            );
         }
         Logger.LogInformation("");
 
@@ -130,8 +142,12 @@ public class Brew : ModuleBase
         Logger.LogInformation("\nFinal Orders (after cancellation):");
         foreach (var o in finalOrders)
         {
-            Logger.LogInformation("  • {ProductName} - ${Total:N2} [{Status}]",
-                o.ProductName, o.Total, o.Status);
+            Logger.LogInformation(
+                "  • {ProductName} - ${Total:N2} [{Status}]",
+                o.ProductName,
+                o.Total,
+                o.Status
+            );
         }
 
         Logger.LogInformation("\n" + new string('═', 60));
@@ -142,7 +158,9 @@ public class Brew : ModuleBase
         Logger.LogInformation("✓ NOTIFICATIONS: Events that trigger MULTIPLE handlers");
         Logger.LogInformation("✓ PIPELINE: Can add cross-cutting concerns (logging, validation)");
         Logger.LogInformation("✓ LOOSE COUPLING: No direct dependencies between components");
-        Logger.LogInformation("\nUse Cases: CQRS, event-driven systems, complex workflows, microservices");
+        Logger.LogInformation(
+            "\nUse Cases: CQRS, event-driven systems, complex workflows, microservices"
+        );
         Logger.LogInformation("Popular Libraries: MediatR, Brighter, Wolverine");
     }
 }

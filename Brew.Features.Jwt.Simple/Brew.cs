@@ -16,7 +16,10 @@ public class Brew : ModuleBase
     private const string Issuer = "MyApp.AuthService";
     private const string Audience = "MyApp.ApiConsumers";
 
-    protected override void ConfigureServices(HostBuilderContext hostContext, IServiceCollection services)
+    protected override void ConfigureServices(
+        HostBuilderContext hostContext,
+        IServiceCollection services
+    )
     {
         services.AddSingleton<JwtGenerator>().AddSingleton<JwtSecurityTokenHandler>();
     }
@@ -24,7 +27,9 @@ public class Brew : ModuleBase
     protected override Task ExecuteAsync(CancellationToken token = default)
     {
         Logger.LogInformation("========== JWT TOKEN DEMONSTRATION ==========");
-        Logger.LogInformation("Scenario: Generate, validate, and decode JWT tokens for API authentication\n");
+        Logger.LogInformation(
+            "Scenario: Generate, validate, and decode JWT tokens for API authentication\n"
+        );
 
         DemonstrateTokenGeneration();
         DemonstrateTokenValidation();
@@ -68,12 +73,16 @@ public class Brew : ModuleBase
             ValidAudience = Audience,
             ValidateLifetime = true,
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(SecretKey)),
-            ValidateIssuerSigningKey = true
+            ValidateIssuerSigningKey = true,
         };
 
         try
         {
-            var principal = handler.ValidateToken(token, validationParameters, out var validatedToken);
+            var principal = handler.ValidateToken(
+                token,
+                validationParameters,
+                out var validatedToken
+            );
             Logger.LogInformation("  ✓ Token validated successfully");
             Logger.LogInformation("  Validated token type: {Type}", validatedToken.GetType().Name);
         }
@@ -104,7 +113,13 @@ public class Brew : ModuleBase
             Logger.LogInformation("    {Type}: {Value}", claim.Type, claim.Value);
         }
 
-        var products = jwtToken.Claims.Where(c => c.Type == "Product").Select(c => c.Value).ToArray();
-        Logger.LogInformation("  User has access to products: {Products}", string.Join(", ", products));
+        var products = jwtToken
+            .Claims.Where(c => c.Type == "Product")
+            .Select(c => c.Value)
+            .ToArray();
+        Logger.LogInformation(
+            "  User has access to products: {Products}",
+            string.Join(", ", products)
+        );
     }
 }

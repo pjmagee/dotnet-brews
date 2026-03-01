@@ -9,7 +9,13 @@ public class LegacyPaymentProcessor
     /// <summary>
     /// Legacy method with different parameter structure
     /// </summary>
-    public string ProcessPaymentLegacy(string cardNum, string expiry, string cvv, decimal amt, string curr)
+    public string ProcessPaymentLegacy(
+        string cardNum,
+        string expiry,
+        string cvv,
+        decimal amt,
+        string curr
+    )
     {
         // Simulate legacy processing
         return $"LEGACY_TX_{Guid.NewGuid():N}";

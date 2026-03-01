@@ -8,7 +8,7 @@ namespace Brew.Features.Patterns.Factory;
 public class EmailNotification : INotification
 {
     private readonly ILogger<EmailNotification> _logger;
-    
+
     public string Type => "Email";
 
     public EmailNotification(ILogger<EmailNotification> logger)
@@ -35,7 +35,7 @@ public class EmailNotification : INotification
 public class SmsNotification : INotification
 {
     private readonly ILogger<SmsNotification> _logger;
-    
+
     public string Type => "SMS";
 
     public SmsNotification(ILogger<SmsNotification> logger)
@@ -47,7 +47,10 @@ public class SmsNotification : INotification
     {
         _logger.LogInformation("[{Type}] Preparing to send...", Type);
         _logger.LogInformation("  To: {Recipient}", recipient);
-        _logger.LogInformation("  Message: {Message} (max 160 chars)", message.Length > 50 ? message.Substring(0, 50) + "..." : message);
+        _logger.LogInformation(
+            "  Message: {Message} (max 160 chars)",
+            message.Length > 50 ? message.Substring(0, 50) + "..." : message
+        );
         _logger.LogInformation("  Connecting to SMS gateway...");
         await Task.Delay(80); // Simulate gateway connection
         _logger.LogInformation("  Sending SMS...");
@@ -62,7 +65,7 @@ public class SmsNotification : INotification
 public class PushNotification : INotification
 {
     private readonly ILogger<PushNotification> _logger;
-    
+
     public string Type => "Push";
 
     public PushNotification(ILogger<PushNotification> logger)
@@ -79,7 +82,10 @@ public class PushNotification : INotification
         await Task.Delay(60); // Simulate service connection
         _logger.LogInformation("  Sending push notification...");
         await Task.Delay(90); // Simulate sending
-        _logger.LogInformation("  ✓ Push notification sent successfully to device {Recipient}", recipient);
+        _logger.LogInformation(
+            "  ✓ Push notification sent successfully to device {Recipient}",
+            recipient
+        );
     }
 }
 
@@ -89,7 +95,7 @@ public class PushNotification : INotification
 public class SlackNotification : INotification
 {
     private readonly ILogger<SlackNotification> _logger;
-    
+
     public string Type => "Slack";
 
     public SlackNotification(ILogger<SlackNotification> logger)

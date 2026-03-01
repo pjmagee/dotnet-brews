@@ -26,9 +26,13 @@ public class OrderProcessor(ILogger<OrderProcessor> logger)
 
     public void PlaceOrder(int orderId, string productName, int quantity)
     {
-        logger.LogInformation("[PUBLISHER] OrderProcessor: Placing order {OrderId} for {Quantity}x {Product}",
-            orderId, quantity, productName);
-        
+        logger.LogInformation(
+            "[PUBLISHER] OrderProcessor: Placing order {OrderId} for {Quantity}x {Product}",
+            orderId,
+            quantity,
+            productName
+        );
+
         // Raise event - all subscribers will be notified
         OrderPlaced?.Invoke(this, new OrderEventArgs(orderId, productName, quantity));
     }
@@ -47,9 +51,12 @@ public class PaymentProcessor(ILogger<PaymentProcessor> logger)
 
     public void ProcessPayment(int orderId, decimal amount)
     {
-        logger.LogInformation("[PUBLISHER] PaymentProcessor: Processing payment for order {OrderId}: ${Amount:F2}",
-            orderId, amount);
-        
+        logger.LogInformation(
+            "[PUBLISHER] PaymentProcessor: Processing payment for order {OrderId}: ${Amount:F2}",
+            orderId,
+            amount
+        );
+
         PaymentProcessed?.Invoke(this, new PaymentEventArgs(orderId, amount));
     }
 }

@@ -6,7 +6,7 @@ namespace Brew.Features.Solid.OpenClosed.After;
 public class VipCustomerDiscount : IDiscountStrategy
 {
     public string Description => "VIP Customer (10% discount)";
-    
+
     public decimal CalculateDiscount(decimal orderTotal)
     {
         return orderTotal * 0.10m;

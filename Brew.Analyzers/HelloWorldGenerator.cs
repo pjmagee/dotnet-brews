@@ -12,52 +12,74 @@ public sealed class HelloWorldGenerator : IIncrementalGenerator
     {
         context.RegisterPostInitializationOutput(static ctx =>
         {
-            var code =
-                CompilationUnit()
-                    .WithUsings
-                    (
-                        new SyntaxList<UsingDirectiveSyntax>(new[] { UsingDirective(IdentifierName(nameof(System))), UsingDirective(IdentifierName("System.CodeDom.Compiler")) })
+            var code = CompilationUnit()
+                .WithUsings(
+                    new SyntaxList<UsingDirectiveSyntax>(
+                        new[]
+                        {
+                            UsingDirective(IdentifierName(nameof(System))),
+                            UsingDirective(IdentifierName("System.CodeDom.Compiler")),
+                        }
                     )
-                    .WithMembers
-                    (
-                        SingletonList<MemberDeclarationSyntax>
-                        (
-                            FileScopedNamespaceDeclaration(IdentifierName(nameof(Brew)))
-                                .WithMembers
-                                (
-                                    SingletonList<MemberDeclarationSyntax>
-                                    (
-                                        ClassDeclaration("Hello")
-                                            .WithModifiers(TokenList(Token(SyntaxKind.PublicKeyword)))
-                                            .WithMembers
-                                            (
-                                                SingletonList<MemberDeclarationSyntax>
-                                                (
-                                                    MethodDeclaration
-                                                    (
-                                                        PredefinedType(Token(SyntaxKind.VoidKeyword)), Identifier("World"))
-                                                        .WithBody(
-                                                            Block
-                                                            (
-                                                                SingletonList<StatementSyntax>(
-                                                                    ExpressionStatement(
-                                                                        InvocationExpression(
+                )
+                .WithMembers(
+                    SingletonList<MemberDeclarationSyntax>(
+                        FileScopedNamespaceDeclaration(IdentifierName(nameof(Brew)))
+                            .WithMembers(
+                                SingletonList<MemberDeclarationSyntax>(
+                                    ClassDeclaration("Hello")
+                                        .WithModifiers(TokenList(Token(SyntaxKind.PublicKeyword)))
+                                        .WithMembers(
+                                            SingletonList<MemberDeclarationSyntax>(
+                                                MethodDeclaration(
+                                                        PredefinedType(
+                                                            Token(SyntaxKind.VoidKeyword)
+                                                        ),
+                                                        Identifier("World")
+                                                    )
+                                                    .WithBody(
+                                                        Block(
+                                                            SingletonList<StatementSyntax>(
+                                                                ExpressionStatement(
+                                                                    InvocationExpression(
                                                                             MemberAccessExpression(
                                                                                 SyntaxKind.SimpleMemberAccessExpression,
-                                                                                IdentifierName("Console"),
-                                                                                IdentifierName("WriteLine")))
+                                                                                IdentifierName(
+                                                                                    "Console"
+                                                                                ),
+                                                                                IdentifierName(
+                                                                                    "WriteLine"
+                                                                                )
+                                                                            )
+                                                                        )
                                                                         .WithArgumentList(
                                                                             ArgumentList(
                                                                                 SingletonSeparatedList(
-                                                                                    Argument(LiteralExpression(SyntaxKind.StringLiteralExpression, Literal("Hello World"))))))))))
-                                                .WithModifiers(TokenList(Token(SyntaxKind.PublicKeyword)))
-                                                )
+                                                                                    Argument(
+                                                                                        LiteralExpression(
+                                                                                            SyntaxKind.StringLiteralExpression,
+                                                                                            Literal(
+                                                                                                "Hello World"
+                                                                                            )
+                                                                                        )
+                                                                                    )
+                                                                                )
+                                                                            )
+                                                                        )
+                                                                )
+                                                            )
+                                                        )
+                                                    )
+                                                    .WithModifiers(
+                                                        TokenList(Token(SyntaxKind.PublicKeyword))
+                                                    )
                                             )
-                                    )
+                                        )
                                 )
-                        )
+                            )
                     )
-                    .NormalizeWhitespace();
+                )
+                .NormalizeWhitespace();
 
             ctx.AddSource("Hello.g.cs", code.ToFullString());
         });

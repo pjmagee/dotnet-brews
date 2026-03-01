@@ -5,16 +5,17 @@ using Microsoft.Extensions.Logging;
 
 namespace Brew.Features.Pipes;
 
-public class PipeClient(NamedPipeClientStream client, ILogger<PipeClient> logger) : BackgroundService
+public class PipeClient(NamedPipeClientStream client, ILogger<PipeClient> logger)
+    : BackgroundService
 {
     public string ClientId => Guid.NewGuid().ToString();
-    
+
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
         try
         {
             await Task.Delay(1000, stoppingToken); // Wait for server to start
-            
+
             logger.LogInformation("{ClientId}: Client connecting to server...", ClientId);
             await client.ConnectAsync(stoppingToken);
 
@@ -36,7 +37,11 @@ public class PipeClient(NamedPipeClientStream client, ILogger<PipeClient> logger
                     var buffer = new byte[responseLength];
                     await client.ReadExactlyAsync(buffer, stoppingToken);
                     var response = Encoding.UTF8.GetString(buffer);
-                    logger.LogInformation("{ClientId}: Client received: {Response}", ClientId, response);
+                    logger.LogInformation(
+                        "{ClientId}: Client received: {Response}",
+                        ClientId,
+                        response
+                    );
 
                     await Task.Delay(1000, stoppingToken);
                 }
@@ -50,7 +55,7 @@ public class PipeClient(NamedPipeClientStream client, ILogger<PipeClient> logger
                     logger.LogError(ex, "Error processing pipe message");
                 }
             }
-            
+
             logger.LogInformation("{ClientId}: PipeClient is shutting down", ClientId);
         }
         catch (OperationCanceledException)

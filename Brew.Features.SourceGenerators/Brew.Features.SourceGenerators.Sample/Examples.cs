@@ -14,7 +14,7 @@ public class Examples
             new Employee(),
             new Product(),
             new Shop(),
-            new Stock()
+            new Stock(),
         };
     }
 

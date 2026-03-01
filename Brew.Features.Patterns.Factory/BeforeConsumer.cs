@@ -19,27 +19,38 @@ public class NotificationServiceBefore
         _logger = logger;
     }
 
-    public async Task SendNotificationAsync(string type, string recipient, string subject, string message)
+    public async Task SendNotificationAsync(
+        string type,
+        string recipient,
+        string subject,
+        string message
+    )
     {
         _logger.LogWarning("❌ BEFORE FACTORY - Tightly coupled implementation");
-        
+
         // Consumer must know about all concrete types
         if (type == "email")
         {
-            var notification = new EmailNotification(_logger as ILogger<EmailNotification> 
-                ?? throw new InvalidOperationException("Logger type mismatch"));
+            var notification = new EmailNotification(
+                _logger as ILogger<EmailNotification>
+                    ?? throw new InvalidOperationException("Logger type mismatch")
+            );
             await notification.SendAsync(recipient, subject, message);
         }
         else if (type == "sms")
         {
-            var notification = new SmsNotification(_logger as ILogger<SmsNotification> 
-                ?? throw new InvalidOperationException("Logger type mismatch"));
+            var notification = new SmsNotification(
+                _logger as ILogger<SmsNotification>
+                    ?? throw new InvalidOperationException("Logger type mismatch")
+            );
             await notification.SendAsync(recipient, subject, message);
         }
         else if (type == "push")
         {
-            var notification = new PushNotification(_logger as ILogger<PushNotification> 
-                ?? throw new InvalidOperationException("Logger type mismatch"));
+            var notification = new PushNotification(
+                _logger as ILogger<PushNotification>
+                    ?? throw new InvalidOperationException("Logger type mismatch")
+            );
             await notification.SendAsync(recipient, subject, message);
         }
         else

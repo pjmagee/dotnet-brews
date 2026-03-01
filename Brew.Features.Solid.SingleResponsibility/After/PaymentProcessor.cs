@@ -4,7 +4,7 @@ namespace Brew.Features.Solid.SingleResponsibility.After;
 
 public class PaymentProcessor
 {
-    // payment integration service provider 
+    // payment integration service provider
 
     public bool Process(decimal amount, Payment payment)
     {

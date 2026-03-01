@@ -7,14 +7,17 @@ namespace Brew.Features.Patterns.ChainOfResponsibility;
 /// </summary>
 public class EntryLevel : Employee
 {
-    public EntryLevel(ILogger<EntryLevel> logger) : base(logger, "Team Lead")
-    {
-    }
+    public EntryLevel(ILogger<EntryLevel> logger)
+        : base(logger, "Team Lead") { }
 
     public override void ProcessRequest(Request request)
     {
-        Logger.LogInformation("\n[{Title}] Received request: {Description} (${Amount:N2})", 
-            Title, request.Description, request.Amount);
+        Logger.LogInformation(
+            "\n[{Title}] Received request: {Description} (${Amount:N2})",
+            Title,
+            request.Description,
+            request.Amount
+        );
 
         if (request.Type == RequestType.Small)
         {
@@ -26,8 +29,11 @@ public class EntryLevel : Employee
         else
         {
             // Pass to next handler in chain
-            Logger.LogInformation("[{Title}] ⚠ Cannot approve - Amount exceeds my authority, forwarding to {SuccessorTitle}...", 
-                Title, Successor?.Title ?? "No one");
+            Logger.LogInformation(
+                "[{Title}] ⚠ Cannot approve - Amount exceeds my authority, forwarding to {SuccessorTitle}...",
+                Title,
+                Successor?.Title ?? "No one"
+            );
             Successor?.ProcessRequest(request);
         }
     }

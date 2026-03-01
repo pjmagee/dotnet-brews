@@ -14,7 +14,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Brew\Brew.csproj" />
-    
+
     <!-- Feature Projects - Console depends on all of these -->
     <!-- This ensures proper build order and automatic rebuilds -->
     <ProjectReference Include="..\Brew.Features.Builders.FluentBuilder\Brew.Features.Builders.FluentBuilder.csproj" />

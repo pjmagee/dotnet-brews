@@ -8,13 +8,13 @@ namespace Brew.Features.Solid.OpenClosed;
 
 /// <summary>
 /// Demonstrates the Open/Closed Principle.
-/// 
+///
 /// OCP states: Software entities should be OPEN for extension but CLOSED for modification.
-/// 
+///
 /// The discount calculator example:
 /// - BEFORE: Adding new customer types requires modifying the DiscountCalculator class
 /// - AFTER: New customer types are added by creating new IDiscountStrategy implementations
-/// 
+///
 /// Benefits of following OCP:
 /// 1. Existing code remains unchanged and stable
 /// 2. Lower risk when adding new features
@@ -23,7 +23,10 @@ namespace Brew.Features.Solid.OpenClosed;
 /// </summary>
 public class Brew : ModuleBase
 {
-    protected override void ConfigureServices(HostBuilderContext hostContext, IServiceCollection services)
+    protected override void ConfigureServices(
+        HostBuilderContext hostContext,
+        IServiceCollection services
+    )
     {
         // Register discount strategies
         services.AddSingleton<IDiscountStrategy, RegularCustomerDiscount>();
@@ -36,25 +39,38 @@ public class Brew : ModuleBase
         decimal orderTotal = 100.00m;
 
         Logger.LogInformation("=== BEFORE (VIOLATES OCP) ===");
-        Logger.LogInformation("Every new customer type requires MODIFYING the DiscountCalculator class:");
+        Logger.LogInformation(
+            "Every new customer type requires MODIFYING the DiscountCalculator class:"
+        );
         Logger.LogInformation("");
 
         var beforeCalculator = new DiscountCalculator();
-        
+
         var regularDiscount = beforeCalculator.CalculateDiscount("Regular", orderTotal);
-        Logger.LogInformation("Regular customer (order: ${OrderTotal}): Discount = ${Discount}", 
-            orderTotal, regularDiscount);
-        
+        Logger.LogInformation(
+            "Regular customer (order: ${OrderTotal}): Discount = ${Discount}",
+            orderTotal,
+            regularDiscount
+        );
+
         var vipDiscount = beforeCalculator.CalculateDiscount("VIP", orderTotal);
-        Logger.LogInformation("VIP customer (order: ${OrderTotal}): Discount = ${Discount}", 
-            orderTotal, vipDiscount);
-        
+        Logger.LogInformation(
+            "VIP customer (order: ${OrderTotal}): Discount = ${Discount}",
+            orderTotal,
+            vipDiscount
+        );
+
         var goldDiscount = beforeCalculator.CalculateDiscount("Gold", orderTotal);
-        Logger.LogInformation("Gold customer (order: ${OrderTotal}): Discount = ${Discount}", 
-            orderTotal, goldDiscount);
+        Logger.LogInformation(
+            "Gold customer (order: ${OrderTotal}): Discount = ${Discount}",
+            orderTotal,
+            goldDiscount
+        );
 
         Logger.LogInformation("");
-        Logger.LogInformation("✗ Adding 'Platinum' customer would require modifying DiscountCalculator");
+        Logger.LogInformation(
+            "✗ Adding 'Platinum' customer would require modifying DiscountCalculator"
+        );
         Logger.LogInformation("✗ Risk of breaking existing functionality");
         Logger.LogInformation("✗ Class grows more complex with each addition");
         Logger.LogInformation("");
@@ -64,12 +80,16 @@ public class Brew : ModuleBase
         Logger.LogInformation("");
 
         var strategies = Host.Services.GetServices<IDiscountStrategy>();
-        
+
         foreach (var strategy in strategies)
         {
             var discount = strategy.CalculateDiscount(orderTotal);
-            Logger.LogInformation("{Description} (order: ${OrderTotal}): Discount = ${Discount}", 
-                strategy.Description, orderTotal, discount);
+            Logger.LogInformation(
+                "{Description} (order: ${OrderTotal}): Discount = ${Discount}",
+                strategy.Description,
+                orderTotal,
+                discount
+            );
         }
 
         Logger.LogInformation("");

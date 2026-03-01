@@ -1,5 +1,4 @@
-﻿
-namespace Brew.Features.Builders.Simple;
+﻿namespace Brew.Features.Builders.Simple;
 
 public class EntityBuilder
 {

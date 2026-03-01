@@ -13,12 +13,18 @@ public class EmailNotifier(ILogger<EmailNotifier> logger)
 
     private void OnOrderPlaced(object? sender, OrderEventArgs e)
     {
-        logger.LogInformation("  [SUBSCRIBER] EmailNotifier: Sending order confirmation email for order {OrderId}", e.OrderId);
+        logger.LogInformation(
+            "  [SUBSCRIBER] EmailNotifier: Sending order confirmation email for order {OrderId}",
+            e.OrderId
+        );
     }
 
     private void OnOrderCancelled(object? sender, OrderEventArgs e)
     {
-        logger.LogInformation("  [SUBSCRIBER] EmailNotifier: Sending cancellation email for order {OrderId}", e.OrderId);
+        logger.LogInformation(
+            "  [SUBSCRIBER] EmailNotifier: Sending cancellation email for order {OrderId}",
+            e.OrderId
+        );
     }
 }
 
@@ -33,13 +39,19 @@ public class InventoryManager(ILogger<InventoryManager> logger)
 
     private void OnOrderPlaced(object? sender, OrderEventArgs e)
     {
-        logger.LogInformation("  [SUBSCRIBER] InventoryManager: Reducing stock for {Product} by {Quantity}",
-            e.ProductName, e.Quantity);
+        logger.LogInformation(
+            "  [SUBSCRIBER] InventoryManager: Reducing stock for {Product} by {Quantity}",
+            e.ProductName,
+            e.Quantity
+        );
     }
 
     private void OnOrderCancelled(object? sender, OrderEventArgs e)
     {
-        logger.LogInformation("  [SUBSCRIBER] InventoryManager: Restoring stock for order {OrderId}", e.OrderId);
+        logger.LogInformation(
+            "  [SUBSCRIBER] InventoryManager: Restoring stock for order {OrderId}",
+            e.OrderId
+        );
     }
 }
 
@@ -55,17 +67,26 @@ public class AuditLogger(ILogger<AuditLogger> logger)
 
     private void OnOrderPlaced(object? sender, OrderEventArgs e)
     {
-        logger.LogInformation("  [SUBSCRIBER] AuditLogger: AUDIT - Order {OrderId} placed", e.OrderId);
+        logger.LogInformation(
+            "  [SUBSCRIBER] AuditLogger: AUDIT - Order {OrderId} placed",
+            e.OrderId
+        );
     }
 
     private void OnOrderCancelled(object? sender, OrderEventArgs e)
     {
-        logger.LogInformation("  [SUBSCRIBER] AuditLogger: AUDIT - Order {OrderId} cancelled", e.OrderId);
+        logger.LogInformation(
+            "  [SUBSCRIBER] AuditLogger: AUDIT - Order {OrderId} cancelled",
+            e.OrderId
+        );
     }
 
     private void OnPaymentProcessed(object? sender, PaymentEventArgs e)
     {
-        logger.LogInformation("  [SUBSCRIBER] AuditLogger: AUDIT - Payment ${Amount:F2} processed for order {OrderId}",
-            e.Amount, e.OrderId);
+        logger.LogInformation(
+            "  [SUBSCRIBER] AuditLogger: AUDIT - Payment ${Amount:F2} processed for order {OrderId}",
+            e.Amount,
+            e.OrderId
+        );
     }
 }

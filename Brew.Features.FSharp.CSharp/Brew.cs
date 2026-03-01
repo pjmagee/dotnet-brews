@@ -11,7 +11,10 @@ namespace Brew.Features.FSharp.CSharp;
 /// </summary>
 public class Brew : ModuleBase
 {
-    protected override void ConfigureServices(HostBuilderContext hostContext, IServiceCollection services)
+    protected override void ConfigureServices(
+        HostBuilderContext hostContext,
+        IServiceCollection services
+    )
     {
         services.AddSingleton<Calculator>(x => new Calculator(FSharpOption<double>.None));
     }
@@ -42,10 +45,7 @@ public class Brew : ModuleBase
         var calculator = Host.Services.GetRequiredService<Calculator>();
 
         // Chain operations using F# methods
-        calculator.Add(10)
-            .Subtract(3)
-            .Multiply(2)
-            .Divide(4);
+        calculator.Add(10).Subtract(3).Multiply(2).Divide(4);
 
         Logger.LogInformation("  (10 + 0 - 3) * 2 / 4 = {Result}", calculator.CurrentValue);
         Logger.LogInformation("  F# object state maintained across C# method calls");
@@ -61,7 +61,10 @@ public class Brew : ModuleBase
 
         // Some option (F# equivalent of non-null value)
         var calcSome = new Calculator(FSharpOption<double>.Some(100.0));
-        Logger.LogInformation("  Calculator(Some(100)) initial value: {Value}", calcSome.CurrentValue);
+        Logger.LogInformation(
+            "  Calculator(Some(100)) initial value: {Value}",
+            calcSome.CurrentValue
+        );
 
         Logger.LogInformation("  FSharpOption prevents accidental null references at compile time");
     }

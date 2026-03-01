@@ -23,7 +23,12 @@ public abstract class Car
     {
         ModuleBase.Logger.LogInformation(
             "Driving -> HP={HP} Traction={Traction} ChassisMaterial={Material} ({Wheels}/{Engine}/{Chassis})",
-            Engine.HorsePower(), Wheels.Traction(), Chassis.Material(),
-            Wheels.GetType().Name, Engine.GetType().Name, Chassis.GetType().Name);
+            Engine.HorsePower(),
+            Wheels.Traction(),
+            Chassis.Material(),
+            Wheels.GetType().Name,
+            Engine.GetType().Name,
+            Chassis.GetType().Name
+        );
     }
 }

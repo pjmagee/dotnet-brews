@@ -15,7 +15,11 @@ public class ExpandoObjectDemo(ILogger<ExpandoObjectDemo> logger)
         // Add properties at runtime
         expando.Name = "Duck";
         expando.Type = "Bird";
-        logger.LogInformation("  Created: Name={Name}, Type={Type}", (object)expando.Name, (object)expando.Type);
+        logger.LogInformation(
+            "  Created: Name={Name}, Type={Type}",
+            (object)expando.Name,
+            (object)expando.Type
+        );
 
         // Add methods at runtime
         expando.Quack = new Action(() => logger.LogInformation("  Quack quack!"));
@@ -31,7 +35,11 @@ public class ExpandoObjectDemo(ILogger<ExpandoObjectDemo> logger)
         expando.AskPermission = new Func<string, bool>(message =>
         {
             var granted = Random.Shared.Next(0, 2) == 1;
-            logger.LogInformation("  {Message} -> {Status}", message, granted ? "GRANTED" : "DENIED");
+            logger.LogInformation(
+                "  {Message} -> {Status}",
+                message,
+                granted ? "GRANTED" : "DENIED"
+            );
             return granted;
         });
 
@@ -50,18 +58,29 @@ public class DynamicVsStaticDemo(ILogger<DynamicVsStaticDemo> logger)
 
         // Static approach: compile-time safety
         var staticPerson = new Person { Name = "Alice", Age = 30 };
-        logger.LogInformation("  [STATIC] {Name} is {Age} years old", staticPerson.Name, staticPerson.Age);
+        logger.LogInformation(
+            "  [STATIC] {Name} is {Age} years old",
+            staticPerson.Name,
+            staticPerson.Age
+        );
         // staticPerson.InvalidProperty = 123; // <- Compile error (good!)
 
         // Dynamic approach: runtime flexibility
         dynamic dynamicPerson = new ExpandoObject();
         dynamicPerson.Name = "Bob";
         dynamicPerson.Age = 25;
-        logger.LogInformation("  [DYNAMIC] {Name} is {Age} years old", (object)dynamicPerson.Name, (object)dynamicPerson.Age);
+        logger.LogInformation(
+            "  [DYNAMIC] {Name} is {Age} years old",
+            (object)dynamicPerson.Name,
+            (object)dynamicPerson.Age
+        );
 
         // Can add arbitrary properties (no compile check)
         dynamicPerson.FavoriteColor = "Blue";
-        logger.LogInformation("  [DYNAMIC] Added new property at runtime: {Color}", (object)dynamicPerson.FavoriteColor);
+        logger.LogInformation(
+            "  [DYNAMIC] Added new property at runtime: {Color}",
+            (object)dynamicPerson.FavoriteColor
+        );
 
         // Runtime error example (commented to avoid crash)
         // var oops = dynamicPerson.NonExistentProperty; // <- RuntimeBinderException!
@@ -89,7 +108,10 @@ public class DynamicObjectDemo(ILogger<DynamicObjectDemo> logger)
 
         logger.LogInformation("  smartDict.Foo: {Value}", (object?)smartDict.Foo ?? "null");
         logger.LogInformation("  smartDict.Count: {Value}", (object?)smartDict.Count ?? "null");
-        logger.LogInformation("  smartDict.Missing (auto-default): {Value}", (object?)smartDict.Missing ?? "null");
+        logger.LogInformation(
+            "  smartDict.Missing (auto-default): {Value}",
+            (object?)smartDict.Missing ?? "null"
+        );
 
         logger.LogInformation("USE CASE: DSLs, fluent APIs with unknown members");
     }

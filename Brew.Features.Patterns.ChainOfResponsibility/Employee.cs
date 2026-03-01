@@ -23,8 +23,11 @@ public abstract class Employee
     public void SetSuccessor(Employee successor)
     {
         Successor = successor;
-        Logger.LogInformation("[Chain Setup] {Title} will forward unhandled requests to {SuccessorTitle}", 
-            Title, successor.Title);
+        Logger.LogInformation(
+            "[Chain Setup] {Title} will forward unhandled requests to {SuccessorTitle}",
+            Title,
+            successor.Title
+        );
     }
 
     /// <summary>

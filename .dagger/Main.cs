@@ -88,11 +88,61 @@ public class DotnetBrews
             .WithMountedDirectory("/mnt", directoryArg)
             .WithWorkdir("/mnt")
             // restore the local tool manifest and run CSharpier in-place
-            .WithExec(["dotnet", "tool", "restore"])
-            .WithExec(["dotnet", "tool", "run", "csharpier", "--", "format", "."]);
+            .WithExec([
+                "sh",
+                "-c",
+                "export PATH=/root/.dotnet/tools:/usr/local/bin:/usr/bin:/bin && dotnet tool restore && (/root/.dotnet/tools/csharpier format . || dotnet tool run csharpier -- format .)",
+            ]);
 
         var resultDir = container.Directory("/mnt");
         return resultDir.WithoutDirectory(".git");
+    }
+
+    /// <summary>
+    /// Run repository checks: restore tools, run CSharpier in --check mode, and build the solution.
+    /// Usage: dagger call check --path .
+    /// </summary>
+    [Function]
+    [Check]
+    public Container Check([DefaultPath("/")] Directory directoryArg)
+    {
+        var cache = Dag.CacheVolume("nuget");
+
+        return Dag.Container()
+            .From("mcr.microsoft.com/dotnet/sdk:10.0")
+            .WithMountedCache("/root/.nuget/packages", cache)
+            .WithMountedDirectory("/mnt", directoryArg)
+            .WithWorkdir("/mnt")
+            // restore local tools and run CSharpier in check mode so CI fails on formatting issues
+            .WithExec([
+                "sh",
+                "-c",
+                "export PATH=/root/.dotnet/tools:/usr/local/bin:/usr/bin:/bin && dotnet tool restore && (/root/.dotnet/tools/csharpier check . || dotnet tool run csharpier -- check .)",
+            ])
+            // build the solution to catch compilation errors
+            .WithExec(["dotnet", "build", "Brew.slnx", "-c", "Release"]);
+    }
+
+    /// <summary>
+    /// Run only CSharpier in check mode as a named Dagger check.
+    /// Usage: `dagger call CSharpierCheck --path .`
+    /// </summary>
+    [Function]
+    [Check]
+    public Container CSharpierCheck([DefaultPath("/")] Directory directoryArg)
+    {
+        var cache = Dag.CacheVolume("nuget");
+
+        return Dag.Container()
+            .From("mcr.microsoft.com/dotnet/sdk:10.0")
+            .WithMountedCache("/root/.nuget/packages", cache)
+            .WithMountedDirectory("/mnt", directoryArg)
+            .WithWorkdir("/mnt")
+            .WithExec([
+                "sh",
+                "-c",
+                "export PATH=/root/.dotnet/tools:/usr/local/bin:/usr/bin:/bin && dotnet tool restore && (/root/.dotnet/tools/csharpier check . || dotnet tool run csharpier -- check .)",
+            ]);
     }
 
     /// <summary>
@@ -137,11 +187,16 @@ public class DotnetBrews
             );
         var runOneWorkflow = Dag.Gha().Workflow("run-one-brew").WithJob(runOneJob);
 
+        // Workflow 5: Run dagger checks (formats/builds/tests via `dagger check`)
+        var daggerCheckJob = Dag.Gha().Job("dagger-check", "dagger check", runner: ["ubuntu-latest"]);
+        var daggerCheckWorkflow = Dag.Gha().Workflow("dagger-check").WithJob(daggerCheckJob);
+
         return Dag.Gha()
             .WithWorkflow(buildWorkflow)
             .WithWorkflow(listWorkflow)
             .WithWorkflow(runAllWorkflow)
             .WithWorkflow(runOneWorkflow)
+            .WithWorkflow(daggerCheckWorkflow)
             .Generate();
     }
 }

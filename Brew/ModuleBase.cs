@@ -13,15 +13,18 @@ public abstract class ModuleBase : IBrew
     protected IHost Host { get; }
     public static ILogger Logger { get; private set; } = null!;
 
-    public string? Description { get; } = (Assembly
-        .GetExecutingAssembly()
-        .GetCustomAttributes(typeof(AssemblyDescriptionAttribute), false)
-        .FirstOrDefault() as AssemblyDescriptionAttribute)?.Description;
+    public string? Description { get; } =
+        (
+            Assembly
+                .GetExecutingAssembly()
+                .GetCustomAttributes(typeof(AssemblyDescriptionAttribute), false)
+                .FirstOrDefault() as AssemblyDescriptionAttribute
+        )?.Description;
 
     protected IHostBuilder CreateHostBuilder()
     {
-        return Microsoft.Extensions.Hosting.Host
-            .CreateDefaultBuilder()
+        return Microsoft
+            .Extensions.Hosting.Host.CreateDefaultBuilder()
             .ConfigureServices(x => x.AddLogging())
             .ConfigureServices(ConfigureServices);
     }
@@ -32,10 +35,15 @@ public abstract class ModuleBase : IBrew
         Logger = Host.Services.GetRequiredService<ILogger<ModuleBase>>();
     }
 
-    protected abstract void ConfigureServices(HostBuilderContext hostContext, IServiceCollection services);
+    protected abstract void ConfigureServices(
+        HostBuilderContext hostContext,
+        IServiceCollection services
+    );
 
     protected virtual Task BeforeAsync(CancellationToken token = default) => Task.CompletedTask;
+
     protected virtual Task AfterAsync(CancellationToken token = default) => Task.CompletedTask;
+
     protected abstract Task ExecuteAsync(CancellationToken token = default);
 
     public virtual async Task RunAsync(CancellationToken token = default)

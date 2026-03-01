@@ -10,7 +10,10 @@ namespace Brew.Features.Patterns.Factory;
 /// </summary>
 public class Brew : ModuleBase
 {
-    protected override void ConfigureServices(HostBuilderContext hostContext, IServiceCollection services)
+    protected override void ConfigureServices(
+        HostBuilderContext hostContext,
+        IServiceCollection services
+    )
     {
         services.AddSingleton<NotificationFactory>();
         services.AddSingleton<NotificationServiceBefore>();
@@ -28,7 +31,7 @@ public class Brew : ModuleBase
 
         // Show the problem without factory
         var serviceBefore = Host.Services.GetRequiredService<NotificationServiceBefore>();
-        
+
         Logger.LogInformation("Without Factory Pattern:");
         Logger.LogInformation("- Consumer must know all concrete notification types");
         Logger.LogInformation("- If-else or switch statements everywhere");
@@ -59,10 +62,30 @@ public class Brew : ModuleBase
         // Test all notification types through factory
         var notifications = new[]
         {
-            (Type: NotificationType.Email, Recipient: "user@example.com", Subject: "Account Created", Message: "Welcome to our platform!"),
-            (Type: NotificationType.Sms, Recipient: "+1-555-0123", Subject: "Security Alert", Message: "Your verification code is: 123456"),
-            (Type: NotificationType.Push, Recipient: "device_abc123", Subject: "New Message", Message: "You have 3 new messages"),
-            (Type: NotificationType.Slack, Recipient: "#engineering", Subject: "Deployment", Message: "Production deployment completed successfully")
+            (
+                Type: NotificationType.Email,
+                Recipient: "user@example.com",
+                Subject: "Account Created",
+                Message: "Welcome to our platform!"
+            ),
+            (
+                Type: NotificationType.Sms,
+                Recipient: "+1-555-0123",
+                Subject: "Security Alert",
+                Message: "Your verification code is: 123456"
+            ),
+            (
+                Type: NotificationType.Push,
+                Recipient: "device_abc123",
+                Subject: "New Message",
+                Message: "You have 3 new messages"
+            ),
+            (
+                Type: NotificationType.Slack,
+                Recipient: "#engineering",
+                Subject: "Deployment",
+                Message: "Production deployment completed successfully"
+            ),
         };
 
         foreach (var (type, recipient, subject, message) in notifications)
@@ -84,11 +107,11 @@ public class Brew : ModuleBase
         Logger.LogInformation("(Useful for reading from config files, database, etc.)\n");
 
         var configTypes = new[] { "Email", "SMS", "Push", "Slack" };
-        
+
         foreach (var configType in configTypes)
         {
             Logger.LogInformation("Configuration: NotificationType = '{ConfigType}'", configType);
-            
+
             try
             {
                 var notification = factory.CreateFromConfig(configType);
@@ -111,7 +134,9 @@ public class Brew : ModuleBase
         Logger.LogInformation("✓ TESTABILITY: Can mock factory for unit tests");
         Logger.LogInformation("✓ CONFIGURATION: Support runtime type selection");
         Logger.LogInformation("✓ CONSISTENCY: Ensures objects created correctly");
-        Logger.LogInformation("\nUse Cases: Plugin systems, document parsers, notification services, payment gateways");
+        Logger.LogInformation(
+            "\nUse Cases: Plugin systems, document parsers, notification services, payment gateways"
+        );
         Logger.LogInformation("Related Patterns: Abstract Factory, Builder, Prototype");
     }
 }

@@ -10,7 +10,10 @@ namespace Brew.Features.Patterns.Strategy;
 /// </summary>
 public class Brew : ModuleBase
 {
-    protected override void ConfigureServices(HostBuilderContext hostContext, IServiceCollection services)
+    protected override void ConfigureServices(
+        HostBuilderContext hostContext,
+        IServiceCollection services
+    )
     {
         services.AddSingleton<Context>();
         services.AddSingleton<CreditCardPayment>(); // Credit Card strategy
@@ -28,7 +31,9 @@ public class Brew : ModuleBase
         var cryptoStrategy = Host.Services.GetRequiredService<CryptocurrencyStrategy>();
 
         Logger.LogInformation("--- Scenario: Processing Multiple Payments ---");
-        Logger.LogInformation("Customer wants to make several purchases using different payment methods\n");
+        Logger.LogInformation(
+            "Customer wants to make several purchases using different payment methods\n"
+        );
 
         // First purchase - using Credit Card
         Logger.LogInformation("=== Purchase 1: Book ($29.99) ===");
@@ -64,10 +69,20 @@ public class Brew : ModuleBase
         Logger.LogInformation("");
 
         Logger.LogInformation("=== Key Benefits of Strategy Pattern ===");
-        Logger.LogInformation("✓ Strategies can be swapped at RUNTIME without changing Context code");
-        Logger.LogInformation("✓ Each strategy encapsulates its own algorithm (different payment processing)");
-        Logger.LogInformation("✓ Easy to add new strategies (e.g., CryptocurrencyStrategy) without modifying existing code");
-        Logger.LogInformation("✓ Client code (Context) doesn't need to know implementation details");
-        Logger.LogInformation("\nUse Cases: Payment processing, sorting algorithms, compression algorithms, routing strategies");
+        Logger.LogInformation(
+            "✓ Strategies can be swapped at RUNTIME without changing Context code"
+        );
+        Logger.LogInformation(
+            "✓ Each strategy encapsulates its own algorithm (different payment processing)"
+        );
+        Logger.LogInformation(
+            "✓ Easy to add new strategies (e.g., CryptocurrencyStrategy) without modifying existing code"
+        );
+        Logger.LogInformation(
+            "✓ Client code (Context) doesn't need to know implementation details"
+        );
+        Logger.LogInformation(
+            "\nUse Cases: Payment processing, sorting algorithms, compression algorithms, routing strategies"
+        );
     }
 }

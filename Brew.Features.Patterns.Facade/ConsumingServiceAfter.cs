@@ -6,7 +6,10 @@ namespace Brew.Features.Patterns.Facade;
 /// AFTER Facade - Client only needs the Facade, which provides a simple interface
 /// Clean, simple, and loosely coupled
 /// </summary>
-public class ConsumingServiceAfter(FacadeService facadeService, ILogger<ConsumingServiceAfter> logger)
+public class ConsumingServiceAfter(
+    FacadeService facadeService,
+    ILogger<ConsumingServiceAfter> logger
+)
 {
     public void GenerateReport()
     {

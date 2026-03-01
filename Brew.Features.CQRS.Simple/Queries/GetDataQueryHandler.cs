@@ -6,9 +6,13 @@ namespace Brew.Features.CQRS.Simple.Queries;
 
 public class GetProductSummariesQueryHandler(
     ProductReadStore readStore,
-    ILogger<GetProductSummariesQueryHandler> logger) : IQueryHandler<GetProductSummariesQuery, IEnumerable<ProductSummary>>
+    ILogger<GetProductSummariesQueryHandler> logger
+) : IQueryHandler<GetProductSummariesQuery, IEnumerable<ProductSummary>>
 {
-    public Task<IEnumerable<ProductSummary>> HandleAsync(GetProductSummariesQuery query, CancellationToken cancellationToken)
+    public Task<IEnumerable<ProductSummary>> HandleAsync(
+        GetProductSummariesQuery query,
+        CancellationToken cancellationToken
+    )
     {
         logger.LogInformation("[QUERY] Fetching all product summaries from read store");
         var summaries = readStore.GetAll();

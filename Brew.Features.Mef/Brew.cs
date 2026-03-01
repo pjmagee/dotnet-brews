@@ -10,7 +10,10 @@ namespace Brew.Features.Mef;
 /// </summary>
 public class Brew : ModuleBase
 {
-    protected override void ConfigureServices(HostBuilderContext hostContext, IServiceCollection services)
+    protected override void ConfigureServices(
+        HostBuilderContext hostContext,
+        IServiceCollection services
+    )
     {
         services.AddSingleton<CalculatorOperationsLoader>(x =>
         {
@@ -25,7 +28,9 @@ public class Brew : ModuleBase
     protected override Task ExecuteAsync(CancellationToken token = default)
     {
         Logger.LogInformation("========== MEF PLUGIN SYSTEM DEMONSTRATION ==========");
-        Logger.LogInformation("Scenario: Dynamic calculator operations loaded from plugin assemblies\n");
+        Logger.LogInformation(
+            "Scenario: Dynamic calculator operations loaded from plugin assemblies\n"
+        );
 
         var calculator = Host.Services.GetRequiredService<Calculator>();
 

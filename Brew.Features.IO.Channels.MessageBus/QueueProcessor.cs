@@ -3,7 +3,8 @@ using Microsoft.Extensions.Logging;
 
 namespace Brew.Features.IO.Channels.MessageBus;
 
-internal sealed class QueueProcessor(InMemoryMessageQueue queue, ILogger<QueueProcessor> logger) : BackgroundService
+internal sealed class QueueProcessor(InMemoryMessageQueue queue, ILogger<QueueProcessor> logger)
+    : BackgroundService
 {
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
@@ -14,10 +15,10 @@ internal sealed class QueueProcessor(InMemoryMessageQueue queue, ILogger<QueuePr
                 try
                 {
                     var @event = await queue.Reader.ReadAsync(stoppingToken);
-                    
+
                     if (@event is HelloWorldEvent e)
                     {
-                        logger.LogInformation("Event received: {Event}", e.Message);    
+                        logger.LogInformation("Event received: {Event}", e.Message);
                     }
                     else
                     {
@@ -34,7 +35,7 @@ internal sealed class QueueProcessor(InMemoryMessageQueue queue, ILogger<QueuePr
                     logger.LogError(ex, "Error processing event from queue");
                 }
             }
-            
+
             logger.LogInformation("QueueProcessor is shutting down");
         }
         catch (OperationCanceledException)

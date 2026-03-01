@@ -10,10 +10,9 @@ namespace Brew.Features.Solid.OpenClosed.After;
 public class GoldCustomerDiscount : IDiscountStrategy
 {
     public string Description => "Gold Customer (15% discount)";
-    
+
     public decimal CalculateDiscount(decimal orderTotal)
     {
         return orderTotal * 0.15m;
     }
 }
-

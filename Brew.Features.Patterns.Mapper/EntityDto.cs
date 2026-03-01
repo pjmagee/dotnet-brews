@@ -34,7 +34,7 @@ public class CustomerDto
             Location = $"{customer.HomeAddress.City}, {customer.HomeAddress.State}", // Flattened
             TotalOrders = customer.Orders.Count,
             TotalSpent = customer.GetTotalSpent(), // Aggregated calculation
-            MemberSince = customer.CreatedAt
+            MemberSince = customer.CreatedAt,
             // Note: CreditLimit is NOT mapped - sensitive data stays internal
         };
     }
@@ -65,13 +65,13 @@ public class CustomerDetailDto
             Email = customer.Email,
             DateOfBirth = customer.DateOfBirth,
             Address = AddressDto.MapFrom(customer.HomeAddress),
-            RecentOrders = customer.Orders
-                .OrderByDescending(o => o.OrderDate)
+            RecentOrders = customer
+                .Orders.OrderByDescending(o => o.OrderDate)
                 .Take(5)
                 .Select(OrderSummaryDto.MapFrom)
                 .ToList(),
             CreatedAt = customer.CreatedAt,
-            LastModifiedAt = customer.LastModifiedAt
+            LastModifiedAt = customer.LastModifiedAt,
         };
     }
 }
@@ -90,7 +90,7 @@ public class AddressDto
             Street = address.Street,
             City = address.City,
             State = address.State,
-            ZipCode = address.ZipCode
+            ZipCode = address.ZipCode,
         };
     }
 }
@@ -109,7 +109,7 @@ public class OrderSummaryDto
             Id = order.Id,
             OrderDate = order.OrderDate,
             Amount = order.TotalAmount,
-            Status = order.Status
+            Status = order.Status,
         };
     }
 }

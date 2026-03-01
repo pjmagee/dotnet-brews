@@ -10,7 +10,8 @@ public class ConsumingServiceBefore(
     ComplexServiceC auditService,
     ComplexServiceB authService,
     ComplexServiceA databaseService,
-    ILogger<ConsumingServiceBefore> logger)
+    ILogger<ConsumingServiceBefore> logger
+)
 {
     public void GenerateReport()
     {

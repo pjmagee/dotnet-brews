@@ -20,11 +20,18 @@ public class GetOrderQueryHandler : IRequestHandler<GetOrderQuery, OrderDetails?
 
     public Task<OrderDetails?> Handle(GetOrderQuery request, CancellationToken cancellationToken)
     {
-        _logger.LogInformation("[Query Handler] Processing GetOrderQuery for Order: {OrderId}", request.OrderId);
+        _logger.LogInformation(
+            "[Query Handler] Processing GetOrderQuery for Order: {OrderId}",
+            request.OrderId
+        );
 
         if (_repository.TryGet(request.OrderId, out var order))
         {
-            _logger.LogInformation("  ✓ Order found: {ProductName}, Status: {Status}", order.ProductName, order.Status);
+            _logger.LogInformation(
+                "  ✓ Order found: {ProductName}, Status: {Status}",
+                order.ProductName,
+                order.Status
+            );
             return Task.FromResult<OrderDetails?>(order);
         }
 
@@ -41,13 +48,19 @@ public class GetAllOrdersQueryHandler : IRequestHandler<GetAllOrdersQuery, List<
     private readonly ILogger<GetAllOrdersQueryHandler> _logger;
     private readonly OrderRepository _repository;
 
-    public GetAllOrdersQueryHandler(ILogger<GetAllOrdersQueryHandler> logger, OrderRepository repository)
+    public GetAllOrdersQueryHandler(
+        ILogger<GetAllOrdersQueryHandler> logger,
+        OrderRepository repository
+    )
     {
         _logger = logger;
         _repository = repository;
     }
 
-    public Task<List<OrderDetails>> Handle(GetAllOrdersQuery request, CancellationToken cancellationToken)
+    public Task<List<OrderDetails>> Handle(
+        GetAllOrdersQuery request,
+        CancellationToken cancellationToken
+    )
     {
         _logger.LogInformation("[Query Handler] Processing GetAllOrdersQuery");
 

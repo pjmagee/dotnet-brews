@@ -10,7 +10,10 @@ namespace Brew.Features.Patterns.Singleton;
 /// </summary>
 public class Brew : ModuleBase
 {
-    protected override void ConfigureServices(HostBuilderContext hostContext, IServiceCollection services)
+    protected override void ConfigureServices(
+        HostBuilderContext hostContext,
+        IServiceCollection services
+    )
     {
         // No services needed for this demo
     }
@@ -37,7 +40,9 @@ public class Brew : ModuleBase
         person3.Speak();
 
         Logger.LogInformation("\nNotice: Each Person has a DIFFERENT ID and creation time");
-        Logger.LogInformation("Problem: Multiple instances consume more memory and may cause inconsistent state\n");
+        Logger.LogInformation(
+            "Problem: Multiple instances consume more memory and may cause inconsistent state\n"
+        );
 
         // AFTER: Singleton - single instance
         Logger.LogInformation("--- AFTER (Singleton Pattern - Single Instance) ---");
@@ -56,11 +61,21 @@ public class Brew : ModuleBase
         singleton3.Speak();
 
         Logger.LogInformation("\nVerifying all references point to the SAME instance:");
-        Logger.LogInformation($"singleton1 == singleton2: {ReferenceEquals(singleton1, singleton2)}");
-        Logger.LogInformation($"singleton2 == singleton3: {ReferenceEquals(singleton2, singleton3)}");
-        Logger.LogInformation($"singleton1 == singleton3: {ReferenceEquals(singleton1, singleton3)}");
+        Logger.LogInformation(
+            $"singleton1 == singleton2: {ReferenceEquals(singleton1, singleton2)}"
+        );
+        Logger.LogInformation(
+            $"singleton2 == singleton3: {ReferenceEquals(singleton2, singleton3)}"
+        );
+        Logger.LogInformation(
+            $"singleton1 == singleton3: {ReferenceEquals(singleton1, singleton3)}"
+        );
 
-        Logger.LogInformation("\nBenefit: Only ONE instance exists, ensuring consistent state and reduced memory usage");
-        Logger.LogInformation("Use Case: Database connections, configuration managers, logging services, caches");
+        Logger.LogInformation(
+            "\nBenefit: Only ONE instance exists, ensuring consistent state and reduced memory usage"
+        );
+        Logger.LogInformation(
+            "Use Case: Database connections, configuration managers, logging services, caches"
+        );
     }
 }

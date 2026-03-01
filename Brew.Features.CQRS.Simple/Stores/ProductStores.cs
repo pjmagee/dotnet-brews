@@ -44,7 +44,7 @@ public class ProductReadStore
             Name = product.Name,
             Stock = product.Stock,
             Price = product.Price,
-            IsActive = product.IsActive
+            IsActive = product.IsActive,
         };
     }
 

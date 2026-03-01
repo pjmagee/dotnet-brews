@@ -5,11 +5,12 @@ namespace Brew.Features.Solid.SingleResponsibility.After;
 public class Emailer
 {
     private readonly ILogger<Emailer> _logger;
-    
+
     private string smtpAddress;
     private string fromAddress;
 
-    public Emailer(ILogger<Emailer> logger, string address)  : this(address)
+    public Emailer(ILogger<Emailer> logger, string address)
+        : this(address)
     {
         _logger = logger;
     }

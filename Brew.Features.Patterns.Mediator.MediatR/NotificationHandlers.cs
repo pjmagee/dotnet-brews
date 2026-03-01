@@ -7,10 +7,10 @@ namespace Brew.Features.Patterns.Mediator.MediatR;
 /// Email notification handler - sends email when order is created
 /// Notifications can have MULTIPLE handlers
 /// </summary>
-public class EmailNotificationHandler : 
-    INotificationHandler<OrderCreatedNotification>,
-    INotificationHandler<OrderCancelledNotification>,
-    INotificationHandler<OrderStatusChangedNotification>
+public class EmailNotificationHandler
+    : INotificationHandler<OrderCreatedNotification>,
+        INotificationHandler<OrderCancelledNotification>,
+        INotificationHandler<OrderStatusChangedNotification>
 {
     private readonly ILogger<EmailNotificationHandler> _logger;
 
@@ -19,18 +19,30 @@ public class EmailNotificationHandler :
         _logger = logger;
     }
 
-    public async Task Handle(OrderCreatedNotification notification, CancellationToken cancellationToken)
+    public async Task Handle(
+        OrderCreatedNotification notification,
+        CancellationToken cancellationToken
+    )
     {
         _logger.LogInformation("[Email Handler] Sending order confirmation email");
         _logger.LogInformation("  To: customer@example.com");
-        _logger.LogInformation("  Subject: Order Confirmation - {ProductName}", notification.ProductName);
-        _logger.LogInformation("  Body: Your order #{OrderId} has been placed. Total: ${Total:N2}", 
-            notification.OrderId, notification.Total);
+        _logger.LogInformation(
+            "  Subject: Order Confirmation - {ProductName}",
+            notification.ProductName
+        );
+        _logger.LogInformation(
+            "  Body: Your order #{OrderId} has been placed. Total: ${Total:N2}",
+            notification.OrderId,
+            notification.Total
+        );
         await Task.Delay(50); // Simulate sending
         _logger.LogInformation("  ✓ Email sent successfully");
     }
 
-    public async Task Handle(OrderCancelledNotification notification, CancellationToken cancellationToken)
+    public async Task Handle(
+        OrderCancelledNotification notification,
+        CancellationToken cancellationToken
+    )
     {
         _logger.LogInformation("[Email Handler] Sending cancellation email");
         _logger.LogInformation("  Subject: Order Cancelled - #{OrderId}", notification.OrderId);
@@ -38,11 +50,18 @@ public class EmailNotificationHandler :
         _logger.LogInformation("  ✓ Email sent successfully");
     }
 
-    public async Task Handle(OrderStatusChangedNotification notification, CancellationToken cancellationToken)
+    public async Task Handle(
+        OrderStatusChangedNotification notification,
+        CancellationToken cancellationToken
+    )
     {
         _logger.LogInformation("[Email Handler] Sending status update email");
         _logger.LogInformation("  Subject: Order Status Update - #{OrderId}", notification.OrderId);
-        _logger.LogInformation("  Status: {OldStatus} → {NewStatus}", notification.OldStatus, notification.NewStatus);
+        _logger.LogInformation(
+            "  Status: {OldStatus} → {NewStatus}",
+            notification.OldStatus,
+            notification.NewStatus
+        );
         await Task.Delay(50);
         _logger.LogInformation("  ✓ Email sent successfully");
     }
@@ -52,9 +71,9 @@ public class EmailNotificationHandler :
 /// Analytics handler - tracks order metrics
 /// Independent handler that can be added/removed without affecting others
 /// </summary>
-public class AnalyticsNotificationHandler : 
-    INotificationHandler<OrderCreatedNotification>,
-    INotificationHandler<OrderCancelledNotification>
+public class AnalyticsNotificationHandler
+    : INotificationHandler<OrderCreatedNotification>,
+        INotificationHandler<OrderCancelledNotification>
 {
     private readonly ILogger<AnalyticsNotificationHandler> _logger;
 
@@ -67,7 +86,11 @@ public class AnalyticsNotificationHandler :
     {
         _logger.LogInformation("[Analytics Handler] Recording order creation metric");
         _logger.LogInformation("  Event: order_created");
-        _logger.LogInformation("  Product: {ProductName}, Revenue: ${Total:N2}", notification.ProductName, notification.Total);
+        _logger.LogInformation(
+            "  Product: {ProductName}, Revenue: ${Total:N2}",
+            notification.ProductName,
+            notification.Total
+        );
         _logger.LogInformation("  ✓ Metric recorded in analytics system");
         return Task.CompletedTask;
     }

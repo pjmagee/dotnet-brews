@@ -1,11 +1,14 @@
 // Calculator operations script
 double PerformOperation(double num1, double num2, string op)
 {
-    switch(op)
+    switch (op)
     {
-        case "+": return num1 + num2;
-        case "-": return num1 - num2;
-        case "*": return num1 * num2; 
+        case "+":
+            return num1 + num2;
+        case "-":
+            return num1 - num2;
+        case "*":
+            return num1 * num2;
         case "/":
             if (num2 == 0)
             {

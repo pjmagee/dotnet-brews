@@ -15,7 +15,7 @@ Console.CancelKeyPress += (sender, args) =>
     source.Cancel();
 };
 
-using(var host = ConfigureBuilder().Build())
+using (var host = ConfigureBuilder().Build())
 {
     var brews = host.Services.GetServices<IBrew>().ToList();
 
@@ -47,15 +47,17 @@ using(var host = ConfigureBuilder().Build())
             }
 
             // Find brews matching the pattern (case-insensitive)
-            var matchingBrews = brews.Where(b =>
-            {
-                var fullName = b.GetType().FullName ?? "";
-                var typeName = b.GetType().Name;
-                
-                // Match against type name or any part of the full name containing the pattern
-                return fullName.Contains(brewName, StringComparison.OrdinalIgnoreCase) ||
-                       typeName.Equals(brewName, StringComparison.OrdinalIgnoreCase);
-            }).ToList();
+            var matchingBrews = brews
+                .Where(b =>
+                {
+                    var fullName = b.GetType().FullName ?? "";
+                    var typeName = b.GetType().Name;
+
+                    // Match against type name or any part of the full name containing the pattern
+                    return fullName.Contains(brewName, StringComparison.OrdinalIgnoreCase)
+                        || typeName.Equals(brewName, StringComparison.OrdinalIgnoreCase);
+                })
+                .ToList();
 
             if (matchingBrews.Count == 0)
             {
@@ -98,57 +100,67 @@ using(var host = ConfigureBuilder().Build())
             Console.WriteLine($"Running all {brews.Count} brews in parallel...");
             Console.WriteLine();
 
-            await Parallel.ForEachAsync(brews, source.Token, async (brew, token) =>
-            {
-                try 
+            await Parallel.ForEachAsync(
+                brews,
+                source.Token,
+                async (brew, token) =>
                 {
-                    Console.WriteLine($"[{brew.GetType().Name}] Starting...");
-                    await brew.RunAsync(token);
-                    Console.WriteLine($"[{brew.GetType().Name}] Completed");
-                } 
-                catch (Exception ex) 
-                {
-                    Console.Error.WriteLine($"[{brew.GetType().Name}] Error: {ex.Message}");
+                    try
+                    {
+                        Console.WriteLine($"[{brew.GetType().Name}] Starting...");
+                        await brew.RunAsync(token);
+                        Console.WriteLine($"[{brew.GetType().Name}] Completed");
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.Error.WriteLine($"[{brew.GetType().Name}] Error: {ex.Message}");
+                    }
                 }
-            });
+            );
             break;
     }
 }
 
 IHostBuilder ConfigureBuilder()
 {
-    return Host
-        .CreateDefaultBuilder()
+    return Host.CreateDefaultBuilder()
         .ConfigureLogging(x => x.AddConsole())
-        .ConfigureServices((context, collection) =>
-        {
-            // Discover all IBrew implementations from referenced assemblies
-            // Force load all Brew.Features assemblies from the output directory
-            var assemblyLocation = Assembly.GetExecutingAssembly().Location;
-            var assemblyDirectory = Path.GetDirectoryName(assemblyLocation) ?? Directory.GetCurrentDirectory();
-            
-            var featureDlls = Directory.GetFiles(assemblyDirectory, "Brew.Features.*.dll");
-            var loadedAssemblies = new List<Assembly>();
-
-            foreach (var dll in featureDlls)
+        .ConfigureServices(
+            (context, collection) =>
             {
-                try
+                // Discover all IBrew implementations from referenced assemblies
+                // Force load all Brew.Features assemblies from the output directory
+                var assemblyLocation = Assembly.GetExecutingAssembly().Location;
+                var assemblyDirectory =
+                    Path.GetDirectoryName(assemblyLocation) ?? Directory.GetCurrentDirectory();
+
+                var featureDlls = Directory.GetFiles(assemblyDirectory, "Brew.Features.*.dll");
+                var loadedAssemblies = new List<Assembly>();
+
+                foreach (var dll in featureDlls)
                 {
-                    var assembly = Assembly.LoadFrom(dll);
-                    loadedAssemblies.Add(assembly);
+                    try
+                    {
+                        var assembly = Assembly.LoadFrom(dll);
+                        loadedAssemblies.Add(assembly);
+                    }
+                    catch
+                    {
+                        // Skip assemblies that can't be loaded
+                    }
                 }
-                catch
+
+                foreach (var assembly in loadedAssemblies)
                 {
-                    // Skip assemblies that can't be loaded
+                    foreach (
+                        var type in assembly.DefinedTypes.Where(t =>
+                            typeof(IBrew).IsAssignableFrom(t) && t.IsClass && !t.IsAbstract
+                        )
+                    )
+                    {
+                        collection.AddSingleton(typeof(IBrew), type);
+                    }
                 }
             }
-
-            foreach (var assembly in loadedAssemblies)
-            {
-                foreach (var type in assembly.DefinedTypes.Where(t => typeof(IBrew).IsAssignableFrom(t) && t.IsClass && !t.IsAbstract))
-                {
-                    collection.AddSingleton(typeof(IBrew), type);
-                }
-            }
-        });
+        );
 }

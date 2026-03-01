@@ -12,11 +12,14 @@ public class Brew : ModuleBase
         Entity entity = builder
             .WithProperty1(true)
             .WithProperty2("property 2")
-            .WithProperty3(new KeyValuePair<string, string>("A", "1"), new KeyValuePair<string, string>("B", "2"))
+            .WithProperty3(
+                new KeyValuePair<string, string>("A", "1"),
+                new KeyValuePair<string, string>("B", "2")
+            )
             .WithNumberAdded(1)
             .WithNumberAdded(5)
             .Build();
-        
+
         return Task.CompletedTask;
     }
 
@@ -29,11 +32,11 @@ public class Brew : ModuleBase
         entity.Numbers.AddRange(new[] { 1, 5 });
         return Task.CompletedTask;
     }
-    
-    protected override void ConfigureServices(HostBuilderContext hostContext, IServiceCollection services)
-    {
-        
-    }
+
+    protected override void ConfigureServices(
+        HostBuilderContext hostContext,
+        IServiceCollection services
+    ) { }
 
     protected override Task ExecuteAsync(CancellationToken token = default)
     {

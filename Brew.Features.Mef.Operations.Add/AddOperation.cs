@@ -6,5 +6,6 @@ namespace Brew.Features.Mef.Operations.Add;
 public class AddOperation : ICalculatorOperation
 {
     public string Operation => "+";
+
     public double Operate(double arg1, double arg2) => arg1 + arg2;
 }

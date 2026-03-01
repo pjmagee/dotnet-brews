@@ -9,7 +9,10 @@ namespace Brew.Features.Builders.FluentBuilder;
 /// </summary>
 public class Brew : ModuleBase
 {
-    protected override void ConfigureServices(HostBuilderContext hostContext, IServiceCollection services)
+    protected override void ConfigureServices(
+        HostBuilderContext hostContext,
+        IServiceCollection services
+    )
     {
         services.AddTransient<FluentBuilder>();
     }
@@ -20,15 +23,13 @@ public class Brew : ModuleBase
         logger.LogInformation("=== FLUENT BUILDER PATTERN DEMO ===\n");
 
         logger.LogInformation("❌ WITHOUT BUILDER (manual & error‑prone ordering):");
-        var manualReport = new Report
-        {
-            Title = "Q4 Performance Summary",
-            Footer = "Confidential"
-        }; // Forgot sections first – easy to mis-order!
+        var manualReport = new Report { Title = "Q4 Performance Summary", Footer = "Confidential" }; // Forgot sections first – easy to mis-order!
         manualReport.Sections.Add(("Executive Summary", "Growth up 25% year over year."));
         manualReport.Sections.Add(("Financials", "Revenue breakdown and cost analysis."));
         logger.LogInformation("Manual report built: {Report}", manualReport.ToString());
-        logger.LogWarning("Ordering not enforced – footer set before sections; potential for partial objects.");
+        logger.LogWarning(
+            "Ordering not enforced – footer set before sections; potential for partial objects."
+        );
 
         logger.LogInformation("\n✓ WITH FLUENT STEP BUILDER (enforced order & readability):");
         var builder = Host.Services.GetRequiredService<FluentBuilder>();

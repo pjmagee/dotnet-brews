@@ -10,7 +10,9 @@ public class Person
 
     public Person()
     {
-        Console.WriteLine($"[Person] New instance created - ID: {Id}, Time: {CreatedAt:HH:mm:ss.fff}");
+        Console.WriteLine(
+            $"[Person] New instance created - ID: {Id}, Time: {CreatedAt:HH:mm:ss.fff}"
+        );
     }
 
     public void Speak()

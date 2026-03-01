@@ -1,6 +1,7 @@
 ﻿namespace Brew.Features.Serialization.Avro.Models;
 
-public class GenericRepository<T> : IRepository<T> where T : Record
+public class GenericRepository<T> : IRepository<T>
+    where T : Record
 {
     private readonly List<T> _repository = new List<T>();
 

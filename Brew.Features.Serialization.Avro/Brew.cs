@@ -9,7 +9,10 @@ namespace Brew.Features.Serialization.Avro;
 /// </summary>
 public class Brew : ModuleBase
 {
-    protected override void ConfigureServices(HostBuilderContext hostContext, IServiceCollection services)
+    protected override void ConfigureServices(
+        HostBuilderContext hostContext,
+        IServiceCollection services
+    )
     {
         services.AddSingleton<AvroGenerator>();
     }
@@ -17,7 +20,9 @@ public class Brew : ModuleBase
     protected override Task ExecuteAsync(CancellationToken token = default)
     {
         Logger.LogInformation("========== APACHE AVRO SERIALIZATION DEMONSTRATION ==========");
-        Logger.LogInformation("Scenario: Generate C# models from Avro schemas for efficient data serialization\n");
+        Logger.LogInformation(
+            "Scenario: Generate C# models from Avro schemas for efficient data serialization\n"
+        );
 
         var avroGenerator = Host.Services.GetRequiredService<AvroGenerator>();
 

@@ -10,7 +10,7 @@ public enum NotificationType
     Email,
     Sms,
     Push,
-    Slack
+    Slack,
 }
 
 /// <summary>
@@ -37,11 +37,19 @@ public class NotificationFactory
     {
         return type switch
         {
-            NotificationType.Email => new EmailNotification(_loggerFactory.CreateLogger<EmailNotification>()),
-            NotificationType.Sms => new SmsNotification(_loggerFactory.CreateLogger<SmsNotification>()),
-            NotificationType.Push => new PushNotification(_loggerFactory.CreateLogger<PushNotification>()),
-            NotificationType.Slack => new SlackNotification(_loggerFactory.CreateLogger<SlackNotification>()),
-            _ => throw new ArgumentException($"Unknown notification type: {type}", nameof(type))
+            NotificationType.Email => new EmailNotification(
+                _loggerFactory.CreateLogger<EmailNotification>()
+            ),
+            NotificationType.Sms => new SmsNotification(
+                _loggerFactory.CreateLogger<SmsNotification>()
+            ),
+            NotificationType.Push => new PushNotification(
+                _loggerFactory.CreateLogger<PushNotification>()
+            ),
+            NotificationType.Slack => new SlackNotification(
+                _loggerFactory.CreateLogger<SlackNotification>()
+            ),
+            _ => throw new ArgumentException($"Unknown notification type: {type}", nameof(type)),
         };
     }
 

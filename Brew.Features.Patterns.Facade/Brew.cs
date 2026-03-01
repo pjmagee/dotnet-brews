@@ -10,7 +10,10 @@ namespace Brew.Features.Patterns.Facade;
 /// </summary>
 public class Brew : ModuleBase
 {
-    protected override void ConfigureServices(HostBuilderContext hostContext, IServiceCollection services)
+    protected override void ConfigureServices(
+        HostBuilderContext hostContext,
+        IServiceCollection services
+    )
     {
         // Register subsystem services
         services.AddSingleton<ComplexServiceA>(); // Database
@@ -28,13 +31,15 @@ public class Brew : ModuleBase
     protected override async Task ExecuteAsync(CancellationToken token = default)
     {
         Logger.LogInformation("=== FACADE PATTERN DEMONSTRATION ===\n");
-        Logger.LogInformation("Scenario: Generating a report requires coordinating database, auth, and audit services\n");
+        Logger.LogInformation(
+            "Scenario: Generating a report requires coordinating database, auth, and audit services\n"
+        );
 
         // BEFORE: Without Facade - Client must manage all subsystem complexity
         Logger.LogInformation("╔════════════════════════════════════════════════════════════╗");
         Logger.LogInformation("║  BEFORE: Without Facade (Complex, Tightly Coupled)        ║");
         Logger.LogInformation("╚════════════════════════════════════════════════════════════╝");
-        
+
         var serviceBefore = Host.Services.GetRequiredService<ConsumingServiceBefore>();
         serviceBefore.GenerateReport();
 
@@ -52,11 +57,19 @@ public class Brew : ModuleBase
         Logger.LogInformation("═══════════════════════════════════════════════════════════");
         Logger.LogInformation("=== KEY BENEFITS OF FACADE PATTERN ===");
         Logger.LogInformation("═══════════════════════════════════════════════════════════");
-        Logger.LogInformation("✓ SIMPLIFIED INTERFACE: One method instead of managing 9 method calls");
-        Logger.LogInformation("✓ REDUCED COUPLING: Client depends on Facade, not all subsystem services");
+        Logger.LogInformation(
+            "✓ SIMPLIFIED INTERFACE: One method instead of managing 9 method calls"
+        );
+        Logger.LogInformation(
+            "✓ REDUCED COUPLING: Client depends on Facade, not all subsystem services"
+        );
         Logger.LogInformation("✓ ENCAPSULATION: Subsystem complexity hidden from client");
         Logger.LogInformation("✓ EASIER MAINTENANCE: Changes to subsystem don't affect clients");
-        Logger.LogInformation("✓ IMPROVED READABILITY: facadeService.GenerateReport() is self-documenting");
-        Logger.LogInformation("\nUse Cases: API clients, library wrappers, legacy system integration, microservices");
+        Logger.LogInformation(
+            "✓ IMPROVED READABILITY: facadeService.GenerateReport() is self-documenting"
+        );
+        Logger.LogInformation(
+            "\nUse Cases: API clients, library wrappers, legacy system integration, microservices"
+        );
     }
 }

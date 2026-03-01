@@ -16,7 +16,8 @@ public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand, Gui
     public CreateOrderCommandHandler(
         ILogger<CreateOrderCommandHandler> logger,
         IMediator mediator,
-        OrderRepository repository)
+        OrderRepository repository
+    )
     {
         _logger = logger;
         _mediator = mediator;
@@ -26,27 +27,41 @@ public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand, Gui
     public async Task<Guid> Handle(CreateOrderCommand request, CancellationToken cancellationToken)
     {
         _logger.LogInformation("[Command Handler] Processing CreateOrderCommand");
-        _logger.LogInformation("  Product: {ProductName}, Quantity: {Quantity}, Price: ${Price:N2}",
-            request.ProductName, request.Quantity, request.Price);
+        _logger.LogInformation(
+            "  Product: {ProductName}, Quantity: {Quantity}, Price: ${Price:N2}",
+            request.ProductName,
+            request.Quantity,
+            request.Price
+        );
 
         // Create the order
         var orderId = Guid.NewGuid();
         var total = request.Quantity * request.Price;
-        
-        _repository.Add(orderId, new OrderDetails(
-            orderId,
-            request.ProductName,
-            request.Quantity,
-            request.Price,
-            total,
-            "Pending",
-            DateTime.UtcNow
-        ));
 
-        _logger.LogInformation("  ✓ Order created with ID: {OrderId}, Total: ${Total:N2}", orderId, total);
+        _repository.Add(
+            orderId,
+            new OrderDetails(
+                orderId,
+                request.ProductName,
+                request.Quantity,
+                request.Price,
+                total,
+                "Pending",
+                DateTime.UtcNow
+            )
+        );
+
+        _logger.LogInformation(
+            "  ✓ Order created with ID: {OrderId}, Total: ${Total:N2}",
+            orderId,
+            total
+        );
 
         // Publish notification (decoupled - handlers will react independently)
-        await _mediator.Publish(new OrderCreatedNotification(orderId, request.ProductName, total), cancellationToken);
+        await _mediator.Publish(
+            new OrderCreatedNotification(orderId, request.ProductName, total),
+            cancellationToken
+        );
 
         return orderId;
     }
@@ -64,7 +79,8 @@ public class CancelOrderCommandHandler : IRequestHandler<CancelOrderCommand, boo
     public CancelOrderCommandHandler(
         ILogger<CancelOrderCommandHandler> logger,
         IMediator mediator,
-        OrderRepository repository)
+        OrderRepository repository
+    )
     {
         _logger = logger;
         _mediator = mediator;
@@ -73,14 +89,20 @@ public class CancelOrderCommandHandler : IRequestHandler<CancelOrderCommand, boo
 
     public async Task<bool> Handle(CancelOrderCommand request, CancellationToken cancellationToken)
     {
-        _logger.LogInformation("[Command Handler] Processing CancelOrderCommand for Order: {OrderId}", request.OrderId);
+        _logger.LogInformation(
+            "[Command Handler] Processing CancelOrderCommand for Order: {OrderId}",
+            request.OrderId
+        );
 
         if (_repository.TryGet(request.OrderId, out var order))
         {
             _repository.Remove(request.OrderId);
             _logger.LogInformation("  ✓ Order {OrderId} cancelled", request.OrderId);
 
-            await _mediator.Publish(new OrderCancelledNotification(request.OrderId), cancellationToken);
+            await _mediator.Publish(
+                new OrderCancelledNotification(request.OrderId),
+                cancellationToken
+            );
             return true;
         }
 
@@ -101,30 +123,42 @@ public class UpdateOrderStatusCommandHandler : IRequestHandler<UpdateOrderStatus
     public UpdateOrderStatusCommandHandler(
         ILogger<UpdateOrderStatusCommandHandler> logger,
         IMediator mediator,
-        OrderRepository repository)
+        OrderRepository repository
+    )
     {
         _logger = logger;
         _mediator = mediator;
         _repository = repository;
     }
 
-    public async Task<bool> Handle(UpdateOrderStatusCommand request, CancellationToken cancellationToken)
+    public async Task<bool> Handle(
+        UpdateOrderStatusCommand request,
+        CancellationToken cancellationToken
+    )
     {
-        _logger.LogInformation("[Command Handler] Processing UpdateOrderStatusCommand for Order: {OrderId}", request.OrderId);
+        _logger.LogInformation(
+            "[Command Handler] Processing UpdateOrderStatusCommand for Order: {OrderId}",
+            request.OrderId
+        );
 
         if (_repository.TryGet(request.OrderId, out var order))
         {
             var oldStatus = order.Status;
             var updatedOrder = order with { Status = request.Status };
             _repository.Update(request.OrderId, updatedOrder);
-            
-            _logger.LogInformation("  ✓ Order {OrderId} status updated: {OldStatus} → {NewStatus}", 
-                request.OrderId, oldStatus, request.Status);
+
+            _logger.LogInformation(
+                "  ✓ Order {OrderId} status updated: {OldStatus} → {NewStatus}",
+                request.OrderId,
+                oldStatus,
+                request.Status
+            );
 
             await _mediator.Publish(
-                new OrderStatusChangedNotification(request.OrderId, oldStatus, request.Status), 
-                cancellationToken);
-            
+                new OrderStatusChangedNotification(request.OrderId, oldStatus, request.Status),
+                cancellationToken
+            );
+
             return true;
         }
 
