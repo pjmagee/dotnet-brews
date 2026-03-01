@@ -201,5 +201,5 @@ jobs:
 
                 exit $EXIT_CODE
               env:
-                COMMAND: dagger call -q dagger check
+                COMMAND: dagger call -q release-build
               shell: bash
